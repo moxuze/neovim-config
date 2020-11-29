@@ -170,52 +170,47 @@ endfunction
 
 function! g:DefxOpenThisTab(context) abort
   let l:path = join(a:context.targets)
-  if win_gotoid(a:context.prev_winid)
-    execute 'edit ' . l:path
-  else
-    execute 'rightbelow vnew' . l:path
+  execute 'let l:ok = DefxJumpOrOpenRight(''' . l:path . ''')'
+  if !l:ok
+    execute 'edit' . l:path
   endif
 endfunction
 
 function! g:DefxOpenNewTab(context) abort
   let l:path = join(a:context.targets)
-  if win_gotoid(a:context.prev_winid)
-    let l:tab_num = g:WhichTab(l:path)
-    if l:tab_num > 0
-      win_gotoid(l:path)
-    else
-      execute 'wincmd l'
-      execute 'tabnew ' . l:path
-      Defx
-    endif
-  else
-    execute 'rightbelow vnew' . l:path
+  execute 'let l:ok = DefxJumpOrOpenRight(''' . l:path . ''')'
+  if !l:ok
+    execute 'tabnew ' . l:path
+    Defx
   endif
 endfunction
 
-" Return -1 if not loaded or the tab's number.
-function! g:WhichTab(path) abort
-  let l:buf_name = bufname(a:path)
-  " Return -1 if buf not loaded, or get its number.
-  if bufloaded(l:buf_name) == 0
-    return -1
+function! g:DefxJumpOrOpenRight(path)
+  let l:win_num_curr = winnr()
+  wincmd l
+  execute 'let l:ok = DefxJump(''' . a:path . ''')'
+  if l:ok
+    return 1
+  elseif l:win_num_curr == winnr()
+    execute 'rightbelow vnew' . a:path
+    wincmd h
+    vertical resize 28
+    wincmd l
+    return 1
+  else
+    return 0
   endif
-  let l:buf_num = bufnr(l:buf_name)
-  " Collect each tab's buf list, then go back to the current tab.
-  let l:tab_curr = tabpagenr()
-  let l:tab_list = []
-  tabdo call add(l:tab_list, [tabpagenr(), tabpagebuflist()])
-  execute 'tabnext ' . tab_curr
-  " Find the buf in which tab by its number.
-  for [l:tab_num, l:buf_list] in l:tab_list
-    for l:buf_num_in_tab in l:buf_list
-      if l:buf_num_in_tab == l:buf_num
-        return l:tab_num
-      endif
-    endfor
-  endfor
-  echoerr 'WhichTab: buf loaded but not found in tabs'
-  return 0
+endfunction
+
+function! g:DefxJump(path)
+  let l:tab_num_curr = tabpagenr()
+  let l:win_id = -1
+  tabdo let l:tab_win_id = bufwinid(a:path)
+  \| if l:tab_win_id != -1
+  \|   let l:win_id = l:tab_win_id
+  \| endif
+  execute 'tabnext ' l:tab_num_curr
+  return win_gotoid(l:win_id)
 endfunction
 
 " --- LIGHTLINE
