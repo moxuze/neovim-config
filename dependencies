@@ -1,0 +1,25 @@
++ neovim                    本体
+  ~ 外部依赖
+    - xsel                  系统剪切板
++ vim-plug                  插件管理器
++ crusoexia/vim-monokai     monokai 主题
++ rust-lang/rust.vim        Rust 语言支持
++ Shougo/defx.nvim          文件管理器
+  ~ 外部依赖
+    - python-pynvim         Python 运行环境
+^ kristijanhusak/defx-icons 图标
++ itchyny/lightline.vim     底部状态栏
++ tpope/vim-fugitive        Git 辅助
++ liuchengxu/vista.vim      Tag 支持
+  ~ 外部依赖
+    - universal-ctags       Tags 生成器
++ neoclide/coc.nvim         LSP 支持
+  ~ 外部依赖
+    - nodejs                NodeJS 运行环境
+    - ccls                  C/C++ 语言服务器
+    - rust-analyzer         Rust 语言服务器
+  ~ 内部模块
+    - coc-json              JSON 解析器
+    - coc-tsserver          TypeScript 语言服务器
+    - coc-rust-analyzer     Rust 语言服务器配置
++ puremourning/vimspector   Debug
