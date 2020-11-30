@@ -53,14 +53,14 @@ endfunction
 function! custom#defx#open_this_tab(context) abort
   let l:path = join(a:context.targets)
   if !custom#defx#jump_or_open_right(l:path)
-    execute 'edit' . l:path
+    silent! execute 'edit' . l:path
   endif
 endfunction
 
 function! custom#defx#open_new_tab(context) abort
   let l:path = join(a:context.targets)
   if !custom#defx#jump_or_open_right(l:path)
-    execute 'tabnew ' . l:path
+    silent! execute 'tabnew ' . l:path
     Defx
   endif
 endfunction
