@@ -51,6 +51,10 @@ endfunction
 
 " === FUNCTIONS ===
 function! custom#defx#open_this_tab(context) abort
+  if defx#is_directory()
+    call defx#call_action('open_tree', ['toggle'])
+    return
+  endif
   let l:path = join(a:context.targets)
   if !custom#defx#jump_or_open_right(l:path)
     silent! execute 'edit' . l:path
@@ -58,6 +62,10 @@ function! custom#defx#open_this_tab(context) abort
 endfunction
 
 function! custom#defx#open_new_tab(context) abort
+  if defx#is_directory()
+    call defx#call_action('open_tree', ['toggle'])
+    return
+  endif
   let l:path = join(a:context.targets)
   if !custom#defx#jump_or_open_right(l:path)
     silent! execute 'tabnew ' . l:path
