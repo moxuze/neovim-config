@@ -15,8 +15,12 @@ let g:lightline = {
   \  },
   \  'inactive': {
   \    'left' : [ [ 'filename' ] ],
-  \    'right': [ [ 'percent', 'lineinfo' ], [ 'filetype', 'filesize' ] ]
+  \    'right': [ [ 'percent', 'lineinfo' ], [ 'filetype', 'filesize' ] ],
   \  },
+  \   'tab': {
+  \     'active'  : [ 'tabnum', 'filename' ],
+  \     'inactive': [ 'tabnum', 'filename' ],
+  \   },
   \  'component' : {
   \    'filetype': '%{&ft!=#""?&ft:"plain"}',
   \    'readonly': '%{&readonly?"":""}',
@@ -28,18 +32,22 @@ let g:lightline = {
   \    'nearest'  : 'custom#lightline#nearest',
   \    'filesize' : 'custom#lightline#filesize',
   \  },
+  \  'tab_component_function': {
+  \    'filename': 'custom#lightline#tabname'
+  \  },
   \  'separator'   : { 'left': '', 'right': '' },
   \  'subseparator': { 'left': '।', 'right': '।' },
   \}
 
-
 " === FUNCTIONS ===
 function custom#lightline#hook(win_num, status_line) abort
-  let l:file_type = getwinvar(a:win_num, '&filetype')
-  if l:file_type == 'defx'
-    call setwinvar(a:win_num, '&statusline', '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
-  elseif l:file_type == 'vista'
-    call setwinvar(a:win_num, '&statusline', '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
+  let l:name = expand('#' . winbufnr(a:win_num) . ':t')
+  if l:name =~# '\[defx\] -'
+    call setwinvar(a:win_num, '&statusline',
+  \   '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
+  elseif l:name =~# '__vista__'
+    call setwinvar(a:win_num, '&statusline',
+  \   '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
   else
     call setwinvar(a:win_num, '&statusline', a:status_line)
   endif
@@ -47,7 +55,7 @@ endfunction
 
 function custom#lightline#filename() abort
   let l:name = expand('%:t')
-  if l:name == '' | let l:name = '[No Name]' | endif
+  if l:name ==# '' | let l:name = '[No Name]' | endif
   return &modified ? l:name . ' +' : l:name
 endfunction
 
@@ -72,4 +80,20 @@ function custom#lightline#filesize() abort
   else
     return printf('%.2fMiB', l:size / 1048576.0)
   endif
+endfunction
+
+function! custom#lightline#tabname(tab_num) abort
+  let l:buf_list = tabpagebuflist(a:tab_num)
+  let l:win_num = tabpagewinnr(a:tab_num)
+  let l:name = expand('#' . l:buf_list[l:win_num - 1] . ':t')
+  if l:name ==# ''
+    return '[No Name]'
+  elseif l:name =~# '\[defx\] -'
+    return '[DEFX]'
+  elseif l:name =~# '__vista__'
+    return '[VISTA]'
+  elseif &modified
+    return l:name . ' +'
+  endif
+  return l:name
 endfunction
