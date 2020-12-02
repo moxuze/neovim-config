@@ -30,6 +30,7 @@ let g:lightline = {
   \  },
   \  'tab_component_function': {
   \    'filename': 'custom#lightline#tab_file_name',
+  \    'modified': 'custom#lightline#tab_modified',
   \  },
   \  'separator'   : { 'left': '', 'right': '' },
   \  'subseparator': { 'left': '।', 'right': '।' },
@@ -83,6 +84,11 @@ function custom#lightline#tab_file_name(tab_num) abort
   endif
 endfunction
 
+function custom#lightline#tab_modified(tab_num) abort
+  let l:win_num = tabpagewinnr(a:tab_num)
+  return gettabwinvar(a:tab_num, l:win_num, '&modified') ? '+' : ''
+endfunction
+
 function custom#lightline#git_status() abort
   let l:branch = g:FugitiveHead()
   if empty(l:branch) | return '' | endif
@@ -103,6 +109,5 @@ function custom#lightline#git_status() abort
 endfunction
 
 function custom#lightline#nearest_function() abort
-  let l:nearest = get(b:, 'vista_nearest_method_or_function', '')
-  return !empty(l:nearest) ? printf('%s', l:nearest) : ''
+  return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
