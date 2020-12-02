@@ -4,36 +4,32 @@ let g:lightline = {
   \  'active': {
   \    'left': [
   \      [ 'mode', 'paste' ],
-  \      [ 'filename' ],
-  \      [ 'gitbranch', 'nearest' ],
+  \      [ 'filestatus' ],
+  \      [ 'gitstatus' ],
   \    ],
   \    'right': [
   \      [ 'percent', 'lineinfo' ],
   \      [ 'filetype', 'filesize' ],
-  \      [ 'readonly', 'fileformat', 'fileencoding' ],
+  \      [ 'nearest', 'readonly', 'fileformat', 'fileencoding' ],
   \    ],
   \  },
   \  'inactive': {
-  \    'left' : [ [ 'filename' ] ],
+  \    'left' : [ [ 'filestatus' ] ],
   \    'right': [ [ 'percent', 'lineinfo' ], [ 'filetype', 'filesize' ] ],
   \  },
-  \   'tab': {
-  \     'active'  : [ 'tabnum', 'filename' ],
-  \     'inactive': [ 'tabnum', 'filename' ],
-  \   },
   \  'component' : {
-  \    'filetype': '%{&ft!=#""?&ft:"plain"}',
+  \    'filetype': '%{empty(&ft)?&ft:"plain"}',
   \    'readonly': '%{&readonly?"":""}',
   \    'lineinfo': '%2l:%-2c',
   \  },
   \  'component_function': {
-  \    'filename' : 'custom#lightline#filename',
-  \    'gitbranch': 'custom#lightline#gitbranch',
-  \    'nearest'  : 'custom#lightline#nearest',
-  \    'filesize' : 'custom#lightline#filesize',
+  \    'filestatus': 'custom#lightline#file_status',
+  \    'filesize'  : 'custom#lightline#file_size',
+  \    'gitstatus' : 'custom#lightline#git_status',
+  \    'nearest'   : 'custom#lightline#nearest_function',
   \  },
   \  'tab_component_function': {
-  \    'filename': 'custom#lightline#tabname'
+  \    'filename': 'custom#lightline#tab_file_name',
   \  },
   \  'separator'   : { 'left': '', 'right': '' },
   \  'subseparator': { 'left': '।', 'right': '।' },
@@ -44,32 +40,22 @@ function custom#lightline#hook(win_num, status_line) abort
   let l:name = expand('#' . winbufnr(a:win_num) . ':t')
   if l:name =~# '\[defx\] -'
     call setwinvar(a:win_num, '&statusline',
-  \   '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
+    \ '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
   elseif l:name =~# '__vista__'
     call setwinvar(a:win_num, '&statusline',
-  \   '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
+    \ '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
   else
     call setwinvar(a:win_num, '&statusline', a:status_line)
   endif
 endfunction
 
-function custom#lightline#filename() abort
+function custom#lightline#file_status() abort
   let l:name = expand('%:t')
-  if l:name ==# '' | let l:name = '[No Name]' | endif
+  if empty(l:name) | let l:name = '[No Name]' | endif
   return &modified ? l:name . ' +' : l:name
 endfunction
 
-function custom#lightline#gitbranch() abort
-  let l:branch = g:FugitiveHead()
-  return l:branch != '' ? ' ' . l:branch : ''
-endfunction
-
-function custom#lightline#nearest() abort
-  let l:nearest = get(b:, 'vista_nearest_method_or_function', '')
-  return l:nearest != '' ? '☭ ' . l:nearest : ''
-endfunction
-
-function custom#lightline#filesize() abort
+function custom#lightline#file_size() abort
   let l:size = getfsize(expand('%:p'))
   if l:size < 0
     return ''
@@ -82,18 +68,41 @@ function custom#lightline#filesize() abort
   endif
 endfunction
 
-function! custom#lightline#tabname(tab_num) abort
+function custom#lightline#tab_file_name(tab_num) abort
   let l:buf_list = tabpagebuflist(a:tab_num)
   let l:win_num = tabpagewinnr(a:tab_num)
   let l:name = expand('#' . l:buf_list[l:win_num - 1] . ':t')
-  if l:name ==# ''
+  if empty(l:name)
     return '[No Name]'
   elseif l:name =~# '\[defx\] -'
     return '[DEFX]'
   elseif l:name =~# '__vista__'
     return '[VISTA]'
-  elseif &modified
-    return l:name . ' +'
+  else
+    return l:name
   endif
-  return l:name
+endfunction
+
+function custom#lightline#git_status() abort
+  let l:branch = g:FugitiveHead()
+  if empty(l:branch) | return '' | endif
+  let l:status = get(b:, 'coc_git_status', '')
+  if empty(l:status) | return ' ' . l:branch | endif
+  let l:hunks = [0, 0, 0]
+  for l:diff in split(l:status)
+    if l:diff[0] ==# '+'
+     let l:hunks[0] = l:diff[1:] + 0
+    elseif l:diff[0] ==# '~'
+     let l:hunks[1] = l:diff[1:] + 0
+    elseif l:diff[0] ==# '-'
+      let l:hunks[2] = l:diff[1:] + 0
+    endif
+  endfor
+  return printf(' %s [+%d ~%d -%d]',
+    \  l:branch, l:hunks[0], l:hunks[1], l:hunks[2])
+endfunction
+
+function custom#lightline#nearest_function() abort
+  let l:nearest = get(b:, 'vista_nearest_method_or_function', '')
+  return !empty(l:nearest) ? printf('%s', l:nearest) : ''
 endfunction

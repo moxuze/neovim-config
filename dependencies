@@ -22,4 +22,5 @@
     - coc-json              JSON 解析器
     - coc-tsserver          TypeScript 语言服务器
     - coc-rust-analyzer     Rust 语言服务器配置
+    - coc-git               Git 状态显示
 + puremourning/vimspector   Debug
