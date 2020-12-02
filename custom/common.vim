@@ -10,6 +10,7 @@ set expandtab
 set number
 set nohlsearch
 set signcolumn=yes
+set updatetime=300
 
 " === TRIGGER ===
 " Last Positon

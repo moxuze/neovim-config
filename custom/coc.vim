@@ -3,8 +3,10 @@
 let g:coc_global_extensions = [
   \  'coc-git',
   \  'coc-json',
-  \  'coc-tsserver',
+  \  'coc-marketplace',
   \  'coc-rust-analyzer',
+  \  'coc-tsserver',
+  \  'coc-vimlsp',
   \]
 
 " === APPEARANCE ===
