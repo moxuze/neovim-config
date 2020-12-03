@@ -1,6 +1,18 @@
 " === OPTION ===
 let g:vista_default_executive = 'ctags'
 let g:vista_no_mappings = 1
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+  \  'constant': "\uf8fe",
+  \  'enum': "\uf435",
+  \  'field': "\uf93d",
+  \  'function': "\u0192",
+  \  'interface': "\uf417",
+  \  'module': "\uf40d",
+  \  'property': "\ue60b",
+  \  'struct': "\ufb44",
+  \  'typeParameter': "\uf728",
+  \}
 
 " === KEY MAP ===
 nnoremap <silent> <A-m> :Vista!!<CR>
