@@ -22,7 +22,7 @@ call defx#custom#column('git', 'indicators', {
   \  'Untracked': 'U',
   \})
 
-" === APPEARANCE
+" === APPEARANCE ===
 " Icon
 let g:defx_icons_directory_icon = '▸'
 let g:defx_icons_parent_icon = ''
@@ -42,6 +42,7 @@ hi Defx_git_Untracked ctermfg=75
 
 " === TRIGGER ===
 autocmd BufWritePost,ShellCmdPost,TermLeave * call defx#redraw()
+autocmd DirChanged * call custom#defx#change_directory()
 
 " === KEY MAP ===
 nnoremap <silent> <A-b> :Defx<CR>
@@ -72,7 +73,7 @@ nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
 endfunction
 
 " === FUNCTIONS ===
-function! custom#defx#open_this_tab(context) abort
+function custom#defx#open_this_tab(context) abort
   if defx#is_directory()
     call defx#call_action('open_tree', ['toggle'])
     return
@@ -83,7 +84,7 @@ function! custom#defx#open_this_tab(context) abort
   endif
 endfunction
 
-function! custom#defx#open_new_tab(context) abort
+function custom#defx#open_new_tab(context) abort
   if defx#is_directory()
     call defx#call_action('open_tree', ['toggle'])
     return
@@ -95,7 +96,7 @@ function! custom#defx#open_new_tab(context) abort
   endif
 endfunction
 
-function! custom#defx#jump(path) abort
+function custom#defx#jump(path) abort
   let l:tab_num_curr = tabpagenr()
   let l:win_id = -1
   tabdo let l:tab_win_id = bufwinid(a:path)
@@ -106,7 +107,7 @@ function! custom#defx#jump(path) abort
   return win_gotoid(l:win_id)
 endfunction
 
-function! custom#defx#jump_or_open_right(path) abort
+function custom#defx#jump_or_open_right(path) abort
   let l:win_num_curr = winnr()
   wincmd l
   if custom#defx#jump(a:path)
@@ -119,5 +120,33 @@ function! custom#defx#jump_or_open_right(path) abort
     return 1
   else
     return 0
+  endif
+endfunction
+
+function custom#defx#change_directory() abort
+  let l:defx_win_num = custom#defx#tab_win_num('\[defx\] -')
+  if l:defx_win_num != -1
+    call custom#defx#win_execute(l:defx_win_num,
+      \  function('defx#call_action'), 'cd', getcwd())
+  endif
+endfunction
+
+function custom#defx#tab_win_num(pattern) abort
+  for l:buf_num in tabpagebuflist()
+    if bufname(l:buf_num) =~# a:pattern
+      return bufwinnr(l:buf_num)
+    endif
+  endfor
+  return -1
+endfunction
+
+function custom#defx#win_execute(win_num, fun, ...) abort
+  if winnr() != a:win_num
+    noautocmd execute a:win_num . 'wincmd w'
+    let l:switch_back = 1
+  endif
+  call call(a:fun, a:000)
+  if exists('l:switch_back')
+    noautocmd wincmd p
   endif
 endfunction
