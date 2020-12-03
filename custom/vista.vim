@@ -5,7 +5,6 @@ let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
   \  'constant': "\uf8fe",
   \  'enum': "\uf435",
-  \  'field': "\uf93d",
   \  'function': "\u0192",
   \  'interface': "\uf417",
   \  'module': "\uf40d",
