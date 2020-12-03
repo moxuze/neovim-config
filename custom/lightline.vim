@@ -109,5 +109,6 @@ function custom#lightline#git_status() abort
 endfunction
 
 function custom#lightline#nearest_function() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
+  let l:func = get(b:, 'vista_nearest_method_or_function', '')
+  return empty(l:func) ? '' : 'ƒ ' . l:func
 endfunction
