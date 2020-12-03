@@ -1,6 +1,7 @@
 " === OPTION ===
 " Extension List
 let g:coc_global_extensions = [
+  \  'coc-actions',
   \  'coc-git',
   \  'coc-json',
   \  'coc-marketplace',
@@ -49,7 +50,7 @@ omap ac <Plug>(coc-classobj-a)
 
 " Documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
+function s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
     execute 'rightbelow vertical help ' . expand('<cword>')
   elseif (coc#rpc#ready())
@@ -57,4 +58,13 @@ function! s:show_documentation()
   else
     execute '!' . &keywordprg . ' ' . expand('<cword>')
   endif
+endfunction
+
+" CocActions
+xnoremap <silent> <A-a> :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nnoremap <silent> <A-a> :<C-u>set operatorfunc=<SID>coc_actions_open_from_selected<CR>g@
+" see :help text-objects
+" a => selected, aw => word, aas => sentence, aap => paragraph
+function s:coc_actions_open_from_selected(type) abort
+  execute 'CocCommand actions.open ' . a:type
 endfunction
