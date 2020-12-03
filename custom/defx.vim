@@ -1,22 +1,44 @@
 " === OPTION ===
 call defx#custom#option('_', {
-  \  'auto_cd': 1,
+  \  'auto_cd'    : 1,
   \  'buffer_name': '',
-  \  'columns': 'mark:indent:icons:filename',
-  \  'direction': 'topleft',
-  \  'focus': 0,
+  \  'columns'    : 'mark:git:indent:icons:filename',
+  \  'direction'  : 'topleft',
+  \  'focus'      : 0,
   \  'root_marker': '',
-  \  'split': 'vertical',
-  \  'toggle': 1,
-  \  'winwidth': 28,
+  \  'split'      : 'vertical',
+  \  'toggle'     : 1,
+  \  'winwidth'   : 28,
+  \})
+
+call defx#custom#column('git', 'indicators', {
+  \  'Deleted'  : 'D',
+  \  'Ignored'  : 'I',
+  \  'Modified' : 'M',
+  \  'Renamed'  : 'R',
+  \  'Staged'   : 'S',
+  \  'Unknown'  : '?',
+  \  'Unmerged' : '!',
+  \  'Untracked': 'U',
   \})
 
 " === APPEARANCE
+" Icon
 let g:defx_icons_directory_icon = '▸'
 let g:defx_icons_parent_icon = ''
 let g:defx_icons_root_opened_tree_icon = '▾'
 let g:defx_icons_nested_opened_tree_icon = '▾'
 let g:defx_icons_nested_closed_tree_icon = '▸'
+
+" Git
+hi Defx_git_Deleted   ctermfg=191
+hi Defx_git_Ignored   ctermfg=248
+hi Defx_git_Modified  ctermfg=199
+hi Defx_git_Renamed   ctermfg=219
+hi Defx_git_Staged    ctermfg=113
+hi Defx_git_Unknown   ctermfg=248
+hi Defx_git_Unmerged  ctermfg=93
+hi Defx_git_Untracked ctermfg=75
 
 " === TRIGGER ===
 autocmd BufWritePost,ShellCmdPost,TermLeave * call defx#redraw()
