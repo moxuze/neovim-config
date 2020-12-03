@@ -10,4 +10,5 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'phanviet/vim-monokai-pro'
 Plug 'puremourning/vimspector'
 Plug 'tpope/vim-fugitive'
+Plug 'voldikss/vim-translator'
 call plug#end()
