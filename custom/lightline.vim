@@ -90,22 +90,17 @@ function custom#lightline#tab_modified(tab_num) abort
 endfunction
 
 function custom#lightline#git_status() abort
+  if !exists('*g:FugitiveHead') | return '' | endif
   let l:branch = g:FugitiveHead()
   if empty(l:branch) | return '' | endif
-  let l:status = get(b:, 'coc_git_status', '')
-  if empty(l:status) | return ' ' . l:branch | endif
-  let l:hunks = [0, 0, 0]
-  for l:diff in split(l:status)
-    if l:diff[0] ==# '+'
-     let l:hunks[0] = l:diff[1:] + 0
-    elseif l:diff[0] ==# '~'
-     let l:hunks[1] = l:diff[1:] + 0
-    elseif l:diff[0] ==# '-'
-      let l:hunks[2] = l:diff[1:] + 0
-    endif
-  endfor
-  return printf(' %s [+%d ~%d -%d]',
-    \  l:branch, l:hunks[0], l:hunks[1], l:hunks[2])
+  let l:branch = ' ' . l:branch
+  if !exists('*g:GitGutterGetHunkSummary') | return l:branch | endif
+  let [l:a, l:m, l:r] = g:GitGutterGetHunkSummary()
+  if l:a == 0 && l:m == 0 && l:r == 0
+    return l:branch
+  else
+    return printf('%s [+%d ~%d -%d]', l:branch, l:a, l:m, l:r)
+  endif
 endfunction
 
 function custom#lightline#nearest_function() abort

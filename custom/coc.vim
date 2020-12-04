@@ -2,7 +2,6 @@
 " Extension List
 let g:coc_global_extensions = [
   \  'coc-actions',
-  \  'coc-git',
   \  'coc-json',
   \  'coc-marketplace',
   \  'coc-rust-analyzer',
