@@ -10,7 +10,7 @@ set autoindent
 set smartindent
 set cindent
 set foldmethod=indent
-set foldlevel=4
+set foldlevel=1024
 set number
 set nohlsearch
 set signcolumn=yes

@@ -18,7 +18,7 @@ let g:lightline = {
   \    'right': [ [ 'percent', 'lineinfo' ], [ 'filetype', 'filesize' ] ],
   \  },
   \  'component' : {
-  \    'filetype': '%{empty(&ft)?&ft:"plain"}',
+  \    'filetype': '%{empty(&ft)?"plain":&ft}',
   \    'readonly': '%{&readonly?"":""}',
   \    'lineinfo': '%2l:%-2c',
   \  },
