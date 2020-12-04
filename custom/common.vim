@@ -1,12 +1,16 @@
 " === OPTION ===
 syntax enable
 filetype plugin indent on
-set softtabstop=4
-set shiftwidth=4
 set tabstop=4
+set shiftwidth=4
 set softtabstop=4
-set mouse=a
 set expandtab
+set mouse=a
+set autoindent
+set smartindent
+set cindent
+set foldmethod=indent
+set foldlevel=4
 set number
 set nohlsearch
 set signcolumn=yes
@@ -62,7 +66,7 @@ tnoremap <A-n> <C-\><C-N>ZQ
 nnoremap <silent> <A-n> :call custom#common#terminal_toggle()<CR>
 
 " === FUNCTIONS ===
-function! custom#common#terminal_toggle() abort
+function custom#common#terminal_toggle() abort
   if &buftype == 'terminal'
     quit
   else 
@@ -76,7 +80,7 @@ function! custom#common#terminal_toggle() abort
     endif
 endfunction
 
-function! custom#common#win_move(direction) abort
+function custom#common#win_move(direction) abort
   execute 'wincmd ' . a:direction
   if &buftype == 'terminal'
     execute 'normal i'
