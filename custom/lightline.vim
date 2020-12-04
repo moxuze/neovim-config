@@ -39,10 +39,10 @@ let g:lightline = {
 " === FUNCTIONS ===
 function custom#lightline#hook(win_num, status_line) abort
   let l:name = expand('#' . winbufnr(a:win_num) . ':t')
-  if l:name =~# '\[defx\] -'
+  if l:name =~# '^\[defx\] -\d$'
     call setwinvar(a:win_num, '&statusline',
     \ '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
-  elseif l:name =~# '__vista__'
+  elseif l:name ==# '__vista__'
     call setwinvar(a:win_num, '&statusline',
     \ '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
   else
@@ -75,9 +75,9 @@ function custom#lightline#tab_file_name(tab_num) abort
   let l:name = expand('#' . l:buf_list[l:win_num - 1] . ':t')
   if empty(l:name)
     return '[No Name]'
-  elseif l:name =~# '\[defx\] -'
+  elseif l:name =~# '^\[defx\] -\d$'
     return '[DEFX]'
-  elseif l:name =~# '__vista__'
+  elseif l:name ==# '__vista__'
     return '[VISTA]'
   else
     return l:name
