@@ -36,7 +36,7 @@ let g:lightline = {
   \  'subseparator': { 'left': '।', 'right': '।' },
   \}
 
-" === FUNCTIONS ===
+" === FUNCTION ===
 function custom#lightline#hook(win_num, status_line) abort
   let l:name = expand('#' . winbufnr(a:win_num) . ':t')
   if l:name =~# '^\[defx\] -\d$'

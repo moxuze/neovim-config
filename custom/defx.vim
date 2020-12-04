@@ -41,13 +41,17 @@ hi Defx_git_Unmerged  ctermfg=93
 hi Defx_git_Untracked ctermfg=75
 
 " === TRIGGER ===
-autocmd BufWritePost,ShellCmdPost,TermLeave * call defx#redraw()
-autocmd DirChanged * call custom#defx#change_directory()
+autocmd DirChanged * call custom#defx#execute('defx#call_action', 'cd', getcwd())
+" remove BufWritePost because of defx-git
+autocmd ShellCmdPost,TermLeave * call defx#redraw()
+if exists('#User#FugitiveChanged')
+  autocmd User FugitiveChanged call defx#redraw()
+endif
 
 " === KEY MAP ===
 nnoremap <silent> <A-b> :Defx<CR>
 autocmd FileType defx call custom#defx#settings()
-function! custom#defx#settings() abort
+function custom#defx#settings() abort
 set nonumber
 nnoremap <silent><buffer><expr> <CR>    defx#do_action('call', 'custom#defx#open_this_tab') 
 nnoremap <silent><buffer><expr> <A-CR>  defx#do_action('call', 'custom#defx#open_new_tab') 
@@ -72,7 +76,7 @@ nnoremap <silent><buffer><expr> yy      defx#do_action('yank_path')
 nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
 endfunction
 
-" === FUNCTIONS ===
+" === FUNCTION ===
 function custom#defx#open_this_tab(context) abort
   if defx#is_directory()
     call defx#call_action('open_tree', ['toggle'])
@@ -123,30 +127,22 @@ function custom#defx#jump_or_open_right(path) abort
   endif
 endfunction
 
-function custom#defx#change_directory() abort
-  let l:defx_win_num = custom#defx#tab_win_num('\[defx\] -')
-  if l:defx_win_num != -1
-    call custom#defx#win_execute(l:defx_win_num,
-      \  function('defx#call_action'), 'cd', getcwd())
-  endif
-endfunction
-
-function custom#defx#tab_win_num(pattern) abort
+function custom#defx#execute(func, ...) abort
+  let l:defx_win_num = -1
   for l:buf_num in tabpagebuflist()
-    if bufname(l:buf_num) =~# a:pattern
-      return bufwinnr(l:buf_num)
+    if bufname(l:buf_num) =~# '^\[defx\] -\d$'
+      let l:defx_win_num = bufwinnr(l:buf_num)
+      break
     endif
   endfor
-  return -1
-endfunction
-
-function custom#defx#win_execute(win_num, fun, ...) abort
-  if winnr() != a:win_num
-    noautocmd execute a:win_num . 'wincmd w'
-    let l:switch_back = 1
-  endif
-  call call(a:fun, a:000)
-  if exists('l:switch_back')
-    noautocmd wincmd p
+  if l:defx_win_num != -1
+    if winnr() != l:defx_win_num
+      noautocmd execute l:defx_win_num . 'wincmd w'
+      let l:switch_back = 1
+    endif
+    call call(function(a:func), a:000)
+    if exists('l:switch_back')
+      noautocmd wincmd p
+    endif
   endif
 endfunction

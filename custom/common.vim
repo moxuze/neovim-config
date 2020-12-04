@@ -65,7 +65,7 @@ nnoremap <silent> <A-,> :vertical resize -2<CR>
 tnoremap <A-n> <C-\><C-N>ZQ
 nnoremap <silent> <A-n> :call custom#common#terminal_toggle()<CR>
 
-" === FUNCTIONS ===
+" === FUNCTION ===
 function custom#common#terminal_toggle() abort
   if &buftype == 'terminal'
     quit
