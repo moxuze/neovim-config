@@ -1,41 +1,41 @@
-+ neovim                    本体
-  ~ 外部依赖
-    - xsel                  系统剪切板
+neovim
+ + xsel                   系统剪切板
 
-+ vim-plug                  插件管理器
+junegunn/vim-plug         插件管理器
 
-+ crusoexia/vim-monokai     monokai 主题
+airblade/vim-gitgutter    Git 侧边显示
 
-+ rust-lang/rust.vim        Rust 语言支持
+crusoexia/vim-monokai     monokai 主题
 
-+ Shougo/defx.nvim          文件管理器
-  ~ 外部依赖
-    - python-pynvim         Python 运行环境
+itchyny/lightline.vim     底部状态栏
 
-^ kristijanhusak/defx-icons Defx 图标
+kristijanhusak/defx-git   Defx Git
 
-^ kristijanhusak/defx-git   Defx Git
+kristijanhusak/defx-icons Defx 图标
 
-+ itchyny/lightline.vim     底部状态栏
+liuchengxu/vista.vim      Tags 支持
+ + universal-ctags        Tags 生成器
 
-+ tpope/vim-fugitive        Git 支持
+neoclide/coc.nvim         LSP 支持
+ + nodejs                 NodeJS 运行环境
+ + ccls                   C/C++ 语言服务器
+ + rust-analyzer          Rust 语言服务器
+ - coc-actions            COC 补全动作
+ - coc-json               JSON 解析器
+ - coc-marketplace        COC 插件市场
+ - coc-rust-analyzer      Rust 语言服务器
+ - coc-tsserver           TypeScript 语言服务器
+ - coc-vimlsp             VimScript 语言服务器
 
-+ voldikss/vim-translator   翻译
+puremourning/vimspector   Debugger
 
-+ liuchengxu/vista.vim      Tag 支持
-  ~ 外部依赖
-    - universal-ctags       Tags 生成器
+rust-lang/rust.vim        Rust 语言支持
 
-+ neoclide/coc.nvim         LSP 支持
-  ~ 外部依赖
-    - nodejs                NodeJS 运行环境
-    - ccls                  C/C++ 语言服务器
-    - rust-analyzer         Rust 语言服务器
-  ~ 内部模块
-    - coc-actions           补全操作
-    - coc-json              JSON 解析器
-    - coc-tsserver          TypeScript 语言服务器
-    - coc-rust-analyzer     Rust 语言服务器配置
-    - coc-git               Git 状态显示
+Shougo/defx.nvim          文件管理器
+ + python-pynvim          Python 运行环境
 
-+ puremourning/vimspector   Debug
+tpope/vim-fugitive        Git 操作封装
+
+voldikss/vim-translator   翻译
+
+Yggdroot/indentLine       缩进辅助线
