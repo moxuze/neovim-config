@@ -64,7 +64,7 @@ endfunction
 xnoremap <silent> <A-a> :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nnoremap <silent> <A-a> :<C-u>set operatorfunc=<SID>coc_actions_open_from_selected<CR>g@
 " see :help text-objects
-" a => selected, aw => word, aas => sentence, aap => paragraph
+" w => word, as => sentence, ap => paragraph
 function s:coc_actions_open_from_selected(type) abort
   execute 'CocCommand actions.open ' . a:type
 endfunction
