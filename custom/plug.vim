@@ -11,4 +11,5 @@ Plug 'rust-lang/rust.vim'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'voldikss/vim-translator'
+Plug 'Yggdroot/indentLine'
 call plug#end()
