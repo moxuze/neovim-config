@@ -77,7 +77,7 @@ function custom#common#terminal_toggle() abort
     set foldcolumn=1
     set nonumber
     execute 'normal i'
-    endif
+  endif
 endfunction
 
 function custom#common#win_move(direction) abort
