@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'crusoexia/vim-monokai'
 Plug 'itchyny/lightline.vim'
 Plug 'kristijanhusak/defx-git'

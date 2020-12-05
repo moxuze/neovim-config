@@ -10,3 +10,12 @@ highlight SpecialKey ctermfg=220 ctermbg=235
 highlight VertSplit  ctermbg=236
 highlight Visual     ctermbg=238
 highlight Search     cterm=none ctermfg=4 ctermbg=221
+highlight Variable   ctermfg=99 ctermbg=99
+
+" === LSP CXX HIGHLIGHT ===
+highlight LspCxxHlSymParameter cterm=italic ctermfg=183
+highlight LspCxxHlSymMacro     ctermfg=69
+highlight LspCxxHlSymUnknown   ctermfg=69
+
+" === CUSTOM HIGHLIGHT ===
+highlight CustomGrey ctermfg=250
