@@ -9,7 +9,7 @@ highlight SignColumn ctermbg=235
 highlight SpecialKey ctermfg=220 ctermbg=235
 highlight VertSplit  ctermbg=236
 highlight Visual     ctermbg=238
-highlight Search     cterm=none ctermfg=4 ctermbg=221
+highlight Search     cterm=none ctermfg=221 ctermbg=25
 highlight Variable   ctermfg=99 ctermbg=99
 
 " === LSP CXX HIGHLIGHT ===

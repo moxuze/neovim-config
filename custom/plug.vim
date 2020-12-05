@@ -5,6 +5,7 @@ Plug 'crusoexia/vim-monokai'
 Plug 'itchyny/lightline.vim'
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'phanviet/vim-monokai-pro'
