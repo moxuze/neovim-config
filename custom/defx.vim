@@ -44,9 +44,7 @@ hi Defx_git_Untracked ctermfg=75
 autocmd DirChanged * call custom#defx#execute('defx#call_action', 'cd', getcwd())
 " remove BufWritePost because of defx-git
 autocmd ShellCmdPost,TermLeave * call defx#redraw()
-if exists('#User#FugitiveChanged')
-  autocmd User FugitiveChanged call defx#redraw()
-endif
+autocmd User FugitiveChanged call defx#redraw()
 
 " === KEY MAP ===
 nnoremap <silent> <A-b> :Defx<CR>
