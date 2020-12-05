@@ -18,7 +18,7 @@ call custom#filetype#set_width(4, 'python')
 call custom#filetype#set_width(4, 'html')
 call custom#filetype#set_width(4, 'css')
 call custom#filetype#set_width(4, 'javascript')
-call custom#filetype#set_width(4, 'json')
+call custom#filetype#set_width(2, 'json')
 
 " Syntax
 " C/C++
