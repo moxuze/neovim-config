@@ -14,9 +14,15 @@ let g:coc_global_extensions = [
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " === KEY MAP ===
+" Snippet
+let g:coc_snippet_prev = '<A-h>'
+let g:coc_snippet_next = '<A-l>'
+
 " Completion
 inoremap <silent><expr> <A-c>   coc#refresh()
+inoremap <silent><expr> <A-j>   pumvisible() ? '<C-n>' : '<A-j>'
 inoremap <silent><expr> <TAB>   pumvisible() ? '<C-n>' : '<TAB>'
+inoremap <silent><expr> <A-k>   pumvisible() ? '<C-p>' : '<A-k>'
 inoremap <silent><expr> <S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 inoremap <silent><expr> <CR>    pumvisible() ?
   \  coc#_select_confirm() : '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
