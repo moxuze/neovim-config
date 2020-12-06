@@ -9,7 +9,7 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'phanviet/vim-monokai-pro'
-Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector', { 'do': ':VimspectorUpdate' }
 Plug 'rust-lang/rust.vim'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
