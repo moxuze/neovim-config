@@ -28,3 +28,5 @@ autocmd FileType c,cpp syntax match   cOperator	 '<<\|>>\|&&\|||\|++\|--'
 autocmd FileType c,cpp syntax match   cOperator	 '[?:!~*&%<>^|=+-]'
 autocmd FileType c,cpp syntax match   cOperator	 '/[^/*=]'me=e-1
 autocmd FileType c,cpp syntax match   CustomGrey '->\|[.,;{}()\[\]]'
+" Rust
+autocmd FileType rust syntax match   CustomGrey '[.,;{}()\[\]]'
