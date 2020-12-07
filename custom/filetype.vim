@@ -22,6 +22,7 @@ call custom#filetype#set_width(2, 'json')
 
 " Syntax
 " C/C++
+autocmd FileType c,cpp set commentstring=//%s
 autocmd FileType c,cpp syntax keyword cOperator  struct typedef union enum
 autocmd FileType c,cpp syntax match   cOperator	 '\(<<\|>>\|[-+*/%&^|<>!=]\)='
 autocmd FileType c,cpp syntax match   cOperator	 '<<\|>>\|&&\|||\|++\|--'

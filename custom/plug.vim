@@ -13,6 +13,7 @@ Plug 'phanviet/vim-monokai-pro'
 Plug 'puremourning/vimspector', { 'do': ':VimspectorUpdate' }
 Plug 'rust-lang/rust.vim'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'voldikss/vim-translator'
 Plug 'Yggdroot/indentLine'
