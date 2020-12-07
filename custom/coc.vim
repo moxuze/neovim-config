@@ -40,8 +40,8 @@ nmap <silent> gj <Plug>(coc-diagnostic-next)
 nmap <silent> <A-r> <Plug>(coc-rename)
 
 " Formating
-nnoremap <silent> <A-f> :call CocAction('format')<CR>
-vmap <silent> <A-f> <Plug>(coc-format-selected)
+nnoremap <silent> <A-F> :call CocAction('format')<CR>
+vmap <silent> <A-F> <Plug>(coc-format-selected)
 
 " Selection
 xmap if <Plug>(coc-funcobj-i)
