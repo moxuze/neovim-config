@@ -1,6 +1,6 @@
 " === OPTION ===
 let g:lightline = {
-  \  'colorscheme': 'Tomorrow_Night',
+  \  'colorscheme': 'jellybeans',
   \  'active': {
   \    'left': [
   \      [ 'mode', 'paste' ],
