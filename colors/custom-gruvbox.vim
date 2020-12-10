@@ -1,5 +1,7 @@
 runtime colors/gruvbox.vim
 
+highlight Operator ctermbg=none
+
 highlight CustomSymbolArrow      ctermfg=250
 highlight CustomSymbolDelimiter  ctermfg=250
 highlight CustomSymbolPair       ctermfg=250
