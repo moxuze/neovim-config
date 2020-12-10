@@ -31,28 +31,31 @@ let g:defx_icons_nested_opened_tree_icon = '▾'
 let g:defx_icons_nested_closed_tree_icon = '▸'
 
 " Git
-hi Defx_git_Deleted   ctermfg=191
-hi Defx_git_Ignored   ctermfg=248
-hi Defx_git_Modified  ctermfg=199
-hi Defx_git_Renamed   ctermfg=219
-hi Defx_git_Staged    ctermfg=113
-hi Defx_git_Unknown   ctermfg=248
-hi Defx_git_Unmerged  ctermfg=93
-hi Defx_git_Untracked ctermfg=75
+function s:highlight() abort
+highlight link Defx_git_Deleted   CustomGitDeleted
+highlight link Defx_git_Ignored   CustomGitIgnored
+highlight link Defx_git_Modified  CustomGitModifed
+highlight link Defx_git_Renamed   CustomGitRenamed
+highlight link Defx_git_Staged    CustomGitStaged
+highlight link Defx_git_Unknown   CustomGitUnknown
+highlight link Defx_git_Unmerged  CustomGitUnmerged
+highlight link Defx_git_Untracked CustomGitUntracked
+endfunction
+call s:highlight()
+autocmd ColorScheme * call s:highlight()
 
 " === TRIGGER ===
-autocmd DirChanged * call custom#defx#execute('defx#call_action', 'cd', getcwd())
+autocmd DirChanged * call s:execute_in_defx('defx#call_action', 'cd', getcwd())
 " remove BufWritePost because of defx-git
 autocmd ShellCmdPost,TermLeave * call defx#redraw()
 autocmd User FugitiveChanged call defx#redraw()
 
 " === KEY MAP ===
 nnoremap <silent> <A-b> :Defx<CR>
-autocmd FileType defx call custom#defx#settings()
-function custom#defx#settings() abort
+function s:settings() abort
 set nonumber
-nnoremap <silent><buffer><expr> <CR>    defx#do_action('call', 'custom#defx#open_this_tab') 
-nnoremap <silent><buffer><expr> <A-CR>  defx#do_action('call', 'custom#defx#open_new_tab') 
+nnoremap <silent><buffer><expr> <CR>    defx#do_action('call', '<SID>open_this_tab') 
+nnoremap <silent><buffer><expr> <A-CR>  defx#do_action('call', '<SID>open_new_tab') 
 nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')
 nnoremap <silent><buffer><expr> h       defx#do_action('cd', ['..'])
 nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'
@@ -73,46 +76,47 @@ nnoremap <silent><buffer><expr> xx      defx#do_action('execute_system')
 nnoremap <silent><buffer><expr> yy      defx#do_action('yank_path')
 nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
 endfunction
+autocmd FileType defx call s:settings()
 
 " === FUNCTION ===
-function custom#defx#open_this_tab(context) abort
+function s:open_this_tab(context) abort
   if defx#is_directory()
     call defx#call_action('open_tree', ['toggle'])
     return
   endif
   let l:path = join(a:context.targets)
-  if !custom#defx#jump_or_open_right(l:path)
+  if !s:jump_or_open_right(l:path)
     silent! execute 'edit' . l:path
   endif
 endfunction
 
-function custom#defx#open_new_tab(context) abort
+function s:open_new_tab(context) abort
   if defx#is_directory()
     call defx#call_action('open_tree', ['toggle'])
     return
   endif
   let l:path = join(a:context.targets)
-  if !custom#defx#jump_or_open_right(l:path)
+  if !s:jump_or_open_right(l:path)
     silent! execute 'tabnew ' . l:path
     Defx
   endif
 endfunction
 
-function custom#defx#jump(path) abort
+function s:jump(path) abort
   let l:tab_num_curr = tabpagenr()
   let l:win_id = -1
   tabdo let l:tab_win_id = bufwinid(a:path)
-  \| if l:tab_win_id != -1
-  \|   let l:win_id = l:tab_win_id
-  \| endif
+    \  |  if l:tab_win_id != -1
+    \  |    let l:win_id = l:tab_win_id
+    \  |  endif
   execute 'tabnext ' . l:tab_num_curr
   return win_gotoid(l:win_id)
 endfunction
 
-function custom#defx#jump_or_open_right(path) abort
+function s:jump_or_open_right(path) abort
   let l:win_num_curr = winnr()
   wincmd l
-  if custom#defx#jump(a:path)
+  if s:jump(a:path)
     return 1
   elseif l:win_num_curr == winnr()
     execute 'rightbelow vnew' . a:path
@@ -125,7 +129,7 @@ function custom#defx#jump_or_open_right(path) abort
   endif
 endfunction
 
-function custom#defx#execute(func, ...) abort
+function s:execute_in_defx(func, ...) abort
   let l:defx_win_num = -1
   for l:buf_num in tabpagebuflist()
     if bufname(l:buf_num) =~# '^\[defx\] -\d$'

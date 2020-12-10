@@ -23,40 +23,40 @@ let g:lightline = {
   \    'lineinfo': '%2l:%-2c',
   \  },
   \  'component_function': {
-  \    'filestatus': 'custom#lightline#file_status',
-  \    'filesize'  : 'custom#lightline#file_size',
-  \    'gitstatus' : 'custom#lightline#git_status',
-  \    'nearest'   : 'custom#lightline#nearest_function',
+  \    'filestatus': 'g:CustomLightlineFileState',
+  \    'filesize'  : 'g:CustomLightlineFileSize',
+  \    'gitstatus' : 'g:CustomLightlineGitStatus',
+  \    'nearest'   : 'g:CustomLightlineNearest',
   \  },
   \  'tab_component_function': {
-  \    'filename': 'custom#lightline#tab_file_name',
-  \    'modified': 'custom#lightline#tab_modified',
+  \    'filename': 'g:CustomLightlineTabFileName',
+  \    'modified': 'g:CustomLightlineTabModified',
   \  },
   \  'separator'   : { 'left': '', 'right': '' },
   \  'subseparator': { 'left': '।', 'right': '।' },
   \}
 
 " === FUNCTION ===
-function custom#lightline#hook(win_num, status_line) abort
+function g:CustomLightlineHack(win_num, status_line) abort
   let l:name = expand('#' . winbufnr(a:win_num) . ':t')
   if l:name =~# '^\[defx\] -\d$'
     call setwinvar(a:win_num, '&statusline',
-    \ '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
+      \ '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
   elseif l:name ==# '__vista__'
     call setwinvar(a:win_num, '&statusline',
-    \ '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
+      \ '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
   else
     call setwinvar(a:win_num, '&statusline', a:status_line)
   endif
 endfunction
 
-function custom#lightline#file_status() abort
+function g:CustomLightlineFileState() abort
   let l:name = expand('%:t')
   if empty(l:name) | let l:name = '[No Name]' | endif
   return &modified ? l:name . ' +' : l:name
 endfunction
 
-function custom#lightline#file_size() abort
+function g:CustomLightlineFileSize() abort
   let l:size = getfsize(expand('%:p'))
   if l:size < 0
     return ''
@@ -69,7 +69,7 @@ function custom#lightline#file_size() abort
   endif
 endfunction
 
-function custom#lightline#tab_file_name(tab_num) abort
+function g:CustomLightlineTabFileName(tab_num) abort
   let l:buf_list = tabpagebuflist(a:tab_num)
   let l:win_num = tabpagewinnr(a:tab_num)
   let l:name = expand('#' . l:buf_list[l:win_num - 1] . ':t')
@@ -84,12 +84,12 @@ function custom#lightline#tab_file_name(tab_num) abort
   endif
 endfunction
 
-function custom#lightline#tab_modified(tab_num) abort
+function g:CustomLightlineTabModified(tab_num) abort
   let l:win_num = tabpagewinnr(a:tab_num)
   return gettabwinvar(a:tab_num, l:win_num, '&modified') ? '+' : ''
 endfunction
 
-function custom#lightline#git_status() abort
+function g:CustomLightlineGitStatus() abort
   if !exists('*g:FugitiveHead') | return '' | endif
   let l:branch = g:FugitiveHead()
   if empty(l:branch) | return '' | endif
@@ -103,7 +103,7 @@ function custom#lightline#git_status() abort
   endif
 endfunction
 
-function custom#lightline#nearest_function() abort
+function g:CustomLightlineNearest() abort
   let l:func = get(b:, 'vista_nearest_method_or_function', '')
   return empty(l:func) ? '' : 'ƒ ' . l:func
 endfunction

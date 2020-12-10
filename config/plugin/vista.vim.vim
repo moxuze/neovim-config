@@ -15,20 +15,20 @@ let g:vista#renderer#icons = {
 
 " === KEY MAP ===
 nnoremap <silent> <A-m> :Vista!!<CR>
-autocmd FileType vista,vista_kind call custom#vista#settings()
-function custom#vista#settings() abort
-nnoremap <buffer> <silent> <CR> :call custom#vista#fold_or_jump()<CR>
-nnoremap <buffer> <silent> o    :call custom#vista#fold()<CR>
+function s:settings() abort
+nnoremap <buffer> <silent> <CR> :call <SID>fold_or_jump()<CR>
+nnoremap <buffer> <silent> o    :call <SID>fold()<CR>
 nnoremap <buffer> <silent> s    :call vista#Sort()<CR>
 nnoremap <buffer> <silent> p    :call vista#cursor#TogglePreview()<CR>
 nnoremap <buffer> <silent> q    :close<CR>
 endfunction
+autocmd FileType vista,vista_kind call s:settings()
 
 " === FUNCTION ===
-function custom#vista#fold_or_jump() abort
+function s:fold_or_jump() abort
   if line('.') == 1
     call vista#source#GotoWin()
-  elseif indent('.') != 0 || !custom#vista#fold()
+  elseif indent('.') != 0 || !s:fold()
     let l:tag_under_cursor = g:vista.provider ==# 'ctags' ?
       \  vista#cursor#ctags#GetInfo()[0] : vista#cursor#lsp#GetInfo()[0]
     call vista#jump#TagLine(l:tag_under_cursor)
@@ -36,20 +36,20 @@ function custom#vista#fold_or_jump() abort
   endif
 endfunction
 
-function custom#vista#fold() abort
+function s:fold() abort
   if empty(getline('.'))
     return 0
   else
-    if custom#vista#do_fold()
+    if s:try_fold()
       return 1
     else
       normal zMzR
-      return custom#vista#do_fold()
+      return s:try_fold()
     endif
   endif
 endfunction
 
-function custom#vista#do_fold() abort
+function s:try_fold() abort
   if foldclosed('.') != -1
     normal zo
     return 1

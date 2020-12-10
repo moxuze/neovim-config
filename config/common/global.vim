@@ -1,0 +1,21 @@
+syntax enable
+filetype plugin indent on
+colorscheme default
+set autoindent
+set expandtab
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1
+set foldlevel=1024
+set foldmethod=indent
+set mouse=a
+set nohlsearch
+set number
+set shiftround
+set shiftwidth=4
+set signcolumn=yes
+set smartindent
+set smarttab
+set softtabstop=4
+set tabstop=4
+set updatetime=300

@@ -1,7 +1,7 @@
 " === OPTION ===
 " Extension List
+let g:coc_config_home = g:env#config_path
 let g:coc_global_extensions = [
-  \  'coc-actions',
   \  'coc-json',
   \  'coc-marketplace',
   \  'coc-rust-analyzer',
@@ -54,8 +54,8 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Documentation
-nnoremap <silent> K :call custom#coc#show_doc()<CR>
-function custom#coc#show_doc() abort
+nnoremap <silent> K :call <SID>show_doc()<CR>
+function s:show_doc() abort
   if (index([ 'vim', 'help' ], &filetype) >= 0)
     execute 'rightbelow vertical help ' . expand('<cword>')
   elseif (coc#rpc#ready())
@@ -63,13 +63,4 @@ function custom#coc#show_doc() abort
   else
     execute '!' . &keywordprg . ' ' . expand('<cword>')
   endif
-endfunction
-
-" Coc Actions
-xnoremap <silent> <A-a> :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nnoremap <silent> <A-a> :<C-u>set operatorfunc=custom#coc#actions<CR>g@
-" see :help text-objects
-" w => word, as => sentence, ap => paragraph
-function custom#coc#actions(type) abort
-  execute 'CocCommand actions.open ' . a:type
 endfunction

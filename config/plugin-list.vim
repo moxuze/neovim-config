@@ -1,8 +1,6 @@
-call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'crusoexia/vim-monokai'
 Plug 'itchyny/lightline.vim'
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
@@ -19,4 +17,3 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'voldikss/vim-translator'
 Plug 'Yggdroot/indentLine'
-call plug#end()
