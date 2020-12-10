@@ -34,19 +34,18 @@ let g:lightline = {
   \  },
   \  'separator'   : { 'left': '', 'right': '' },
   \  'subseparator': { 'left': '।', 'right': '।' },
+  \  'filter': 'g:CustomLightlineFilter'
   \}
 
 " === FUNCTION ===
-function g:CustomLightlineHack(win_num, status_line) abort
+function g:CustomLightlineFilter(win_num, status_line) abort
   let l:name = expand('#' . winbufnr(a:win_num) . ':t')
   if l:name =~# '^\[defx\] -\d$'
-    call setwinvar(a:win_num, '&statusline',
-      \ '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#')
+    return '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#'
   elseif l:name ==# '__vista__'
-    call setwinvar(a:win_num, '&statusline',
-      \ '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#')
+    return '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#'
   else
-    call setwinvar(a:win_num, '&statusline', a:status_line)
+    return a:status_line
   endif
 endfunction
 
