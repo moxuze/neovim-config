@@ -12,13 +12,12 @@ highlight Visual     ctermbg=238
 highlight Search     cterm=none ctermfg=221 ctermbg=25
 highlight Variable   ctermfg=99 ctermbg=99
 
-highlight CustomSymbolArrow      ctermfg=250
-highlight CustomSymbolDelimiter  ctermfg=250
-highlight CustomSymbolPair       ctermfg=250
-
-highlight CustomSymbolParameter  cterm=italic ctermfg=183
-highlight CustomSymbolMacro      ctermfg=98
-highlight CustomSymbolEnumMember ctermfg=62
+highlight CustomArrow     ctermfg=250
+highlight CustomDelimiter ctermfg=250
+highlight CustomPair      ctermfg=250
+highlight CustomParameter cterm=italic
+highlight CustomMacro     ctermfg=98
+highlight CustomEnum      ctermfg=62
 
 highlight CustomGitDeleted   ctermfg=191
 highlight CustomGitIgnored   ctermfg=248
