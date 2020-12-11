@@ -37,22 +37,30 @@ let g:lightline = {
   \  'filter': 'g:CustomLightlineFilter'
   \}
 
+let s:status_line_override = {
+  \  'defx' : '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#',
+  \  'vista': '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#',
+  \}
+
+let s:tab_name_override = {
+  \  'defx' : '[DEFX]',
+  \  'vista': '[VISTA]',
+  \}
+
 " === FUNCTION ===
 function g:CustomLightlineFilter(win_num, status_line) abort
-  let l:name = expand('#' . winbufnr(a:win_num) . ':t')
-  if l:name =~# '^\[defx\] -\d$'
-    return '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#'
-  elseif l:name ==# '__vista__'
-    return '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#'
+  let l:file_type = getwinvar(a:win_num, '&filetype')
+  if has_key(s:status_line_override, l:file_type)
+    return get(s:status_line_override, l:file_type)
   else
     return a:status_line
   endif
 endfunction
 
 function g:CustomLightlineFileState() abort
-  let l:name = expand('%:t')
-  if empty(l:name) | let l:name = '[No Name]' | endif
-  return &modified ? l:name . ' +' : l:name
+  let l:file_name = expand('%:t')
+  if empty(l:file_name) | let l:file_name = '[No Name]' | endif
+  return &modified ? l:file_name . ' +' : l:file_name
 endfunction
 
 function g:CustomLightlineFileSize() abort
@@ -71,15 +79,17 @@ endfunction
 function g:CustomLightlineTabFileName(tab_num) abort
   let l:buf_list = tabpagebuflist(a:tab_num)
   let l:win_num = tabpagewinnr(a:tab_num)
-  let l:name = expand('#' . l:buf_list[l:win_num - 1] . ':t')
-  if empty(l:name)
+  let l:buf_num = l:buf_list[l:win_num - 1]
+  let l:file_name = expand('#' . l:buf_num . ':t')
+  if empty(l:file_name)
     return '[No Name]'
-  elseif l:name =~# '^\[defx\] -\d$'
-    return '[DEFX]'
-  elseif l:name ==# '__vista__'
-    return '[VISTA]'
   else
-    return l:name
+    let l:file_type = getbufvar(l:buf_num, '&filetype')
+    if has_key(s:tab_name_override, l:file_type)
+      return get(s:tab_name_override, l:file_type)
+    else
+      return l:file_name
+    endif
   endif
 endfunction
 
@@ -103,6 +113,6 @@ function g:CustomLightlineGitStatus() abort
 endfunction
 
 function g:CustomLightlineNearest() abort
-  let l:func = get(b:, 'vista_nearest_method_or_function', '')
-  return empty(l:func) ? '' : 'ƒ ' . l:func
+  let l:nearest = get(b:, 'vista_nearest_method_or_function', '')
+  return empty(l:nearest) ? '' : 'ƒ ' . l:nearest
 endfunction
