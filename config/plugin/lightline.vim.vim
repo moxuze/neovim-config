@@ -114,5 +114,10 @@ endfunction
 
 function g:CustomLightlineNearest() abort
   let l:nearest = get(b:, 'vista_nearest_method_or_function', '')
-  return empty(l:nearest) ? '' : 'ƒ ' . l:nearest
+  if !empty(l:nearest) | let l:nearest = 'ƒ ' . l:nearest | endif
+  if strlen(l:nearest) + 100 < winwidth(0)
+    return l:nearest
+  else
+    return ''
+  endif
 endfunction
