@@ -2,6 +2,7 @@
 " Extension List
 let g:coc_config_home = g:env#config_path
 let g:coc_global_extensions = [
+  \  'coc-clangd',
   \  'coc-json',
   \  'coc-marketplace',
   \  'coc-rust-analyzer',

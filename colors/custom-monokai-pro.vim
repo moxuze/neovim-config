@@ -14,10 +14,10 @@ highlight Variable   ctermfg=99 ctermbg=99
 
 highlight CustomArrow     ctermfg=250
 highlight CustomDelimiter ctermfg=250
+highlight CustomEnum      ctermfg=62
+highlight CustomMacro     ctermfg=98
 highlight CustomPair      ctermfg=250
 highlight CustomParameter cterm=italic
-highlight CustomMacro     ctermfg=98
-highlight CustomEnum      ctermfg=62
 
 highlight CustomGitDeleted   ctermfg=191
 highlight CustomGitIgnored   ctermfg=248

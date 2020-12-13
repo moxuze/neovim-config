@@ -6,7 +6,7 @@ set expandtab
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1
-set foldlevel=1024
+set foldlevel=9999
 set foldmethod=indent
 set mouse=a
 set nohlsearch
@@ -14,8 +14,10 @@ set number
 set shiftround
 set shiftwidth=4
 set signcolumn=yes
+set splitbelow
 set smartindent
 set smarttab
 set softtabstop=4
 set tabstop=4
-set updatetime=300
+set updatetime=100
+set lazyredraw
