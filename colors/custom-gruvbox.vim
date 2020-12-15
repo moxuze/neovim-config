@@ -1,5 +1,7 @@
 runtime colors/gruvbox.vim
 
+highlight LineNr ctermbg=236
+
 highlight link Operator  GruvBoxRed
 highlight link cOperator Operator
 
