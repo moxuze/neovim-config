@@ -14,6 +14,7 @@ itchyny/lightline.vim            底部状态栏
 kristijanhusak/defx-git          Defx Git
 
 kristijanhusak/defx-icons        Defx 图标
+ + Nerd Font                     图标字体
 
 liuchengxu/vim-clap              综合模糊搜索器
  + rust & cargo                  Rust 语言编译环境
@@ -25,9 +26,10 @@ morhetz/gruvbox                  gruvbox 主题
 
 neoclide/coc.nvim                LSP 支持
  + nodejs                        NodeJS 运行环境
- + ccls                          C/C++ 语言服务器
+ + clangd                        C/C++ 语言服务器
  + rust-analyzer                 Rust 语言服务器
  - coc-json                      JSON 解析器
+ - coc-clangd                    C/C++ 语言服务器
  - coc-marketplace               COC 插件市场
  - coc-rust-analyzer             Rust 语言服务器
  - coc-tsserver                  TypeScript 语言服务器
