@@ -2,7 +2,7 @@
 function s:highlight() abort
 highlight link LspCxxHlGroupEnumConstant   CustomEnum
 highlight link LspCxxHlGroupMemberVariable LspCxxHlSymVariable
-highlight link LspCxxHlGroupNamespace      Include
+highlight link LspCxxHlGroupNamespace      CustomNamespace
 highlight link LspCxxHlSymMacro            CustomMacro
 highlight link LspCxxHlSymParameter        CustomParameter
 endfunction

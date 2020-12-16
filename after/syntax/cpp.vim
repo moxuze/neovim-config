@@ -1,4 +1,3 @@
-syntax keyword Keyword struct typedef union enum
 syntax match cOperator '\(<<\|>>\|[-+*/%&^|<>!=]\)='
 syntax match cOperator '<<\|>>\|&&\|||\|++\|--'
 syntax match cOperator '[?:!~*&%<>^|=+-]'
