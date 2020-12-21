@@ -19,7 +19,7 @@ let g:lightline = {
   \  },
   \  'component' : {
   \    'filetype': '%{empty(&ft)?"plain":&ft}',
-  \    'readonly': '%{&readonly?"":""}',
+  \    'readonly': '%{&readonly?"":""}',
   \    'lineinfo': '%2l:%-2c',
   \  },
   \  'component_function': {
@@ -102,7 +102,7 @@ function g:CustomLightlineGitStatus() abort
   if !exists('*g:FugitiveHead') | return '' | endif
   let l:branch = g:FugitiveHead()
   if empty(l:branch) | return '' | endif
-  let l:branch = ' ' . l:branch
+  let l:branch = 'שׂ ' . l:branch
   if !exists('*g:GitGutterGetHunkSummary') | return l:branch | endif
   let [l:a, l:m, l:r] = g:GitGutterGetHunkSummary()
   if l:a == 0 && l:m == 0 && l:r == 0
@@ -114,7 +114,7 @@ endfunction
 
 function g:CustomLightlineNearest() abort
   let l:nearest = get(b:, 'vista_nearest_method_or_function', '')
-  if !empty(l:nearest) | let l:nearest = 'ƒ ' . l:nearest | endif
+  if !empty(l:nearest) | let l:nearest = ' ' . l:nearest | endif
   if strlen(l:nearest) + 100 < winwidth(0)
     return l:nearest
   else
