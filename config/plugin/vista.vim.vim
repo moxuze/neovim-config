@@ -44,7 +44,7 @@ let g:vista#renderer#icons = {
 " === KEY MAP ===
 nnoremap <silent> <A-m> :Vista!!<CR>
 function s:settings() abort
-nnoremap <buffer> <silent> <CR> :call <SID>fold_or_jump()<CR>
+nnoremap <buffer> <silent> <CR> :call <SID>jump()<CR>
 nnoremap <buffer> <silent> o    :call <SID>fold()<CR>
 nnoremap <buffer> <silent> s    :call vista#Sort()<CR>
 nnoremap <buffer> <silent> p    :call vista#cursor#TogglePreview()<CR>
@@ -53,10 +53,10 @@ endfunction
 autocmd FileType vista,vista_kind call s:settings()
 
 " === FUNCTION ===
-function s:fold_or_jump() abort
+function s:jump() abort
   if line('.') == 1
     call vista#source#GotoWin()
-  elseif indent('.') != 0 || !s:fold()
+  else
     let l:tag_under_cursor = g:vista.provider ==# 'ctags' ?
       \  vista#cursor#ctags#GetInfo()[0] : vista#cursor#lsp#GetInfo()[0]
     call vista#jump#TagLine(l:tag_under_cursor)
