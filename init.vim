@@ -1,1 +1,1 @@
-execute 'source ' . g:env#config_path . 'load-config.vim'
+execute 'source ' . g:env#config_path . '/load-config.vim'
