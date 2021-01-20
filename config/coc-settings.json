@@ -1,4 +1,5 @@
 {
+  "rust-analyzer.server.path": "rust-analyzer",
   "clangd.semanticHighlighting": true,
   "diagnostic.errorSign": "\uf467",
   "diagnostic.hintSign": "\uf864",
