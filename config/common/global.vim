@@ -19,5 +19,5 @@ set smartindent
 set smarttab
 set softtabstop=4
 set tabstop=4
-set updatetime=100
+set updatetime=500
 set lazyredraw
