@@ -20,8 +20,8 @@ endfunction
 
 function! s:cmake(type, args) abort
   if (s:project_root_invalid()) | return | endif
-  execute printf('!cmake -S . -B %s/build/%s -DCMAKE_BUILD_TYPE=%s %s',
-              \  g:project_root, a:type, a:type, a:args)
+  execute printf('!cmake -S %s -B %s/build/%s -DCMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=ON %s',
+              \  g:project_root, g:project_root, a:type, substitute(a:type, '^.', '\U\0', ''), a:args)
 endfunction
 
 function! s:make(type, args) abort

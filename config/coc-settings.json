@@ -1,12 +1,28 @@
 {
   "rust-analyzer.server.path": "rust-analyzer",
-  "clangd.semanticHighlighting": true,
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": [ "c", "cc", "cpp", "c++", "objc", "objcpp" ],
+      "rootPatterns": [
+        ".git/",
+        ".gitignore",
+        "CMakeLists.txt",
+        ".ccls",
+        "compile_commands.json"
+      ],
+      "initializationOptions": {
+        "cache": { "directory": "/tmp/ccls" },
+        "highlight": { "lsRanges" : true }
+      }
+    }
+  },
+  "list.nextKeymap": "<A-j>",
+  "list.previousKeymap": "<A-k>",
   "diagnostic.errorSign": "\uf467",
   "diagnostic.hintSign": "\uf864",
   "diagnostic.infoSign": "\uf129",
   "diagnostic.warningSign": "\uf071",
-  "list.nextKeymap": "<A-j>",
-  "list.previousKeymap": "<A-k>",
   "suggest.completionItemKindLabels": {
     "class": "\ufd2f",
     "color": "\ue22b",
