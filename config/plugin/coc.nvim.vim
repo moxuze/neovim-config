@@ -1,6 +1,6 @@
 " === OPTION ===
 " Extension List
-let g:coc_config_home = g:env#config_path
+let g:coc_config_home = g:env_config_path
 let g:coc_global_extensions = [
   \  'coc-json',
   \  'coc-marketplace',

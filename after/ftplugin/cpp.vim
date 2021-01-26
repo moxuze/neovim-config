@@ -1,1 +1,1 @@
-execute 'source ' . env#root_path . '/after/ftplugin/c.vim'
+execute 'source ' . env_root_path . '/after/ftplugin/c.vim'
