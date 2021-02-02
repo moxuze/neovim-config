@@ -9,6 +9,7 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vista.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'pangloss/vim-javascript'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'puremourning/vimspector', { 'do': ':VimspectorUpdate' }
 Plug 'rust-lang/rust.vim'
