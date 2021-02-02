@@ -2,7 +2,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
 Plug 'easymotion/vim-easymotion'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'moxtar-1s/lightline.vim', { 'branch': 'filter' }
+Plug 'moxuze/lightline.vim', { 'branch': 'filter' }
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
