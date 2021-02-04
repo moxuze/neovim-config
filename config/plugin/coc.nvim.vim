@@ -16,16 +16,16 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " === KEY MAP ===
 " Snippet
-let g:coc_snippet_prev = '<A-h>'
-let g:coc_snippet_next = '<A-l>'
+let g:coc_snippet_prev = '<C-h>'
+let g:coc_snippet_next = '<C-l>'
 
 " Completion
-inoremap <silent><expr> <A-c>   coc#refresh()
-inoremap <silent><expr> <A-j>   pumvisible() ? '<C-n>' : '<A-j>'
-inoremap <silent><expr> <TAB>   pumvisible() ? '<C-n>' : '<TAB>'
-inoremap <silent><expr> <A-k>   pumvisible() ? '<C-p>' : '<A-k>'
-inoremap <silent><expr> <S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
-inoremap <silent><expr> <CR>    pumvisible() ?
+inoremap <silent><expr> <C-SPACE> coc#refresh()
+inoremap <silent><expr> <C-j>     pumvisible() ? '<C-n>' : '<C-j>'
+inoremap <silent><expr> <TAB>     pumvisible() ? '<C-n>' : '<TAB>'
+inoremap <silent><expr> <C-k>     pumvisible() ? '<C-p>' : '<C-k>'
+inoremap <silent><expr> <S-TAB>   pumvisible() ? '<C-p>' : '<S-TAB>'
+inoremap <silent><expr> <CR>      pumvisible() ?
   \  coc#_select_confirm() : '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
 
 " Code Navigation

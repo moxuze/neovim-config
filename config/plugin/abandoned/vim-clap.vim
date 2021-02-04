@@ -17,9 +17,9 @@ let g:clap_theme = {
 
 " === KEY MAP ===
 nnoremap <silent> <A-g> :Clap<CR>
-autocmd FileType clap_input inoremap <silent><buffer> <A-j>   <C-R>=clap#navigation#linewise('down')<CR>
+autocmd FileType clap_input inoremap <silent><buffer> <C-j>   <C-R>=clap#navigation#linewise('down')<CR>
 autocmd FileType clap_input inoremap <silent><buffer> <TAB>   <C-R>=clap#navigation#linewise('down')<CR>
-autocmd FileType clap_input inoremap <silent><buffer> <A-k>   <C-R>=clap#navigation#linewise('up')<CR>
+autocmd FileType clap_input inoremap <silent><buffer> <C-k>   <C-R>=clap#navigation#linewise('up')<CR>
 autocmd FileType clap_input inoremap <silent><buffer> <S-TAB> <C-R>=clap#navigation#linewise('up')<CR>
-autocmd FileType clap_input inoremap <silent><buffer> <A-h>   <C-R>=clap#navigation#scroll('up')<CR>
-autocmd FileType clap_input inoremap <silent><buffer> <A-l>   <C-R>=clap#navigation#scroll('down')<CR>
+autocmd FileType clap_input inoremap <silent><buffer> <C-h>   <C-R>=clap#navigation#scroll('up')<CR>
+autocmd FileType clap_input inoremap <silent><buffer> <C-l>   <C-R>=clap#navigation#scroll('down')<CR>

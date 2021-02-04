@@ -63,7 +63,7 @@ nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'G' : 'k'
 nnoremap <silent><buffer><expr> l       defx#do_action('open', 'rightbelow vnew')
 nnoremap <silent><buffer><expr> o       defx#do_action('open_tree', ['toggle'])
 nnoremap <silent><buffer><expr> ~       defx#do_action('cd')
-nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select') . 'j'
+nnoremap <silent><buffer><expr> <SPACE> defx#do_action('toggle_select') . 'j'
 nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
 nnoremap <silent><buffer><expr> cp      defx#do_action('copy')
 nnoremap <silent><buffer><expr> mv      defx#do_action('move')

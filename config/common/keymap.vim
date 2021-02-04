@@ -44,16 +44,16 @@ nnoremap <silent> <A-n> :call <SID>terminal_toggle()<CR>
 
 function s:win_move(direction) abort
   execute 'wincmd ' . a:direction
-  if &buftype == 'terminal'
+  if &buftype ==# 'terminal'
     execute 'normal i'
   endif
 endfunction
 
 function s:terminal_toggle() abort
-  if &buftype == 'terminal'
+  if &buftype ==# 'terminal'
     quit
   else 
-    below 8new
+    below 10new
     terminal
     execute 'normal <CR>'
     set signcolumn=no

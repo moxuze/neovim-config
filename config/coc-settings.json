@@ -17,8 +17,6 @@
       }
     }
   },
-  "list.nextKeymap": "<A-j>",
-  "list.previousKeymap": "<A-k>",
   "diagnostic.errorSign": "\uf467",
   "diagnostic.hintSign": "\uf864",
   "diagnostic.infoSign": "\uf129",

@@ -10,7 +10,7 @@ let g:lightline = {
   \    'right': [
   \      [ 'percent', 'lineinfo' ],
   \      [ 'filetype', 'filesize' ],
-  \      [ 'nearest', 'readonly', 'fileformat', 'fileencoding' ],
+  \      [ 'readonly', 'fileformat', 'fileencoding' ],
   \    ],
   \  },
   \  'inactive': {
@@ -26,7 +26,6 @@ let g:lightline = {
   \    'filestatus': 'g:CustomLightlineFileState',
   \    'filesize'  : 'g:CustomLightlineFileSize',
   \    'gitstatus' : 'g:CustomLightlineGitStatus',
-  \    'nearest'   : 'g:CustomLightlineNearest',
   \  },
   \  'tab_component_function': {
   \    'filename': 'g:CustomLightlineTabFileName',
@@ -109,15 +108,5 @@ function g:CustomLightlineGitStatus() abort
     return l:branch
   else
     return printf('%s [+%d ~%d -%d]', l:branch, l:a, l:m, l:r)
-  endif
-endfunction
-
-function g:CustomLightlineNearest() abort
-  let l:nearest = get(b:, 'vista_nearest_method_or_function', '')
-  if !empty(l:nearest) | let l:nearest = ' ' . l:nearest | endif
-  if strlen(l:nearest) + 100 < winwidth(0)
-    return l:nearest
-  else
-    return ''
   endif
 endfunction
