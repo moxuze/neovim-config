@@ -51,11 +51,11 @@ autocmd ShellCmdPost,TermLeave * call defx#redraw()
 autocmd User FugitiveChanged call defx#redraw()
 
 " === KEY MAP ===
-nnoremap <silent> <A-b> :Defx<CR>
+nnoremap <silent> <Leader>d :Defx<CR>
 function s:settings() abort
 set nonumber
 nnoremap <silent><buffer><expr> <CR>    defx#do_action('call', '<SID>open_this_tab') 
-nnoremap <silent><buffer><expr> <A-CR>  defx#do_action('call', '<SID>open_new_tab') 
+nnoremap <silent><buffer><expr> <C-CR>  defx#do_action('call', '<SID>open_new_tab') 
 nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')
 nnoremap <silent><buffer><expr> h       defx#do_action('cd', ['..'])
 nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'
@@ -63,7 +63,7 @@ nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'G' : 'k'
 nnoremap <silent><buffer><expr> l       defx#do_action('open', 'rightbelow vnew')
 nnoremap <silent><buffer><expr> o       defx#do_action('open_tree', ['toggle'])
 nnoremap <silent><buffer><expr> ~       defx#do_action('cd')
-nnoremap <silent><buffer><expr> <SPACE> defx#do_action('toggle_select') . 'j'
+nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select') . 'j'
 nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
 nnoremap <silent><buffer><expr> cp      defx#do_action('copy')
 nnoremap <silent><buffer><expr> mv      defx#do_action('move')

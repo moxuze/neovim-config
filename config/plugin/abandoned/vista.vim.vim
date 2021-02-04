@@ -42,7 +42,7 @@ let g:vista#renderer#icons = {
   \}
 
 " === KEY MAP ===
-nnoremap <silent> <A-m> :Vista!!<CR>
+nnoremap <silent> <Leader>v :Vista!!<CR>
 function s:settings() abort
 nnoremap <buffer> <silent> <CR> :call <SID>jump()<CR>
 nnoremap <buffer> <silent> o    :call <SID>fold()<CR>

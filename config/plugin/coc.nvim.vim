@@ -20,16 +20,15 @@ let g:coc_snippet_prev = '<C-h>'
 let g:coc_snippet_next = '<C-l>'
 
 " Completion
-inoremap <silent><expr> <C-SPACE> coc#refresh()
+inoremap <silent><expr> <C-Space> coc#refresh()
 inoremap <silent><expr> <C-j>     pumvisible() ? '<C-n>' : '<C-j>'
-inoremap <silent><expr> <TAB>     pumvisible() ? '<C-n>' : '<TAB>'
+inoremap <silent><expr> <Tab>     pumvisible() ? '<C-n>' : '<Tab>'
 inoremap <silent><expr> <C-k>     pumvisible() ? '<C-p>' : '<C-k>'
-inoremap <silent><expr> <S-TAB>   pumvisible() ? '<C-p>' : '<S-TAB>'
+inoremap <silent><expr> <S-Tab>   pumvisible() ? '<C-p>' : '<S-Tab>'
 inoremap <silent><expr> <CR>      pumvisible() ?
   \  coc#_select_confirm() : '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
 
 " Code Navigation
-nnoremap gb <C-o>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gt <Plug>(coc-type-definition)
@@ -38,11 +37,11 @@ nmap <silent> gk <Plug>(coc-diagnostic-prev)
 nmap <silent> gj <Plug>(coc-diagnostic-next)
 
 " Renaming
-nmap <silent> <A-r> <Plug>(coc-rename)
+nmap <silent> <Leader>n <Plug>(coc-rename)
 
 " Formating
-nnoremap <silent> <A-F> :call CocAction('format')<CR>
-vmap <silent> <A-F> <Plug>(coc-format-selected)
+nnoremap <silent> <Leader>F :call CocAction('format')<CR>
+vmap <silent> <Leader>F <Plug>(coc-format-selected)
 
 " Selection
 xmap if <Plug>(coc-funcobj-i)

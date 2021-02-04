@@ -1,10 +1,15 @@
+" Leader
+let mapleader=';'
+
 " Clipboard
-vnoremap <A-c> "+y
-vnoremap <A-x> "+x
-nnoremap <A-v> "+p
+vnoremap <Leader>y "+y
+nnoremap <Leader>y "+y
+vnoremap <Leader>x "+x
+nnoremap <Leader>x "+x
+nnoremap <Leader>p "+p
 
 " Save
-nnoremap <A-s> :w <CR>
+nnoremap <Leader>w :w<CR>
 
 " Tab
 nnoremap <silent> <A-[> :tabprev<CR>
@@ -12,13 +17,13 @@ nnoremap <silent> <A-]> :tabprev<CR>
 nnoremap <silent> <A-\> :tabclose<CR>
 
 " == WINDOW ==
-" Moving Cursur
+" Moving Window
 nnoremap <silent> <A-H> :wincmd H<CR>
 nnoremap <silent> <A-J> :wincmd J<CR>
 nnoremap <silent> <A-K> :wincmd K<CR>
 nnoremap <silent> <A-L> :wincmd L<CR>
 
-" Moving Window
+" Moving Cursur
 tnoremap <silent> <A-h> <C-\><C-N>:wincmd h<CR>
 tnoremap <silent> <A-j> <C-\><C-N>:wincmd j<CR>
 tnoremap <silent> <A-k> <C-\><C-N>:wincmd k<CR>

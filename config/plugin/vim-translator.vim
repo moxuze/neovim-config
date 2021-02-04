@@ -1,12 +1,12 @@
 " === KEY MAP ===
 " Echo translation in the cmdline
-nmap <silent> <A-t>t <Plug>Translate
-vmap <silent> <A-t>t <Plug>TranslateV
+nmap <silent> <Leader>tt <Plug>Translate
+vmap <silent> <Leader>tt <Plug>TranslateV
 " Display translation in a window
-nmap <silent> <A-t>w <Plug>TranslateW
-vmap <silent> <A-t>w <Plug>TranslateWV
+nmap <silent> <Leader>tw <Plug>TranslateW
+vmap <silent> <Leader>tw <Plug>TranslateWV
 " Replace the text with translation
-nmap <silent> <A-t>r <Plug>TranslateR
-vmap <silent> <A-t>r <Plug>TranslateRV
+nmap <silent> <Leader>tr <Plug>TranslateR
+vmap <silent> <Leader>tr <Plug>TranslateRV
 " Translate the text in clipboard
-nmap <silent> <A-t>x <Plug>TranslateX
+nmap <silent> <Leader>tx <Plug>TranslateX

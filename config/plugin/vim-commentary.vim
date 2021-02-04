@@ -1,4 +1,4 @@
 " === KEY MAP ===
-nnoremap <silent> <A-/> :Commentary<CR>
-xnoremap <silent> <A-/> :Commentary<CR>
-onoremap <silent> <A-/> :Commentary<CR>
+nnoremap <silent> <Leader>/ :Commentary<CR>
+xnoremap <silent> <Leader>/ :Commentary<CR>
+onoremap <silent> <Leader>/ :Commentary<CR>
