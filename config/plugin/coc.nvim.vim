@@ -5,6 +5,7 @@ let g:coc_global_extensions = [
   \  'coc-json',
   \  'coc-marketplace',
   \  'coc-rust-analyzer',
+  \  'coc-sh',
   \  'coc-toml',
   \  'coc-tsserver',
   \  'coc-vimlsp',
