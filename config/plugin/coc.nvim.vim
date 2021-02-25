@@ -1,6 +1,7 @@
 " === OPTION ===
 " Extension List
 let g:coc_config_home = g:env.config
+let g:coc_data_home   = g:env.cache . '/coc'
 let g:coc_global_extensions = [
   \  'coc-json',
   \  'coc-marketplace',
@@ -10,6 +11,10 @@ let g:coc_global_extensions = [
   \  'coc-tsserver',
   \  'coc-vimlsp',
   \]
+
+" Additional coc-settings
+call coc#config('languageserver.ccls.initializationOptions.cache',
+  \  { 'directory': $HOME . '/.cache/ccls' })
 
 " === TRIGGER ===
 " Highlight Symbol
@@ -58,7 +63,7 @@ omap ac <Plug>(coc-classobj-a)
 nnoremap <silent> K :call <SID>show_doc()<CR>
 function s:show_doc() abort
   if (index([ 'vim', 'help' ], &filetype) >= 0)
-    execute 'rightbelow vertical help ' . expand('<cword>')
+    execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
   else

@@ -10,3 +10,7 @@ highlight link GitGutterChangeDelete DiffText
 endfunction
 call s:highlight()
 autocmd ColorScheme * call s:highlight()
+
+" === KEY MAP ===
+nnoremap <Leader>gu :GitGutterUndoHunk<CR>
+nnoremap <Leader>gp :GitGutterPreviewHunk<CR>

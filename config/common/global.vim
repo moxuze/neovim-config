@@ -1,6 +1,10 @@
 syntax enable
 filetype plugin indent on
-colorscheme default
+if ($TERM == 'linux')
+  colorscheme slate
+else
+  colorscheme default
+endif
 set autoindent
 set expandtab
 set encoding=utf-8

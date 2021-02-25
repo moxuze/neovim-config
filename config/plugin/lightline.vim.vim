@@ -27,35 +27,11 @@ let g:lightline = {
   \    'filesize'  : 'g:CustomLightlineFileSize',
   \    'gitstatus' : 'g:CustomLightlineGitStatus',
   \  },
-  \  'tab_component_function': {
-  \    'filename': 'g:CustomLightlineTabFileName',
-  \    'modified': 'g:CustomLightlineTabModified',
-  \  },
   \  'separator'   : { 'left': '', 'right': '' },
   \  'subseparator': { 'left': '।', 'right': '।' },
-  \  'filter': 'g:CustomLightlineFilter'
-  \}
-
-let s:status_line_override = {
-  \  'defx' : '%#LightlineLeft_active_1# [DEFX] %#LightlineMiddle_active#',
-  \  'vista': '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#',
-  \}
-
-let s:tab_name_override = {
-  \  'defx' : '[DEFX]',
-  \  'vista': '[VISTA]',
   \}
 
 " === FUNCTION ===
-function g:CustomLightlineFilter(win_num, status_line) abort
-  let l:file_type = getwinvar(a:win_num, '&filetype')
-  if has_key(s:status_line_override, l:file_type)
-    return get(s:status_line_override, l:file_type)
-  else
-    return a:status_line
-  endif
-endfunction
-
 function g:CustomLightlineFileState() abort
   let l:file_name = expand('%:t')
   if empty(l:file_name) | let l:file_name = '[No Name]' | endif
@@ -69,32 +45,10 @@ function g:CustomLightlineFileSize() abort
   elseif l:size < 10240    " 10 * 1024
     return printf('%dB', l:size)
   elseif l:size < 10485760 " 10 * 1024 * 1024
-    return printf('%.2fKiB', l:size / 1024.0)
+    return printf('%.2fK', l:size / 1024.0)
   else
-    return printf('%.2fMiB', l:size / 1048576.0)
+    return printf('%.2fM', l:size / 1048576.0)
   endif
-endfunction
-
-function g:CustomLightlineTabFileName(tab_num) abort
-  let l:buf_list = tabpagebuflist(a:tab_num)
-  let l:win_num = tabpagewinnr(a:tab_num)
-  let l:buf_num = l:buf_list[l:win_num - 1]
-  let l:file_name = expand('#' . l:buf_num . ':t')
-  if empty(l:file_name)
-    return '[No Name]'
-  else
-    let l:file_type = getbufvar(l:buf_num, '&filetype')
-    if has_key(s:tab_name_override, l:file_type)
-      return get(s:tab_name_override, l:file_type)
-    else
-      return l:file_name
-    endif
-  endif
-endfunction
-
-function g:CustomLightlineTabModified(tab_num) abort
-  let l:win_num = tabpagewinnr(a:tab_num)
-  return gettabwinvar(a:tab_num, l:win_num, '&modified') ? '+' : ''
 endfunction
 
 function g:CustomLightlineGitStatus() abort

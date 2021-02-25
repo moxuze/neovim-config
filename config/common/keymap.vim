@@ -1,5 +1,9 @@
 " Leader
-let mapleader=';'
+let mapleader=' '
+
+" Common
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q!<CR>
 
 " Clipboard
 vnoremap <Leader>y "+y
@@ -7,63 +11,52 @@ nnoremap <Leader>y "+y
 vnoremap <Leader>x "+x
 nnoremap <Leader>x "+x
 nnoremap <Leader>p "+p
+vnoremap <Leader>p "+p
+nnoremap <Leader>d "+d
+vnoremap <Leader>d "+d
 
-" Save
-nnoremap <Leader>w :w<CR>
+" Quit Help
+autocmd FileType help noremap <buffer> <silent> <ESC> :q!<CR>
+
+" Buffer
+nnoremap <silent> <A-n> :bnext<CR>
+nnoremap <silent> <A-p> :bprevious<CR>
 
 " Tab
 nnoremap <silent> <A-[> :tabprev<CR>
-nnoremap <silent> <A-]> :tabprev<CR>
+nnoremap <silent> <A-]> :tabnext<CR>
 nnoremap <silent> <A-\> :tabclose<CR>
 
-" == WINDOW ==
-" Moving Window
-nnoremap <silent> <A-H> :wincmd H<CR>
-nnoremap <silent> <A-J> :wincmd J<CR>
-nnoremap <silent> <A-K> :wincmd K<CR>
-nnoremap <silent> <A-L> :wincmd L<CR>
-
-" Moving Cursur
-tnoremap <silent> <A-h> <C-\><C-N>:wincmd h<CR>
-tnoremap <silent> <A-j> <C-\><C-N>:wincmd j<CR>
-tnoremap <silent> <A-k> <C-\><C-N>:wincmd k<CR>
-tnoremap <silent> <A-l> <C-\><C-N>:wincmd l<CR>
-inoremap <silent> <A-h> <C-\><C-N>:wincmd h<CR>
-inoremap <silent> <A-j> <C-\><C-N>:wincmd j<CR>
-inoremap <silent> <A-k> <C-\><C-N>:wincmd k<CR>
-inoremap <silent> <A-l> <C-\><C-N>:wincmd l<CR>
-nnoremap <silent> <A-h> :call <SID>win_move('h')<CR>
-nnoremap <silent> <A-j> :call <SID>win_move('j')<CR>
-nnoremap <silent> <A-k> :call <SID>win_move('k')<CR>
-nnoremap <silent> <A-l> :call <SID>win_move('l')<CR>
-
 " Resizing
-nnoremap <silent> <A->> :resize +2<CR>
-nnoremap <silent> <A-<> :resize -2<CR>
-nnoremap <silent> <A-.> :vertical resize +2<CR>
-nnoremap <silent> <A-,> :vertical resize -2<CR>
+nnoremap <silent> <A-"> :resize +2<CR>
+nnoremap <silent> <A-:> :resize -2<CR>
+nnoremap <silent> <A-'> :vertical resize +2<CR>
+nnoremap <silent> <A-;> :vertical resize -2<CR>
 
-" Terminal
-tnoremap <A-n> <C-\><C-N>ZQ
-nnoremap <silent> <A-n> :call <SID>terminal_toggle()<CR>
+" Window
+nnoremap <A-H> <C-w>H
+nnoremap <A-J> <C-w>J
+nnoremap <A-K> <C-w>K
+nnoremap <A-L> <C-w>L
+tnoremap <A-H> <C-\><C-n><C-w>H
+tnoremap <A-J> <C-\><C-n><C-w>J
+tnoremap <A-K> <C-\><C-n><C-w>K
+tnoremap <A-L> <C-\><C-n><C-w>L
 
-function s:win_move(direction) abort
-  execute 'wincmd ' . a:direction
-  if &buftype ==# 'terminal'
-    execute 'normal i'
-  endif
+" Cursor
+function s:check() abort
+  if &buftype ==# 'terminal' | startinsert | endif
 endfunction
-
-function s:terminal_toggle() abort
-  if &buftype ==# 'terminal'
-    quit
-  else 
-    below 10new
-    terminal
-    execute 'normal <CR>'
-    set signcolumn=no
-    set foldcolumn=1
-    set nonumber
-    execute 'normal i'
-  endif
-endfunction
+nnoremap <silent> <A-h> <C-w>h:call <SID>check()<CR>
+nnoremap <silent> <A-j> <C-w>j:call <SID>check()<CR>
+nnoremap <silent> <A-k> <C-w>k:call <SID>check()<CR>
+nnoremap <silent> <A-l> <C-w>l:call <SID>check()<CR>
+inoremap <silent> <A-h> <ESC><C-w>h:call <SID>check()<CR>
+inoremap <silent> <A-j> <ESC><C-w>j:call <SID>check()<CR>
+inoremap <silent> <A-k> <ESC><C-w>k:call <SID>check()<CR>
+inoremap <silent> <A-l> <ESC><C-w>l:call <SID>check()<CR>
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+tnoremap <A--> <C-\><C-n>"0pi
