@@ -2,6 +2,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
 Plug 'easymotion/vim-easymotion'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }

@@ -21,10 +21,6 @@ call coc#config('languageserver.ccls.initializationOptions.cache',
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " === KEY MAP ===
-" Snippet
-let g:coc_snippet_prev = '<C-h>'
-let g:coc_snippet_next = '<C-l>'
-
 " Completion
 inoremap <silent><expr> <C-Space> coc#refresh()
 inoremap <silent><expr> <C-j>     pumvisible() ? '<C-n>' : '<C-j>'
