@@ -55,7 +55,7 @@ function g:CustomLightlineGitStatus() abort
   if !exists('*g:FugitiveHead') | return '' | endif
   let l:branch = g:FugitiveHead()
   if empty(l:branch) | return '' | endif
-  let l:branch = 'שׂ ' . l:branch
+  let l:branch = ' ' . l:branch
   if !exists('*g:GitGutterGetHunkSummary') | return l:branch | endif
   let [l:a, l:m, l:r] = g:GitGutterGetHunkSummary()
   if l:a == 0 && l:m == 0 && l:r == 0
