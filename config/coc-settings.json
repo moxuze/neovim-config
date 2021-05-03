@@ -1,5 +1,8 @@
 {
-  "rust-analyzer.server.path": "rust-analyzer",
+  "diagnostic.errorSign": "\uf467",
+  "diagnostic.hintSign": "\uf864",
+  "diagnostic.infoSign": "\uf129",
+  "diagnostic.warningSign": "\uf071",
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -16,10 +19,7 @@
       }
     }
   },
-  "diagnostic.errorSign": "\uf467",
-  "diagnostic.hintSign": "\uf864",
-  "diagnostic.infoSign": "\uf129",
-  "diagnostic.warningSign": "\uf071",
+  "rust-analyzer.server.path": "rust-analyzer",
   "suggest.completionItemKindLabels": {
     "class": "\ufd2f",
     "color": "\ue22b",

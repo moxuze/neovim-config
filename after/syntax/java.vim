@@ -1,0 +1,2 @@
+highligh link javaDelimiter CustomDelimiter
+highligh link javaIdentifier CustomIdentifier

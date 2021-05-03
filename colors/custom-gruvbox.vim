@@ -8,6 +8,7 @@ highlight link cOperator Operator
 highlight CustomArrow     ctermfg=250
 highlight CustomDelimiter ctermfg=250
 highlight CustomEnum      ctermfg=62
+highlight clear CustomIdentifier
 highlight CustomMacro     ctermfg=98
 highlight link CustomNamespace Include
 highlight CustomPair      ctermfg=250
