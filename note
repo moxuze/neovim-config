@@ -3,24 +3,20 @@ neovim
 
 junegunn/vim-plug                插件管理器
 
-airblade/vim-gitgutter           Git 侧边显示
+airblade/vim-gitgutter           Git 左侧更改提示
 
-easymotion/vim-easymotion        瞬间跳转
+cespare/vim-toml                 TOML 语法高亮支持
 
-jackguo380/vim-lsp-cxx-highlight C/C++ LSP 高亮
+easymotion/vim-easymotion        光标瞬间跳转
+
+francoiscabrol/ranger.vim        Ranger 文件管理器支持
+ + ranger                        Ranger 文件管理器
 
 itchyny/lightline.vim            底部状态栏
 
-kristijanhusak/defx-git          Defx Git
+jackguo380/vim-lsp-cxx-highlight C/C++ LSP 高亮
 
-kristijanhusak/defx-icons        Defx 图标
- + Nerd Font                     图标字体
-
-liuchengxu/vim-clap              综合模糊搜索器
- + rust & cargo                  Rust 语言编译环境
-
-liuchengxu/vista.vim             Tags 支持
- + universal-ctags               Tags 生成器
+jiangmiao/auto-pairs             自动匹配括号
 
 morhetz/gruvbox                  gruvbox 主题
 
@@ -31,17 +27,22 @@ neoclide/coc.nvim                LSP 支持
  - coc-json                      JSON 解析器
  - coc-marketplace               COC 插件市场
  - coc-rust-analyzer             Rust 语言服务器
+ - coc-sh                        Shell 语言服务器
+ - coc-toml                      TOML 语言服务器
  - coc-tsserver                  TypeScript 语言服务器
  - coc-vimlsp                    VimScript 语言服务器
+
+pangloss/vim-javascript          JavaScript 语法高亮支持
 
 phanviet/vim-monokai-pro         monokai-pro 主题
 
 puremourning/vimspector          Debugger
 
-rust-lang/rust.vim               Rust 语言支持
+rbgrouleff/bclose.vim            Ranger 的 nvim 兼容插件
 
-Shougo/defx.nvim                 文件管理器
- + python-pynvim                 Python 运行环境
+rust-lang/rust.vim               Rust 语法高亮支持
+
+skywind3000/vim-terminal-help    内置命令行
 
 tpope/vim-commentary             快速注释
 
@@ -49,6 +50,10 @@ tpope/vim-fugitive               Git 操作封装
 
 tpope/vim-surround               快速包裹
 
+uiiaoo/java-syntax.vim           Java 语法高亮支持
+
 voldikss/vim-translator          翻译
 
 Yggdroot/indentLine              缩进辅助线
+
+Yggdroot/LeaderF                 模糊搜索
