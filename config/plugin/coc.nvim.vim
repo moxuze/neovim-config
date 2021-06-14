@@ -3,7 +3,6 @@
 let g:coc_config_home = g:env.config
 let g:coc_data_home   = g:env.cache . '/coc'
 let g:coc_global_extensions = [
-  \  'coc-java',
   \  'coc-json',
   \  'coc-marketplace',
   \  'coc-rust-analyzer',
