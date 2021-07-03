@@ -18,6 +18,9 @@ jackguo380/vim-lsp-cxx-highlight C/C++ LSP 高亮
 
 jiangmiao/auto-pairs             自动匹配括号
 
+lilydjwg/fcitx.vim               Fcitx5 中文输入适配
+ + python-dbus                   DBUS 切换 Fcitx5 运行状态
+
 morhetz/gruvbox                  gruvbox 主题
 
 neoclide/coc.nvim                LSP 支持
