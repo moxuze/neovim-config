@@ -15,8 +15,8 @@ vnoremap <Leader>p "+p
 nnoremap <Leader>d "+d
 vnoremap <Leader>d "+d
 
-" Quit Help
-autocmd FileType help noremap <buffer> <silent> <ESC> :q!<CR>
+" Quick Quit
+autocmd FileType help,qf noremap <buffer> <silent> <Esc> :q!<CR>
 
 " Buffer
 nnoremap <silent> <M-n> :bnext<CR>
@@ -45,12 +45,20 @@ nnoremap <silent> <M-H> <C-w>h:call <SID>check()<CR>
 nnoremap <silent> <M-J> <C-w>j:call <SID>check()<CR>
 nnoremap <silent> <M-K> <C-w>k:call <SID>check()<CR>
 nnoremap <silent> <M-L> <C-w>l:call <SID>check()<CR>
-inoremap <silent> <M-H> <ESC><C-w>h:call <SID>check()<CR>
-inoremap <silent> <M-J> <ESC><C-w>j:call <SID>check()<CR>
-inoremap <silent> <M-K> <ESC><C-w>k:call <SID>check()<CR>
-inoremap <silent> <M-L> <ESC><C-w>l:call <SID>check()<CR>
+inoremap <silent> <M-H> <Esc><C-w>h:call <SID>check()<CR>
+inoremap <silent> <M-J> <Esc><C-w>j:call <SID>check()<CR>
+inoremap <silent> <M-K> <Esc><C-w>k:call <SID>check()<CR>
+inoremap <silent> <M-L> <Esc><C-w>l:call <SID>check()<CR>
 tnoremap <M-H> <C-\><C-n><C-w>h
 tnoremap <M-J> <C-\><C-n><C-w>j
 tnoremap <M-K> <C-\><C-n><C-w>k
 tnoremap <M-L> <C-\><C-n><C-w>l
 tnoremap <M--> <C-\><C-n>"0pi
+
+" Up & Down In Wrapped Line
+noremap <expr> k (v:count == 0 ? 'gk' : 'k')
+noremap <expr> j (v:count == 0 ? 'gj' : 'j')
+
+" Command
+cnoremap <M-b> <C-Left>
+cnoremap <M-f> <C-Right>
