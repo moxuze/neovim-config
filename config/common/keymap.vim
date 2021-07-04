@@ -56,9 +56,11 @@ tnoremap <M-L> <C-\><C-n><C-w>l
 tnoremap <M--> <C-\><C-n>"0pi
 
 " Up & Down In Wrapped Line
-noremap <expr> k (v:count == 0 ? 'gk' : 'k')
-noremap <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <M-k> gk
+noremap <M-j> gj
 
 " Command
+cnoremap <M-h> <Left>
+cnoremap <M-l> <Right>
 cnoremap <M-b> <C-Left>
 cnoremap <M-f> <C-Right>
