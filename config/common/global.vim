@@ -17,6 +17,7 @@ set listchars=tab:\|\ ,extends:→,precedes:←,nbsp:·,trail:·
 set mouse=a
 set nohlsearch
 set number
+set relativenumber
 set shiftround
 set shiftwidth=4
 set signcolumn=yes
