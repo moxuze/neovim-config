@@ -56,8 +56,8 @@ tnoremap <M-L> <C-\><C-n><C-w>l
 tnoremap <M--> <C-\><C-n>"0pi
 
 " Up & Down In Wrapped Line
-noremap <M-k> gk
-noremap <M-j> gj
+noremap <M-k> g<Up>
+noremap <M-j> g<Down>
 
 " Command
 cnoremap <M-h> <Left>

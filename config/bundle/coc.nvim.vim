@@ -31,12 +31,12 @@ inoremap <silent><expr> <CR>      pumvisible() ?
   \  coc#_select_confirm() : '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
 
 " Code Navigation
-nmap <silent> gd         <Plug>(coc-definition)
-nmap <silent> gr         <Plug>(coc-references)
-nmap <silent> gt         <Plug>(coc-type-definition)
-nmap <silent> gi         <Plug>(coc-implementation)
-nmap <silent> g<Space>   <Plug>(coc-diagnostic-prev)
-nmap <silent> g<S-Space> <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gk <Plug>(coc-diagnostic-prev)
+nmap <silent> gj <Plug>(coc-diagnostic-next)
 
 " Snippet Navigaion
 let g:coc_snippet_prev = '<C-h>'
