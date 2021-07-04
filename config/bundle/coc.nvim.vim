@@ -4,6 +4,7 @@ let g:coc_config_home = g:env.config
 let g:coc_data_home   = g:env.cache . '/coc'
 let g:coc_global_extensions = [
   \  'coc-json',
+  \  'coc-markdownlint',
   \  'coc-marketplace',
   \  'coc-rust-analyzer',
   \  'coc-sh',

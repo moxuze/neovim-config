@@ -19,6 +19,10 @@
       }
     }
   },
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false
+  },
   "rust-analyzer.server.path": "rust-analyzer",
   "suggest.completionItemKindLabels": {
     "class": "\ufd2f",
