@@ -1,3 +1,1 @@
-setlocal shiftwidth=2
-setlocal softtabstop=2
-setlocal tabstop=2
+execute 'source ' . expand('<sfile>:p:h') . '/template/width_2.vim'

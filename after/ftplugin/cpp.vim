@@ -1,1 +1,1 @@
-execute 'source ' . g:env.root . '/after/ftplugin/c.vim'
+execute 'source ' . expand('<sfile>:p:h') . '/c.vim'
