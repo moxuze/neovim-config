@@ -6,4 +6,4 @@ let g:ranger_map_keys = 0
 map <Leader>r :Ranger<CR>
 
 " === TRIGGER ===
-"autocmd TermOpen term://\.//[0-9]\\\{1,\}:ranger* setlocal nonumber signcolumn=no
+autocmd TermOpen term://*[0-9]{1,}:ranger* setlocal norelativenumber nonumber signcolumn=no
