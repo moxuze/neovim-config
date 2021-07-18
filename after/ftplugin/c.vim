@@ -22,21 +22,26 @@ function! s:cmake(type, args) abort
   if (s:project_root_invalid()) | return | endif
   execute printf('!cmake -S %s -B %s/build/%s -DCMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=ON %s',
               \  s:project_root, s:project_root, a:type, substitute(a:type, '^.', '\U\0', ''), a:args)
+  return v:shell_error
 endfunction
 
 function! s:make(type, args) abort
   if (s:project_root_invalid()) | return | endif
   execute printf('!make --silent --directory=%s/build/%s %s',
               \  s:project_root, a:type, a:args)
+  return v:shell_error
 endfunction
 
 function! s:run(type, args) abort
   if (s:project_root_invalid()) | return | endif
   execute printf('!%s/build/%s/%s %s', s:project_root, a:type,
               \  fnamemodify(s:project_root, ':t'), a:args)
+  return v:shell_error
 endfunction
 
 function! s:go(type, args) abort
-  call s:make(a:type, '')
-  call s:run(a:type, a:args)
+  if s:make(a:type, '') == 0
+    call s:run(a:type, a:args)
+  endif
+  return v:shell_error
 endfunction
