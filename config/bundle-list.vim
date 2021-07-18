@@ -1,7 +1,9 @@
 Plug 'airblade/vim-gitgutter'
+Plug 'alvan/vim-closetag'
 Plug 'cespare/vim-toml'
 Plug 'easymotion/vim-easymotion'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'itchyny/lightline.vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'

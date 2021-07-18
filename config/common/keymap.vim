@@ -56,11 +56,17 @@ tnoremap <M-L> <C-\><C-n><C-w>l
 tnoremap <M--> <C-\><C-n>"0pi
 
 " Up & Down In Wrapped Line
-noremap <M-k> g<Up>
-noremap <M-j> g<Down>
+noremap <C-k> g<Up>
+noremap <C-j> g<Down>
 
 " Command
 cnoremap <M-h> <Left>
 cnoremap <M-l> <Right>
 cnoremap <M-b> <C-Left>
 cnoremap <M-f> <C-Right>
+
+" Pair
+inoremap <buffer> <silent> <M-k> <Esc>:call search('["\[''({<]','bW')<CR>a
+inoremap <buffer> <silent> <M-j> <Esc>:call search('["\]'')}>]','W')<CR>a
+noremap  <buffer> <silent> <M-k> :call search('["\[''({<]','bW')<CR>
+noremap  <buffer> <silent> <M-j> :call search('["\]'')}>]','W')<CR>

@@ -3,13 +3,17 @@
 let g:coc_config_home = g:env.config
 let g:coc_data_home   = g:env.cache . '/coc'
 let g:coc_global_extensions = [
+  \  'coc-css',
+  \  'coc-html',
   \  'coc-json',
   \  'coc-markdownlint',
   \  'coc-marketplace',
   \  'coc-rust-analyzer',
   \  'coc-sh',
+  \  'coc-snippets',
   \  'coc-toml',
   \  'coc-tsserver',
+  \  'coc-vetur',
   \  'coc-vimlsp',
   \]
 
@@ -22,26 +26,23 @@ call coc#config('languageserver.ccls.initializationOptions.cache',
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " === KEY MAP ===
-" Completion
+" Completion & Snippet
+let g:coc_snippet_prev = '<S-Tab>'
+let g:coc_snippet_next = '<Tab>'
 inoremap <silent><expr> <C-Space> coc#refresh()
-inoremap <silent><expr> <S-Tab>   pumvisible() ? '<C-p>' : '<S-Tab>'
-inoremap <silent><expr> <Tab>     pumvisible() ? '<C-n>' : '<Tab>'
-inoremap <silent><expr> <C-k>     pumvisible() ? '<C-p>' : '<C-k>'
-inoremap <silent><expr> <C-j>     pumvisible() ? '<C-n>' : '<C-j>'
-inoremap <silent><expr> <CR>      pumvisible() ?
+inoremap <silent><expr> <CR> pumvisible() ?
   \  coc#_select_confirm() : '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
+inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : coc#expandableOrJumpable() ?
+  \  '<C-r>=coc#rpc#request("doKeymap", ["snippets-expand-jump", ""])<CR>' : '<Tab>'
 
-" Code Navigation
+" Code
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gk <Plug>(coc-diagnostic-prev)
 nmap <silent> gj <Plug>(coc-diagnostic-next)
-
-" Snippet Navigaion
-let g:coc_snippet_prev = '<C-h>'
-let g:coc_snippet_next = '<C-l>'
 
 " Renaming
 nmap <silent> <Leader>n <Plug>(coc-rename)

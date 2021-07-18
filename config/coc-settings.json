@@ -24,6 +24,7 @@
     "line_length": false
   },
   "rust-analyzer.server.path": "rust-analyzer",
+  "snippets.snipmate.enable": false,
   "suggest.completionItemKindLabels": {
     "class": "\ufd2f",
     "color": "\ue22b",
