@@ -5,13 +5,13 @@ highlight LineNr                ctermbg=236
 highlight Operator              ctermfg=216
 highlight link cOperator        Operator
 
-highlight CustomArrow           ctermfg=250
-highlight CustomDelimiter       ctermfg=250
+highlight link CustomArrow      GruvboxFg3
+highlight link CustomDelimiter  GruvboxFg3
 highlight link CustomIdentifier NONE
 highlight CustomEnum            ctermfg=62
 highlight CustomMacro           ctermfg=98
 highlight link CustomNamespace  Include
-highlight CustomPair            ctermfg=250
+highlight link CustomPair       GruvboxFg3
 highlight CustomParameter       cterm=italic
 
 highlight CustomGitDeleted      ctermfg=191

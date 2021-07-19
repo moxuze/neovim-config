@@ -3,6 +3,7 @@
   "diagnostic.hintSign": "\uf864",
   "diagnostic.infoSign": "\uf129",
   "diagnostic.warningSign": "\uf071",
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "languageserver": {
     "ccls": {
       "command": "ccls",
