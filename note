@@ -5,12 +5,18 @@ junegunn/vim-plug                插件管理器
 
 airblade/vim-gitgutter           Git 左侧更改提示
 
+alvan/vim-closetag               XML 自动关闭标签
+
 cespare/vim-toml                 TOML 语法高亮支持
 
 easymotion/vim-easymotion        光标瞬间跳转
 
 francoiscabrol/ranger.vim        Ranger 文件管理器支持
  + ranger                        Ranger 文件管理器
+
+honza/vim-snippets               预设代码片段集
+
+iamcco/markdown-preview.nvim     Markdown 文件动态预览
 
 itchyny/lightline.vim            底部状态栏
 
@@ -27,12 +33,17 @@ neoclide/coc.nvim                LSP 支持
  + nodejs-neovim                 NodeJS 运行环境
  + ccls                          C/C++ 语言服务器
  + rust-analyzer                 Rust 语言服务器
- - coc-json                      JSON 解析器
+ - coc-css                       CSS 语言服务器
+ - coc-html                      HTML 语言服务器
+ - coc-json                      JSON 语言服务器
+ - coc-markdownlint              Markdown 语言服务器
  - coc-marketplace               COC 插件市场
  - coc-rust-analyzer             Rust 语言服务器
  - coc-sh                        Shell 语言服务器
+ - coc-snippets                  代码片段生成器
  - coc-toml                      TOML 语言服务器
- - coc-tsserver                  TypeScript 语言服务器
+ - coc-tsserver                  TypeScript & JavaScript 语言服务器
+ - coc-vetur                     Vue 语言服务器
  - coc-vimlsp                    VimScript 语言服务器
 
 pangloss/vim-javascript          JavaScript 语法高亮支持
