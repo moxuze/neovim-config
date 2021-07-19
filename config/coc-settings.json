@@ -7,7 +7,7 @@
   "languageserver": {
     "ccls": {
       "command": "ccls",
-      "filetypes": [ "c", "cc", "cpp", "c++", "objc", "objcpp" ],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
       "rootPatterns": [
         ".git/",
         ".gitignore",
@@ -16,7 +16,9 @@
         "compile_commands.json"
       ],
       "initializationOptions": {
-        "highlight": { "lsRanges" : true }
+        "highlight": {
+          "lsRanges": true
+        }
       }
     }
   },

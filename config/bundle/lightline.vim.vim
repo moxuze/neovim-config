@@ -3,19 +3,19 @@ let g:lightline = {
   \  'colorscheme': 'jellybeans',
   \  'active': {
   \    'left': [
-  \      [ 'mode', 'paste' ],
-  \      [ 'filestatus' ],
-  \      [ 'gitstatus' ],
+  \      ['mode', 'paste'],
+  \      ['filestatus'],
+  \      ['gitstatus'],
   \    ],
   \    'right': [
-  \      [ 'percent', 'lineinfo' ],
-  \      [ 'filetype', 'filesize' ],
-  \      [ 'readonly', 'fileformat', 'fileencoding' ],
+  \      ['percent', 'lineinfo'],
+  \      ['filetype', 'filesize'],
+  \      ['readonly', 'fileformat', 'fileencoding'],
   \    ],
   \  },
   \  'inactive': {
-  \    'left' : [ [ 'filestatus' ] ],
-  \    'right': [ [ 'percent', 'lineinfo' ], [ 'filetype', 'filesize' ] ],
+  \    'left' : [['filestatus']],
+  \    'right': [['percent', 'lineinfo'], ['filetype', 'filesize']],
   \  },
   \  'component' : {
   \    'filetype': '%{empty(&ft)?"plain":&ft}',

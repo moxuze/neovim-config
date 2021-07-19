@@ -64,7 +64,7 @@ omap ac <Plug>(coc-classobj-a)
 " Documentation
 nnoremap <silent> K :call <SID>show_doc()<CR>
 function s:show_doc() abort
-  if (index([ 'vim', 'help' ], &filetype) >= 0)
+  if (index(['vim', 'help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
