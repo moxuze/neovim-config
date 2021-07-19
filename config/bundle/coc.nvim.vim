@@ -18,8 +18,9 @@ let g:coc_global_extensions = [
   \]
 
 " Additional coc-settings
+call coc#config('snippets.userSnippetsDirectory', g:env.root . '/snippet')
 call coc#config('languageserver.ccls.initializationOptions.cache',
-  \  { 'directory': $HOME . '/.cache/ccls' })
+  \  { 'directory': g:env.cache . '/ccls' })
 
 " === TRIGGER ===
 " Highlight Symbol
