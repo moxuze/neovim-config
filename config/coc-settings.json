@@ -3,6 +3,8 @@
   "diagnostic.hintSign": "\uf864",
   "diagnostic.infoSign": "\uf129",
   "diagnostic.warningSign": "\uf071",
+  "html.format.extraLiners": "",
+  "html.format.indentInnerHtml": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "languageserver": {
     "ccls": {
