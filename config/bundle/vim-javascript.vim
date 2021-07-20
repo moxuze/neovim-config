@@ -10,6 +10,7 @@ highlight link jsDot               CustomDelimiter
 highlight link jsExportDefault     StorageClass
 highlight link jsExtendsKeyword    Keyword
 highlight link jsFinallyBraces     CustomPair
+highlight link jsFuncArgCommas     CustomDelimiter
 highlight link jsFuncBraces        CustomPair
 highlight link jsFuncParens        CustomPair
 highlight link jsGlobalNodeObjects Constant
