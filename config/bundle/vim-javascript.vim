@@ -1,5 +1,5 @@
 " === APPEARANCE ===
-highlight link jsArrowFunction     Operator
+highlight link jsArrowFunction     CustomArrowFunction
 highlight link jsBraces            CustomPair
 highlight link jsBrackets          CustomPair
 highlight link jsClassBraces       CustomPair
