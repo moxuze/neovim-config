@@ -24,7 +24,6 @@ highlight link jsObjectColon       CustomDelimiter
 highlight link jsObjectSeparator   CustomDelimiter
 highlight link jsParens            CustomPair
 highlight link jsRepeatBraces      CustomPair
-highlight link jsStorageClass      Keyword
 highlight link jsSwitchBraces      CustomPair
 highlight link jsSwitchColon       CustomDelimiter
 highlight link jsTemplateBraces    CustomDelimiter
