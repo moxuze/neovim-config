@@ -1,10 +1,6 @@
 syntax enable
 filetype plugin indent on
-if ($TERM == 'linux')
-  colorscheme slate
-else
-  colorscheme default
-endif
+colorscheme default
 set autoindent
 set expandtab
 set encoding=utf-8
@@ -13,7 +9,7 @@ set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1
 set foldlevel=9999
 set foldmethod=indent
 set list
-set listchars=tab:\|\ ,extends:→,precedes:←,nbsp:·,trail:·
+set listchars=tab:˪\ ,extends:→,precedes:←,nbsp:·,trail:·
 set mouse=a
 set nohlsearch
 set number
