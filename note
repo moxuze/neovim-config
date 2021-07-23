@@ -62,6 +62,8 @@ tpope/vim-commentary             快速注释
 
 tpope/vim-fugitive               Git 操作封装
 
+tpope/vim-sleuth                 自动侦测缩进长度
+
 tpope/vim-surround               快速包裹
 
 uiiaoo/java-syntax.vim           Java 语法高亮支持
