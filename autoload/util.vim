@@ -23,3 +23,23 @@ function util#find_project_root() abort
     let l:path = l:next
   endwhile
 endfunction
+
+function util#toggle_indent_space() abort
+  if exists('s:origin_listchars')
+    let &listchars = s:origin_listchars
+    unlet s:origin_listchars
+  else
+    let s:origin_listchars = &listchars
+    let l:dict = {}
+    for l:item in split(s:origin_listchars, ',')
+      let [l:key, l:value] = split(l:item, ':')
+      let l:dict[l:key] = l:value
+    endfor
+    let l:dict.tab = '>_'
+    let l:dict.space = '·'
+    let &listchars = ''
+    for [l:key, l:value] in items(l:dict)
+      let &listchars .= l:key . ':' . l:value . ','
+    endfor
+  endif
+endfunction
