@@ -1,6 +1,6 @@
 " === OPTION ===
 " Extension List
-let g:coc_config_home = g:env.config
+let g:coc_config_home = g:env.bundle.config
 let g:coc_data_home   = g:env.cache . '/coc'
 let g:coc_global_extensions = [
   \  'coc-css',
@@ -18,7 +18,7 @@ let g:coc_global_extensions = [
   \]
 
 " Additional coc-settings
-call coc#config('snippets.userSnippetsDirectory', g:env.root . '/snippet')
+call coc#config('snippets.userSnippetsDirectory', g:env.config . '/snippet')
 call coc#config('languageserver.ccls.initializationOptions.cache',
   \  { 'directory': g:env.cache . '/ccls' })
 
