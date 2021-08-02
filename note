@@ -22,8 +22,6 @@ itchyny/lightline.vim            底部状态栏
 
 jackguo380/vim-lsp-cxx-highlight C/C++ LSP 高亮
 
-jiangmiao/auto-pairs             自动匹配括号
-
 lilydjwg/fcitx.vim               Fcitx5 中文输入适配
  + python-dbus                   DBUS 切换 Fcitx5 运行状态
 
@@ -38,6 +36,7 @@ neoclide/coc.nvim                LSP 支持
  - coc-json                      JSON 语言服务器
  - coc-markdownlint              Markdown 语言服务器
  - coc-marketplace               COC 插件市场
+ - coc-pairs                     括号补全
  - coc-rust-analyzer             Rust 语言服务器
  - coc-sh                        Shell 语言服务器
  - coc-snippets                  代码片段生成器
@@ -48,11 +47,9 @@ neoclide/coc.nvim                LSP 支持
 
 pangloss/vim-javascript          JavaScript 语法高亮支持
 
-phanviet/vim-monokai-pro         monokai-pro 主题
-
 puremourning/vimspector          Debugger
 
-rbgrouleff/bclose.vim            Ranger 的 nvim 兼容插件
+rbgrouleff/bclose.vim            Ranger 的 neovim 兼容插件
 
 rust-lang/rust.vim               Rust 语法高亮支持
 
