@@ -11,7 +11,6 @@ Plug 'lilydjwg/fcitx.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'pangloss/vim-javascript'
-Plug 'phanviet/vim-monokai-pro'
 Plug 'puremourning/vimspector', { 'do': ':VimspectorUpdate' }
 Plug 'rbgrouleff/bclose.vim'
 Plug 'rust-lang/rust.vim'
