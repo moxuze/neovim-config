@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
   \  'coc-json',
   \  'coc-markdownlint',
   \  'coc-marketplace',
+  \  'coc-pairs',
   \  'coc-rust-analyzer',
   \  'coc-sh',
   \  'coc-snippets',

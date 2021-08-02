@@ -7,7 +7,6 @@ Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'itchyny/lightline.vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'jiangmiao/auto-pairs'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
