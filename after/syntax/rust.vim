@@ -1,3 +1,3 @@
-syntax match Operator        ':'
-syntax match CustomDelimiter '[.,;]'
-syntax match CustomPair      '[{}()\[\]]'
+syntax match Operator  ':'
+syntax match Delimiter '->'
+syntax match Delimiter '[.,;{}()\[\]]'

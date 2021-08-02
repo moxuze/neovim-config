@@ -1,8 +1,1 @@
-syntax match cOperator '\(<<\|>>\|[-+*/%&^|<>!=]\)='
-syntax match cOperator '<<\|>>\|&&\|||\|++\|--'
-syntax match cOperator '[?:!~*&%<>^|=+-]'
-syntax match cOperator '/[^/*=]'me=e-1
-
-syntax match CustomArrow     '->'
-syntax match CustomDelimiter '[.,;]'
-syntax match CustomPair      '[{}()\[\]]'
+execute 'source ' . expand('<sfile>:p:h') . '/c.vim'

@@ -3,6 +3,5 @@ syntax match cOperator '<<\|>>\|&&\|||\|++\|--'
 syntax match cOperator '[?:!~*&%<>^|=+-]'
 syntax match cOperator '/[^/*=]'me=e-1
 
-syntax match CustomArrow     '->'
-syntax match CustomDelimiter '[.,;]'
-syntax match CustomPair      '[{}()\[\]]'
+syntax match Delimiter '->'
+syntax match Delimiter '[.,;{}()\[\]]'
