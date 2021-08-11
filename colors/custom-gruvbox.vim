@@ -10,6 +10,7 @@ highlight      Operator                    ctermfg=216
 highlight link LspCxxHlGroupEnumConstant   cConstant
 highlight link LspCxxHlGroupMemberVariable LspCxxHlSymVariable
 highlight link LspCxxHlGroupNamespace      cInclude
+highlight link LspCxxHlSymConstructor      Type
 highlight link LspCxxHlSymMacro            GruvboxBlue
 highlight      LspCxxHlSymParameter        cterm=italic
 
