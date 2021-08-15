@@ -1,2 +1,2 @@
 " === KEY MAP ===
-map <Leader>e <Plug>(easymotion-s)
+map <Leader>s <Plug>(easymotion-s)
