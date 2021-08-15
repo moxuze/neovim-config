@@ -25,11 +25,12 @@ jackguo380/vim-lsp-cxx-highlight C/C++ LSP 高亮
 lilydjwg/fcitx.vim               Fcitx5 中文输入适配
  + python-dbus                   DBUS 切换 Fcitx5 运行状态
 
-morhetz/gruvbox                  gruvbox 主题
+morhetz/gruvbox                  Gruvbox 主题
 
 neoclide/coc.nvim                LSP 支持
  + nodejs-neovim                 NodeJS 运行环境
  + ccls                          C/C++ 语言服务器
+ + racket-langserver             Racket 语言服务器
  + rust-analyzer                 Rust 语言服务器
  - coc-css                       CSS 语言服务器
  - coc-html                      HTML 语言服务器
@@ -54,6 +55,7 @@ rbgrouleff/bclose.vim            Ranger 的 neovim 兼容插件
 rust-lang/rust.vim               Rust 语法高亮支持
 
 skywind3000/vim-terminal-help    内置命令行
+ - neovim-remote                 drop 命令依赖
 
 tpope/vim-commentary             快速注释
 
@@ -66,6 +68,8 @@ tpope/vim-surround               快速包裹
 uiiaoo/java-syntax.vim           Java 语法高亮支持
 
 voldikss/vim-translator          翻译
+
+wlangstroth/vim-racket           Racket 语法高亮支持
 
 Yggdroot/indentLine              缩进辅助线
 

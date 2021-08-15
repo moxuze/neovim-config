@@ -21,6 +21,16 @@
           "lsRanges": true
         }
       }
+    },
+    "racket": {
+      "command": "racket",
+      "args": [
+        "--lib",
+        "racket-langserver"
+      ],
+      "filetypes": [
+        "racket"
+      ]
     }
   },
   "markdownlint.config": {

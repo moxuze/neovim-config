@@ -21,5 +21,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'voldikss/vim-translator'
+Plug 'wlangstroth/vim-racket'
 Plug 'Yggdroot/indentLine'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
