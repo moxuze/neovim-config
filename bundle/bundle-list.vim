@@ -5,10 +5,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
-Plug 'itchyny/lightline.vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'lilydjwg/fcitx.vim'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+Plug 'liuchengxu/vista.vim'
 Plug 'morhetz/gruvbox'
+Plug 'moxuze/lightline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'pangloss/vim-javascript'
 Plug 'puremourning/vimspector', { 'do': ':VimspectorUpdate' }
@@ -23,4 +25,3 @@ Plug 'uiiaoo/java-syntax.vim'
 Plug 'voldikss/vim-translator'
 Plug 'wlangstroth/vim-racket'
 Plug 'Yggdroot/indentLine'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
