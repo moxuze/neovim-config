@@ -42,7 +42,7 @@ let g:vista#renderer#icons = {
   \  'default': "\uf872",
   \}
 
-" === KEY MAP ===
+" === KEYMAP ===
 nnoremap <silent> <Leader>v :Vista!!<CR>
 function s:settings() abort
 nnoremap <buffer> <silent> <CR> :call <SID>jump()<CR>

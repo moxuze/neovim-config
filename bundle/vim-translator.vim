@@ -1,4 +1,4 @@
-" === KEY MAP ===
+" === KEYMAP ===
 " Echo translation in the cmdline
 nmap <silent> <Leader>tt <Plug>Translate
 vmap <silent> <Leader>tt <Plug>TranslateV

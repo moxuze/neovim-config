@@ -14,7 +14,7 @@ let g:clap_theme = {
   \  'current_selection_sign': { 'ctermfg': '110' },
   \}
 
-" === KEY MAP ===
+" === KEYMAP ===
 nnoremap <Leader>fb :Clap bcommits<CR>
 nnoremap <Leader>fc :Clap commits<CR>
 nnoremap <Leader>fd :Clap git_diff_files<CR>

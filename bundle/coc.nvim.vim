@@ -28,7 +28,7 @@ call coc#config('languageserver.ccls.initializationOptions.cache',
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd FileType html,xml,svg,vue let b:coc_pairs_disabled = ['<']
 
-" === KEY MAP ===
+" === KEYMAP ===
 " Completion & Snippet
 let g:coc_snippet_prev = '<S-Tab>'
 let g:coc_snippet_next = '<Tab>'
