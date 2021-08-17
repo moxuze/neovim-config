@@ -26,7 +26,12 @@ call coc#config('languageserver.ccls.initializationOptions.cache',
 " === TRIGGER ===
 " Highlight Symbol
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Disable Tags
 autocmd FileType html,xml,svg,vue let b:coc_pairs_disabled = ['<']
+
+" Signature
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " === KEYMAP ===
 " Completion & Snippet
