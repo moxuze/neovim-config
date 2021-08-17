@@ -18,14 +18,18 @@ honza/vim-snippets               预设代码片段集
 
 iamcco/markdown-preview.nvim     Markdown 文件动态预览
 
-itchyny/lightline.vim            底部状态栏
-
 jackguo380/vim-lsp-cxx-highlight C/C++ LSP 高亮
 
 lilydjwg/fcitx.vim               Fcitx5 中文输入适配
  + python-dbus                   DBUS 切换 Fcitx5 运行状态
 
+liuchengxu/vim-clap              模糊搜索
+
+liuchengxu/vista.vim             Tags 浏览侧边栏
+
 morhetz/gruvbox                  Gruvbox 主题
+
+moxuze/lightline.vim             魔改的底部状态栏
 
 neoclide/coc.nvim                LSP 支持
  + nodejs-neovim                 NodeJS 运行环境
@@ -72,5 +76,3 @@ voldikss/vim-translator          翻译
 wlangstroth/vim-racket           Racket 语法高亮支持
 
 Yggdroot/indentLine              缩进辅助线
-
-Yggdroot/LeaderF                 模糊搜索
