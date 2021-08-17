@@ -10,7 +10,7 @@ let g:clap_theme = {
   \  'spinner'    : { 'ctermbg': '239', 'ctermfg': '203', 'cterm': 'bold' },
   \  'search_text': { 'ctermbg': '239', 'ctermfg': '214', 'cterm': 'bold' },
   \  'preview'    : { 'ctermbg': '237' },
-  \  'current_selection'     : { 'ctermbg': '236', 'ctermfg': '108', 'cterm': 'bold' },
+  \  'current_selection'     : { 'ctermbg': '237', 'ctermfg': '108', 'cterm': 'bold' },
   \  'current_selection_sign': { 'ctermfg': '110' },
   \}
 
