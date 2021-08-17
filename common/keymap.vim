@@ -16,7 +16,7 @@ nnoremap <Leader>d "+d
 vnoremap <Leader>d "+d
 
 " Quick Quit
-autocmd FileType help,qf noremap <buffer> <silent> <Esc> :q!<CR>
+autocmd FileType help,qf nnoremap <buffer> <silent> <Esc> :q!<CR>
 
 " Buffer
 nnoremap <silent> <M-n> :bnext<CR>
