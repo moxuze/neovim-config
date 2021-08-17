@@ -3,6 +3,7 @@ Plug 'alvan/vim-closetag'
 Plug 'cespare/vim-toml'
 Plug 'easymotion/vim-easymotion'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'gabrielelana/vim-markdown'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'jackguo380/vim-lsp-cxx-highlight'

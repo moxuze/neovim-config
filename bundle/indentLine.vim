@@ -9,6 +9,6 @@ function s:indent_char_in_listchars(default)
 endfunction
 
 let g:indentLine_char = s:indent_char_in_listchars('¦')
-let g:indentLine_fileTypeExclude = ['', 'help']
+let g:indentLine_fileTypeExclude = ['', 'help', 'markdown']
 let g:indentLine_first_char = g:indentLine_char
 let g:indentLine_showFirstIndentLevel = 1
