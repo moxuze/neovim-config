@@ -1,1 +1,1 @@
-custom-gruvbox.vim
+gruvbox.vim

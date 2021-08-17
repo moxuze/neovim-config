@@ -27,8 +27,6 @@ liuchengxu/vim-clap              模糊搜索
 
 liuchengxu/vista.vim             Tags 浏览侧边栏
 
-morhetz/gruvbox                  Gruvbox 主题
-
 moxuze/lightline.vim             魔改的底部状态栏
 
 neoclide/coc.nvim                LSP 支持
