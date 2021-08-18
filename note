@@ -50,6 +50,8 @@ neoclide/coc.nvim                LSP 支持
 
 pangloss/vim-javascript          JavaScript 语法高亮支持
 
+plasticboy/vim-markdown          MarkDown 语法高亮支持
+
 puremourning/vimspector          Debugger
 
 rbgrouleff/bclose.vim            Ranger 的 neovim 兼容插件
