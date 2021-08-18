@@ -3,7 +3,6 @@ Plug 'alvan/vim-closetag'
 Plug 'cespare/vim-toml'
 Plug 'easymotion/vim-easymotion'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'gabrielelana/vim-markdown'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -13,6 +12,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'moxuze/lightline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
 Plug 'puremourning/vimspector', { 'do': ':VimspectorUpdate' }
 Plug 'rbgrouleff/bclose.vim'
 Plug 'rust-lang/rust.vim'

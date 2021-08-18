@@ -14,7 +14,8 @@ function s:markdown_conceal()
 endfunction
 
 " === OPTION ===
-let g:markdown_enable_conceal = 1
-let g:markdown_enable_mappings = 0
-let g:markdown_enable_spell_checking = 0
-let g:markdown_include_jekyll_support = 0
+let g:vim_markdown_conceal = 1
+let g:vim_markdown_conceal_code_blocks = 0
+
+" === TRIGGER ===
+autocmd FileType markdown set conceallevel=2

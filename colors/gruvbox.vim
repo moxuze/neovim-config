@@ -8,6 +8,12 @@
 " -----------------------------------------------------------------------------
 
 " Supporting code -------------------------------------------------------------
+" Settings: {{{
+
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_comments=0
+
+" }}}
 " Initialisation: {{{
 
 if version > 580
@@ -791,7 +797,8 @@ hi! link LspCxxHlGroupMemberVariable LspCxxHlSymVariable
 hi! link LspCxxHlGroupNamespace      cInclude
 hi! link LspCxxHlSymConstructor      Type
 hi! link LspCxxHlSymMacro            GruvboxBlue
-hi!      LspCxxHlSymParameter        cterm=italic
+
+call s:HL('LspCxxHlSymParameter', s:vim_fg, s:vim_bg, s:italic)
 
 " }}}
 " Python: {{{
@@ -927,6 +934,13 @@ hi! link jsonNoise        Delimiter
 hi! link jsonNull         Constant
 hi! link jsonQuote        Delimiter
 hi! link jsonString       String
+
+" }}}
+" Markdown BUNDLE vim-markdown: {{{
+
+hi! link mkdBold       htmlBold
+hi! link mkdBoldItalic htmlBoldItalic
+hi! link mkdItalic     htmlItalic
 
 " }}}
 
