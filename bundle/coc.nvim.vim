@@ -44,6 +44,14 @@ inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
 inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : coc#expandableOrJumpable() ?
   \  '<C-r>=coc#rpc#request("doKeymap", ["snippets-expand-jump", ""])<CR>' : '<Tab>'
 
+" Float Window
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<CR>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(0)\<CR>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
 " Code
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
