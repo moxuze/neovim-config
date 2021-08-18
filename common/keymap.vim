@@ -68,5 +68,5 @@ cnoremap <M-f> <C-Right>
 " Pair
 inoremap <buffer> <silent> <M-k> <Esc>:call search('["\[''({<]','bW')<CR>a
 inoremap <buffer> <silent> <M-j> <Esc>:call search('["\]'')}>]','W')<CR>a
-noremap  <buffer> <silent> <M-k> :call search('["\[''({<]','bW')<CR>
-noremap  <buffer> <silent> <M-j> :call search('["\]'')}>]','W')<CR>
+nnoremap <buffer> <silent> <M-k> :call search('["\[''({<]','bW')<CR>
+nnoremap <buffer> <silent> <M-j> :call search('["\]'')}>]','W')<CR>
