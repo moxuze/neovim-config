@@ -38,13 +38,18 @@ let g:lightline = {
 
 let s:status_line_override = {
   \  'vista': [
-  \    '%#LightlineLeft_active_1# [VISTA] %#LightlineMiddle_active#',
-  \    '%#LightlineLeft_inactive_0# [VISTA]',
+  \    '%#LightlineLeft_active_1# [Vista] %#LightlineMiddle_active#',
+  \    '%#LightlineLeft_inactive_0# [Vista]',
+  \  ],
+  \  'vista_markdown': [
+  \    '%#LightlineLeft_active_1# [Vista Markdown] %#LightlineMiddle_active#',
+  \    '%#LightlineLeft_inactive_0# [Vista Markdown]',
   \  ]
   \}
 
 let s:tab_name_override = {
-  \  'vista': '[VISTA]',
+  \  'vista': '[Vista]',
+  \  'vista_markdown': '[Vista Markdown]',
   \}
 
 " === FUNCTION ===

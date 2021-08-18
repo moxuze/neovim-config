@@ -50,7 +50,7 @@ nnoremap <buffer> <silent> o    :call <SID>fold()<CR>
 nnoremap <buffer> <silent> p    :call vista#cursor#TogglePreview()<CR>
 nnoremap <buffer> <silent> q    :close<CR>
 endfunction
-autocmd FileType vista,vista_kind call s:settings()
+autocmd FileType vista,vista_kind,vista_markdown call s:settings()
 
 " === FUNCTION ===
 function s:jump() abort
