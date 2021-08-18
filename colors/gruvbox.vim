@@ -4,14 +4,14 @@
 " Author: morhetz <morhetz@gmail.com>
 "         moxuze  <moxuze@hotmai.com>
 " Source: https://github.com/morhetz/gruvbox
-" Last Modified: 17 Aug 2021
+" Last Modified: 18 Aug 2021
 " -----------------------------------------------------------------------------
 
 " Supporting code -------------------------------------------------------------
 " Settings: {{{
 
-let g:gruvbox_italic=1
-let g:gruvbox_italicize_comments=0
+let g:gruvbox_italic = 1
+let g:gruvbox_italicize_comments = 0
 
 " }}}
 " Initialisation: {{{
@@ -312,7 +312,11 @@ if exists('g:gruvbox_hls_cursor')
   let s:hls_cursor = get(s:gb, g:gruvbox_hls_cursor)
 endif
 
-let s:number_column = s:none
+if (s:is_dark)
+  let s:number_column = s:gb.dark0_soft
+else
+  let s:number_column = s:gb.light0_soft
+endif
 if exists('g:gruvbox_number_column')
   let s:number_column = get(s:gb, g:gruvbox_number_column)
 endif
@@ -550,7 +554,6 @@ hi! link WarningMsg GruvboxRedBold
 
 " Line number for :number and :# commands
 call s:HL('LineNr', s:bg4, s:number_column)
-hi! LineNr ctermbg=236
 
 " Column where signs are displayed
 call s:HL('SignColumn', s:none, s:sign_column)
@@ -785,8 +788,9 @@ hi! link xmlTagName           GruvboxBlue
 " }}}
 " Vim: {{{
 
-hi! link vimBracket   GruvboxOrange
-hi! link vimUserFunc  NONE
+hi! link vimBracket  vimMapModKey
+hi! link vimFunction Function
+hi! link vimUserFunc Function
 
 " }}}
 " C/C++ BUNDLE vim-lsp-cxx-highlight: {{{
