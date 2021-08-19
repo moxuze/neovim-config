@@ -43,3 +43,10 @@ function util#toggle_indent_space() abort
     endfor
   endif
 endfunction
+
+function util#toggle_background() abort
+  let &background = &background ==# 'dark' ? 'light' : 'dark'
+  if (exists('g:lightline'))
+    call lightline#colorscheme#update()
+  endif
+endfunction

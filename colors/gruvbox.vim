@@ -10,9 +10,13 @@
 " Supporting code -------------------------------------------------------------
 " Settings: {{{
 
-let g:gruvbox_italic = 1
-let g:gruvbox_italicize_comments = 0
-let g:gruvbox_contrast_light = 'soft'
+" only load once
+if (!exists('s:loaded'))
+  let g:gruvbox_italic = 1
+  let g:gruvbox_italicize_comments = 0
+  let g:gruvbox_contrast_light = 'soft'
+  let s:loaded = 1
+endif
 
 " }}}
 " Initialisation: {{{
@@ -948,16 +952,28 @@ hi! link mkdItalic     htmlItalic
 
 " }}}
 
-" Functions -------------------------------------------------------------------
-" Search Highlighting Cursor {{{
+" Commands --------------------------------------------------------------------
+" Toggle Gruvbox Contrast: {{{
 
-function! GruvboxHlsShowCursor()
-  call s:HL('Cursor', s:bg0, s:hls_cursor)
-endfunction
-
-function! GruvboxHlsHideCursor()
-  call s:HL('Cursor', s:none, s:none, s:inverse)
-endfunction
+if (!exists('s:loaded_toggle_contrast'))
+  function s:toggle_contrast() abort
+    let l:is_dark = &background ==# 'dark'
+    let l:contrast = l:is_dark ? g:gruvbox_contrast_dark : g:gruvbox_contrast_light
+    let l:next = get({ 'soft': 'medium', 'medium': 'hard', 'hard': 'soft' }, l:contrast)
+    if (l:is_dark)
+      let g:gruvbox_contrast_dark = l:next
+    else
+      let g:gruvbox_contrast_light = l:next
+    endif
+    colorscheme gruvbox
+    if (exists('g:lightline'))
+      call lightline#colorscheme#update()
+    endif
+    echomsg l:next
+  endfunction
+  let s:loaded_toggle_contrast = 1
+  command! -nargs=0 Contrast call <SID>toggle_contrast()
+endif
 
 " }}}
 
