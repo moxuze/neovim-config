@@ -14,7 +14,6 @@ function! s:color(group)
 endfunction
 
 if exists('g:lightline')
-
   let s:bg0 = s:color('GruvboxBg0')
   let s:bg1 = s:color('GruvboxBg1')
   let s:bg2 = s:color('GruvboxBg2')
@@ -25,35 +24,41 @@ if exists('g:lightline')
   let s:fg4 = s:color('GruvboxFg4')
 
   let s:yellow = s:color('GruvboxYellow')
-  let s:blue   = s:color('GruvboxBlue')
-  let s:aqua   = s:color('GruvboxAqua')
+  let s:blue   = s:color('GruvboxBlue'  )
+  let s:aqua   = s:color('GruvboxAqua'  )
   let s:orange = s:color('GruvboxOrange')
-  let s:green  = s:color('GruvboxGreen')
+  let s:green  = s:color('GruvboxGreen' )
   let s:purple = s:color('GruvboxPurple')
 
-  let s:p = {'normal':{}, 'inactive':{}, 'insert':{}, 'replace':{}, 'visual':{}, 'tabline':{}, 'terminal':{}}
-  let s:p.normal.left     = [[s:bg0, s:fg4], [s:fg2, s:bg2]]
-  let s:p.normal.right    = [[s:bg0, s:fg4], [s:fg3, s:bg2]]
-  let s:p.normal.middle   = [[s:fg4, s:bg1]]
-  let s:p.inactive.right  = [[s:bg4, s:bg1], [s:bg4, s:bg1]]
-  let s:p.inactive.left   = [[s:bg4, s:bg1], [s:bg4, s:bg1]]
-  let s:p.inactive.middle = [[s:bg4, s:bg1]]
-  let s:p.insert.left     = [[s:bg0, s:blue], [s:fg1, s:bg2]]
-  let s:p.insert.right    = [[s:bg0, s:blue], [s:fg3, s:bg2]]
-  let s:p.insert.middle   = [[s:fg4, s:bg1]]
-  let s:p.terminal.left   = [[s:bg0, s:green], [s:fg1, s:bg2]]
-  let s:p.terminal.right  = [[s:bg0, s:fg4], [s:fg3, s:bg2]]
-  let s:p.terminal.middle = [[s:fg4, s:bg1]]
+  let s:p = {
+    \  'normal' : {}, 'inactive': {}, 'insert' : {}, 'command' : {},
+    \  'replace': {}, 'visual'  : {}, 'tabline': {}, 'terminal': {},
+    \}
+  let s:p.normal.left     = [[s:bg0, s:fg4   ], [s:fg2, s:bg2]]
+  let s:p.normal.right    = [[s:bg0, s:fg4   ], [s:fg3, s:bg2]]
+  let s:p.normal.middle   = [[s:fg4, s:bg1   ]]
+  let s:p.inactive.right  = [[s:bg4, s:bg1   ], [s:bg4, s:bg1]]
+  let s:p.inactive.left   = [[s:bg4, s:bg1   ], [s:bg4, s:bg1]]
+  let s:p.inactive.middle = [[s:bg4, s:bg1   ]]
+  let s:p.insert.left     = [[s:bg0, s:blue  ], [s:fg1, s:bg2]]
+  let s:p.insert.right    = [[s:bg0, s:blue  ], [s:fg3, s:bg2]]
+  let s:p.insert.middle   = [[s:fg4, s:bg1   ]]
+  let s:p.command.left    = [[s:bg0, s:yellow], [s:fg1, s:bg2]]
+  let s:p.command.right   = [[s:bg0, s:yellow], [s:fg3, s:bg2]]
+  let s:p.command.middle  = [[s:fg4, s:bg1   ]]
+  let s:p.terminal.left   = [[s:bg0, s:green ], [s:fg1, s:bg2]]
+  let s:p.terminal.right  = [[s:bg0, s:fg4   ], [s:fg3, s:bg2]]
+  let s:p.terminal.middle = [[s:fg4, s:bg1   ]]
   let s:p.replace.left    = [[s:bg0, s:orange], [s:fg1, s:bg2]]
   let s:p.replace.right   = [[s:bg0, s:orange], [s:fg3, s:bg2]]
-  let s:p.replace.middle  = [[s:fg4, s:bg1]]
+  let s:p.replace.middle  = [[s:fg4, s:bg1   ]]
   let s:p.visual.left     = [[s:bg0, s:purple], [s:bg0, s:bg4]]
   let s:p.visual.right    = [[s:bg0, s:purple], [s:bg0, s:bg4]]
-  let s:p.visual.middle   = [[s:fg4, s:bg1]]
-  let s:p.tabline.left    = [[s:fg4, s:bg2]]
-  let s:p.tabline.tabsel  = [[s:bg0, s:fg4]]
-  let s:p.tabline.middle  = [[s:bg0, s:bg0]]
-  let s:p.tabline.right   = [[s:bg0, s:aqua]]
+  let s:p.visual.middle   = [[s:fg4, s:bg1   ]]
+  let s:p.tabline.left    = [[s:fg4, s:bg2   ]]
+  let s:p.tabline.tabsel  = [[s:bg0, s:fg4   ]]
+  let s:p.tabline.middle  = [[s:bg0, s:bg0   ]]
+  let s:p.tabline.right   = [[s:bg0, s:aqua  ]]
   let s:p.normal.error    = [[s:bg0, s:orange]]
   let s:p.normal.warning  = [[s:bg2, s:yellow]]
 
