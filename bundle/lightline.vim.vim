@@ -14,24 +14,24 @@ let g:lightline = {
   \    ],
   \  },
   \  'inactive': {
-  \    'left' : [['filestatus']],
+  \    'left': [['filestatus']],
   \    'right': [['percent', 'lineinfo'], ['filetype', 'filesize']],
   \  },
-  \  'component' : {
+  \  'component': {
   \    'filetype': '%{empty(&ft)?"plain":&ft}',
   \    'readonly': '%{&readonly?"":""}',
   \    'lineinfo': '%2l:%-2c',
   \  },
   \  'component_function': {
   \    'filestatus': 'g:CustomLightlineFileState',
-  \    'filesize'  : 'g:CustomLightlineFileSize',
+  \    'filesize' : 'g:CustomLightlineFileSize',
   \    'gitstatus' : 'g:CustomLightlineGitStatus',
   \  },
   \  'tab_component_function': {
   \    'filename': 'g:CustomLightlineTabFileName',
   \    'modified': 'g:CustomLightlineTabModified',
   \  },
-  \  'separator'   : { 'left': '', 'right': '' },
+  \  'separator': { 'left': '', 'right': '' },
   \  'subseparator': { 'left': '।', 'right': '।' },
   \  'filter': 'g:CustomLightlineFilter'
   \}

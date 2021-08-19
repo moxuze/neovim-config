@@ -22,8 +22,8 @@ call plug#begin(g:env.bundle.cache)
 call s:load_config('bundle/bundle-list.vim')
 call plug#end()
 
-call s:load_config('common/global.vim')
-call s:load_config('common/keymap.vim')
+call s:load_config('common/global.vim' )
+call s:load_config('common/keymap.vim' )
 call s:load_config('common/trigger.vim')
 call s:load_config('common/command.vim')
 
