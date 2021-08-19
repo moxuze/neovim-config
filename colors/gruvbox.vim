@@ -984,8 +984,8 @@ if (!exists('s:loaded_toggle_contrast'))
       let g:gruvbox_contrast_light = l:next
     endif
     colorscheme gruvbox
-    if (exists('g:lightline'))
-      call lightline#colorscheme#update()
+    if (exists('*g:UpdateColorLightline'))
+      call g:UpdateColorLightline()
     endif
     echomsg l:next
   endfunction

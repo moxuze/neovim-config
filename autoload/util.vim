@@ -46,7 +46,10 @@ endfunction
 
 function util#toggle_background() abort
   let &background = &background ==# 'dark' ? 'light' : 'dark'
-  if (exists('g:lightline'))
-    call lightline#colorscheme#update()
+  if (exists('*g:UpdateColorLightline'))
+    call g:UpdateColorLightline()
+  endif
+  if (exists('*g:UpdateColorClap'))
+    call g:UpdateColorClap()
   endif
 endfunction

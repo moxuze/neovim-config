@@ -116,3 +116,12 @@ function g:CustomLightlineGitStatus() abort
     return printf('%s [+%d ~%d -%d]', l:branch, l:a, l:m, l:r)
   endif
 endfunction
+
+function g:UpdateColorLightline() abort
+  try
+    " try to call an undefined fake function to reload the autoload script
+    call lightline#colorscheme#{g:lightline.colorscheme}#fake_function()
+  catch
+    call lightline#colorscheme()
+  endtry
+endfunction

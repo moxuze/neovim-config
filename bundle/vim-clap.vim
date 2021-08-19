@@ -1,9 +1,11 @@
 " === APPEARANCE ===
+function s:theme() abort
+  let g:clap_theme = &background ==# 'dark' ? 'solarized_dark' : 'solarized_light'
+endfunction
+call s:theme()
 let g:clap_layout = { 'relative': 'editor' }
 let g:clap_enable_icon = 1
-if (&background ==# 'light')
-  let g:clap_theme = 'solarized_light'
-endif
+let g:clap_enable_background_shadow = 0
 
 " === KEYMAP ===
 nnoremap <Leader>fb :Clap bcommits<CR>
@@ -17,3 +19,12 @@ nnoremap <Leader>ft :Clap tags<CR>
 nnoremap <Leader>fw :Clap grep2 ++query=<cword><CR>
 nnoremap <Leader>fy :Clap yanks<CR>
 vnoremap <Leader>f  :Clap grep2 ++query=@visual<CR>
+
+" === Function ===
+function g:UpdateColorClap() abort
+  call s:theme()
+  call clap#themes#init()
+  " TODO
+  "doautocmd User ClapReloadTheme ColorScheme
+  colorscheme gruvbox
+endfunction
