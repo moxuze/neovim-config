@@ -180,17 +180,26 @@ let s:none = ['NONE', 'NONE']
 
 " determine relative colors
 if s:is_dark
-  let s:bg0  = s:gb.dark0
+  let s:bg0 = s:gb.dark0
+  let s:bge0 = s:gb.dark0_soft
+  let s:bge1 = s:gb.dark1
+  let s:bge2 = s:gb.dark2
   if g:gruvbox_contrast_dark == 'soft'
-    let s:bg0  = s:gb.dark0_soft
+    let s:bg0 = s:gb.dark0_soft
+    let s:bge0 = s:gb.dark1
+    let s:bge1 = s:gb.dark2
+    let s:bge2 = s:gb.dark3
   elseif g:gruvbox_contrast_dark == 'hard'
-    let s:bg0  = s:gb.dark0_hard
+    let s:bg0 = s:gb.dark0_hard
+    let s:bge0 = s:gb.dark0
+    let s:bge1 = s:gb.dark0_soft
+    let s:bge2 = s:gb.dark1
   endif
 
-  let s:bg1  = s:gb.dark1
-  let s:bg2  = s:gb.dark2
-  let s:bg3  = s:gb.dark3
-  let s:bg4  = s:gb.dark4
+  let s:bg1 = s:gb.dark1
+  let s:bg2 = s:gb.dark2
+  let s:bg3 = s:gb.dark3
+  let s:bg4 = s:gb.dark4
 
   let s:gray = s:gb.gray_245
 
@@ -210,17 +219,26 @@ if s:is_dark
   let s:aqua   = s:gb.bright_aqua
   let s:orange = s:gb.bright_orange
 else
-  let s:bg0  = s:gb.light0
+  let s:bg0 = s:gb.light0
+  let s:bge0 = s:gb.light0_soft
+  let s:bge1 = s:gb.light1
+  let s:bge2 = s:gb.light2
   if g:gruvbox_contrast_light == 'soft'
-    let s:bg0  = s:gb.light0_soft
+    let s:bg0 = s:gb.light0_soft
+    let s:bge0 = s:gb.light1
+    let s:bge1 = s:gb.light2
+    let s:bge2 = s:gb.light3
   elseif g:gruvbox_contrast_light == 'hard'
-    let s:bg0  = s:gb.light0_hard
+    let s:bg0 = s:gb.light0_hard
+    let s:bge0 = s:gb.light0
+    let s:bge1 = s:gb.light0_soft
+    let s:bge2 = s:gb.light1
   endif
 
-  let s:bg1  = s:gb.light1
-  let s:bg2  = s:gb.light2
-  let s:bg3  = s:gb.light3
-  let s:bg4  = s:gb.light4
+  let s:bg1 = s:gb.light1
+  let s:bg2 = s:gb.light2
+  let s:bg3 = s:gb.light3
+  let s:bg4 = s:gb.light4
 
   let s:gray = s:gb.gray_244
 
@@ -263,6 +281,9 @@ let s:gb.bg3 = s:bg3
 let s:gb.bg4 = s:bg4
 
 let s:gb.gray = s:gray
+let s:gb.bge0 = s:bge0
+let s:gb.bge1 = s:bge1
+let s:gb.bge2 = s:bge2
 
 let s:gb.fg0 = s:fg0
 let s:gb.fg1 = s:fg1
@@ -318,10 +339,7 @@ if exists('g:gruvbox_hls_cursor')
 endif
 
 let s:number_column = exists('g:gruvbox_number_column')
-  \? get(s:gb, g:gruvbox_number_column)
-  \: s:is_dark
-    \? get(s:gb, get({ 'soft': 'dark1' , 'medium': 'dark0_soft' , 'hard': 'dark0'  }, g:gruvbox_contrast_dark ))
-    \: get(s:gb, get({ 'soft': 'light1', 'medium': 'light0_soft', 'hard': 'light0' }, g:gruvbox_contrast_light))
+  \? get(s:gb, g:gruvbox_number_column) : s:gb.bge0
 
 if exists('g:gitgutter_override_sign_column_highlight') &&
   \ g:gitgutter_override_sign_column_highlight == 1
@@ -329,10 +347,7 @@ if exists('g:gitgutter_override_sign_column_highlight') &&
 else
   let g:gitgutter_override_sign_column_highlight = 0
   let s:sign_column = exists('g:gruvbox_sign_column')
-    \? get(s:gb, g:gruvbox_sign_column)
-    \: s:is_dark
-      \? get(s:gb, get({ 'soft': 'dark2' , 'medium': 'dark1' , 'hard': 'dark0_soft'  }, g:gruvbox_contrast_dark ))
-      \: get(s:gb, get({ 'soft': 'light2', 'medium': 'light1', 'hard': 'light0_soft' }, g:gruvbox_contrast_light))
+    \? get(s:gb, g:gruvbox_sign_column) : s:gb.bge1
 endif
 
 let s:color_column = s:bg1
@@ -435,17 +450,20 @@ endfunction
 " Gruvbox Hi Groups: {{{
 
 " memoize common hi groups
-call s:HL('GruvboxFg0' , s:fg0 )
-call s:HL('GruvboxFg1' , s:fg1 )
-call s:HL('GruvboxFg2' , s:fg2 )
-call s:HL('GruvboxFg3' , s:fg3 )
-call s:HL('GruvboxFg4' , s:fg4 )
-call s:HL('GruvboxGray', s:gray)
-call s:HL('GruvboxBg0' , s:bg0 )
-call s:HL('GruvboxBg1' , s:bg1 )
-call s:HL('GruvboxBg2' , s:bg2 )
-call s:HL('GruvboxBg3' , s:bg3 )
-call s:HL('GruvboxBg4' , s:bg4 )
+call s:HL('GruvboxFg0'  , s:fg0 )
+call s:HL('GruvboxFg1'  , s:fg1 )
+call s:HL('GruvboxFg2'  , s:fg2 )
+call s:HL('GruvboxFg3'  , s:fg3 )
+call s:HL('GruvboxFg4'  , s:fg4 )
+call s:HL('GruvboxGray' , s:gray)
+call s:HL('GruvboxBg0'  , s:bg0 )
+call s:HL('GruvboxBg1'  , s:bg1 )
+call s:HL('GruvboxBg2'  , s:bg2 )
+call s:HL('GruvboxBg3'  , s:bg3 )
+call s:HL('GruvboxBg4'  , s:bg4 )
+call s:HL('GruvboxBgEx0', s:bge0)
+call s:HL('GruvboxBgEx1', s:bge1)
+call s:HL('GruvboxBgEx2', s:bge2)
 
 call s:HL('GruvboxRed'   , s:red   )
 call s:HL('GruvboxGreen' , s:green )
