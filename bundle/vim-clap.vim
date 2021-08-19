@@ -1,18 +1,9 @@
 " === APPEARANCE ===
 let g:clap_layout = { 'relative': 'editor' }
 let g:clap_enable_icon = 1
-let g:clap_enable_background_shadow = 0
-let g:clap_theme = {
-  \  'display'    : { 'ctermbg': '236' },
-  \  'bg0'        : { 'ctermbg': '239' },
-  \  'input'      : { 'ctermbg': '239' },
-  \  'indicator'  : { 'ctermbg': '239', 'ctermfg': '210' },
-  \  'spinner'    : { 'ctermbg': '239', 'ctermfg': '203', 'cterm': 'bold' },
-  \  'search_text': { 'ctermbg': '239', 'ctermfg': '214', 'cterm': 'bold' },
-  \  'preview'    : { 'ctermbg': '237' },
-  \  'current_selection'     : { 'ctermbg': '237', 'ctermfg': '108', 'cterm': 'bold' },
-  \  'current_selection_sign': { 'ctermfg': '110' },
-  \}
+if (&background ==# 'light')
+  let g:clap_theme = 'solarized_light'
+endif
 
 " === KEYMAP ===
 nnoremap <Leader>fb :Clap bcommits<CR>

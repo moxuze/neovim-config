@@ -2,6 +2,7 @@ syntax enable
 filetype plugin indent on
 colorscheme default
 set autoindent
+set background=dark
 set expandtab
 set encoding=utf-8
 set fileencoding=utf-8

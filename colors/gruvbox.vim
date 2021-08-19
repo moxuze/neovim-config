@@ -2,9 +2,9 @@
 " File: gruvbox.vim
 " Description: Retro groove color scheme for Vim
 " Author: morhetz <morhetz@gmail.com>
-"         moxuze  <moxuze@hotmai.com>
+" Modifier: moxuze <moxuze@hotmai.com>
 " Source: https://github.com/morhetz/gruvbox
-" Last Modified: 18 Aug 2021
+" Last Modified: 19 Aug 2021
 " -----------------------------------------------------------------------------
 
 " Supporting code -------------------------------------------------------------
@@ -12,6 +12,7 @@
 
 let g:gruvbox_italic = 1
 let g:gruvbox_italicize_comments = 0
+let g:gruvbox_contrast_light = 'soft'
 
 " }}}
 " Initialisation: {{{
@@ -33,43 +34,43 @@ endif
 " Global Settings: {{{
 
 if !exists('g:gruvbox_bold')
-  let g:gruvbox_bold=1
+  let g:gruvbox_bold = 1
 endif
 if !exists('g:gruvbox_italic')
   if has('gui_running') || $TERM_ITALICS == 'true'
-    let g:gruvbox_italic=1
+    let g:gruvbox_italic = 1
   else
-    let g:gruvbox_italic=0
+    let g:gruvbox_italic = 0
   endif
 endif
 if !exists('g:gruvbox_undercurl')
-  let g:gruvbox_undercurl=1
+  let g:gruvbox_undercurl = 1
 endif
 if !exists('g:gruvbox_underline')
-  let g:gruvbox_underline=1
+  let g:gruvbox_underline = 1
 endif
 if !exists('g:gruvbox_inverse')
-  let g:gruvbox_inverse=1
+  let g:gruvbox_inverse = 1
 endif
 
 if !exists('g:gruvbox_guisp_fallback') || index(['fg', 'bg'], g:gruvbox_guisp_fallback) == -1
-  let g:gruvbox_guisp_fallback='NONE'
+  let g:gruvbox_guisp_fallback = 'NONE'
 endif
 
 if !exists('g:gruvbox_improved_strings')
-  let g:gruvbox_improved_strings=0
+  let g:gruvbox_improved_strings = 0
 endif
 
 if !exists('g:gruvbox_improved_warnings')
-  let g:gruvbox_improved_warnings=0
+  let g:gruvbox_improved_warnings = 0
 endif
 
 if !exists('g:gruvbox_termcolors')
-  let g:gruvbox_termcolors=256
+  let g:gruvbox_termcolors = 256
 endif
 
 if !exists('g:gruvbox_invert_indent_guides')
-  let g:gruvbox_invert_indent_guides=0
+  let g:gruvbox_invert_indent_guides = 0
 endif
 
 if exists('g:gruvbox_contrast')
@@ -77,14 +78,14 @@ if exists('g:gruvbox_contrast')
 endif
 
 if !exists('g:gruvbox_contrast_dark')
-  let g:gruvbox_contrast_dark='medium'
+  let g:gruvbox_contrast_dark = 'medium'
 endif
 
 if !exists('g:gruvbox_contrast_light')
-  let g:gruvbox_contrast_light='medium'
+  let g:gruvbox_contrast_light = 'medium'
 endif
 
-let s:is_dark=(&background == 'dark')
+let s:is_dark = (&background == 'dark')
 
 " }}}
 " Palette: {{{
@@ -312,26 +313,22 @@ if exists('g:gruvbox_hls_cursor')
   let s:hls_cursor = get(s:gb, g:gruvbox_hls_cursor)
 endif
 
-if (s:is_dark)
-  let s:number_column = s:gb.dark0_soft
-else
-  let s:number_column = s:gb.light0_soft
-endif
-if exists('g:gruvbox_number_column')
-  let s:number_column = get(s:gb, g:gruvbox_number_column)
-endif
-
-let s:sign_column = s:bg1
+let s:number_column = exists('g:gruvbox_number_column')
+  \? get(s:gb, g:gruvbox_number_column)
+  \: s:is_dark
+    \? get(s:gb, get({'soft': 'dark1' , 'medium': 'dark0_soft' , 'hard': 'dark0' }, g:gruvbox_contrast_dark ))
+    \: get(s:gb, get({'soft': 'light1', 'medium': 'light0_soft', 'hard': 'light0'}, g:gruvbox_contrast_light))
 
 if exists('g:gitgutter_override_sign_column_highlight') &&
   \ g:gitgutter_override_sign_column_highlight == 1
   let s:sign_column = s:number_column
 else
   let g:gitgutter_override_sign_column_highlight = 0
-
-  if exists('g:gruvbox_sign_column')
-    let s:sign_column = get(s:gb, g:gruvbox_sign_column)
-  endif
+  let s:sign_column = exists('g:gruvbox_sign_column')
+    \? get(s:gb, g:gruvbox_sign_column)
+    \: s:is_dark
+      \? get(s:gb, get({'soft': 'dark2' , 'medium': 'dark1' , 'hard': 'dark0_soft' }, g:gruvbox_contrast_dark ))
+      \: get(s:gb, get({'soft': 'light2', 'medium': 'light1', 'hard': 'light0_soft'}, g:gruvbox_contrast_light))
 endif
 
 let s:color_column = s:bg1
