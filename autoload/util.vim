@@ -45,11 +45,11 @@ function util#toggle_indent_space() abort
 endfunction
 
 function util#toggle_background() abort
+  if (exists('*g:UpdateColorClap'))
+    call g:UpdateColorClap()
+  endif
   let &background = &background ==# 'dark' ? 'light' : 'dark'
   if (exists('*g:UpdateColorLightline'))
     call g:UpdateColorLightline()
-  endif
-  if (exists('*g:UpdateColorClap'))
-    call g:UpdateColorClap()
   endif
 endfunction
