@@ -123,5 +123,6 @@ function g:UpdateColorLightline() abort
     call lightline#colorscheme#{g:lightline.colorscheme}#fake_function()
   catch
     call lightline#colorscheme()
+    call lightline#update()
   endtry
 endfunction
