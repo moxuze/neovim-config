@@ -22,5 +22,6 @@ set smartindent
 set smarttab
 set softtabstop=-1
 set tabstop=4
+set termguicolors
 set updatetime=500
 set lazyredraw
