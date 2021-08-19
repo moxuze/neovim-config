@@ -7,29 +7,29 @@
 " Last Modified: 19 Aug 2021
 " -----------------------------------------------------------------------------
 
-function! s:getGruvColor(group)
-  let guiColor  = synIDattr(hlID(a:group), 'fg', 'gui') 
+function! s:color(group)
+  let guiColor  = synIDattr(hlID(a:group), 'fg', 'gui'  ) 
   let termColor = synIDattr(hlID(a:group), 'fg', 'cterm') 
   return [guiColor, termColor]
 endfunction
 
 if exists('g:lightline')
 
-  let s:bg0 = s:getGruvColor('GruvboxBg0')
-  let s:bg1 = s:getGruvColor('GruvboxBg1')
-  let s:bg2 = s:getGruvColor('GruvboxBg2')
-  let s:bg4 = s:getGruvColor('GruvboxBg4')
-  let s:fg1 = s:getGruvColor('GruvboxFg1')
-  let s:fg2 = s:getGruvColor('GruvboxFg2')
-  let s:fg3 = s:getGruvColor('GruvboxFg3')
-  let s:fg4 = s:getGruvColor('GruvboxFg4')
+  let s:bg0 = s:color('GruvboxBg0')
+  let s:bg1 = s:color('GruvboxBg1')
+  let s:bg2 = s:color('GruvboxBg2')
+  let s:bg4 = s:color('GruvboxBg4')
+  let s:fg1 = s:color('GruvboxFg1')
+  let s:fg2 = s:color('GruvboxFg2')
+  let s:fg3 = s:color('GruvboxFg3')
+  let s:fg4 = s:color('GruvboxFg4')
 
-  let s:yellow = s:getGruvColor('GruvboxYellow')
-  let s:blue   = s:getGruvColor('GruvboxBlue')
-  let s:aqua   = s:getGruvColor('GruvboxAqua')
-  let s:orange = s:getGruvColor('GruvboxOrange')
-  let s:green  = s:getGruvColor('GruvboxGreen')
-  let s:purple = s:getGruvColor('GruvboxPurple')
+  let s:yellow = s:color('GruvboxYellow')
+  let s:blue   = s:color('GruvboxBlue')
+  let s:aqua   = s:color('GruvboxAqua')
+  let s:orange = s:color('GruvboxOrange')
+  let s:green  = s:color('GruvboxGreen')
+  let s:purple = s:color('GruvboxPurple')
 
   let s:p = {'normal':{}, 'inactive':{}, 'insert':{}, 'replace':{}, 'visual':{}, 'tabline':{}, 'terminal':{}}
   let s:p.normal.left     = [[s:bg0, s:fg4], [s:fg2, s:bg2]]
@@ -41,7 +41,7 @@ if exists('g:lightline')
   let s:p.insert.left     = [[s:bg0, s:blue], [s:fg1, s:bg2]]
   let s:p.insert.right    = [[s:bg0, s:blue], [s:fg3, s:bg2]]
   let s:p.insert.middle   = [[s:fg4, s:bg1]]
-  let s:p.terminal.left   = [[s:bg0, s:aqua], [s:fg1, s:bg2]]
+  let s:p.terminal.left   = [[s:bg0, s:green], [s:fg1, s:bg2]]
   let s:p.terminal.right  = [[s:bg0, s:fg4], [s:fg3, s:bg2]]
   let s:p.terminal.middle = [[s:fg4, s:bg1]]
   let s:p.replace.left    = [[s:bg0, s:orange], [s:fg1, s:bg2]]
