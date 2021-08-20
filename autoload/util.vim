@@ -45,11 +45,36 @@ function util#toggle_indent_space() abort
 endfunction
 
 function util#toggle_background() abort
-  if (exists('*g:UpdateColorClap'))
+  if exists('*g:UpdateColorClap')
     call g:UpdateColorClap()
   endif
   let &background = &background ==# 'dark' ? 'light' : 'dark'
-  if (exists('*g:UpdateColorLightline'))
+  if exists('*g:UpdateColorLightline')
     call g:UpdateColorLightline()
   endif
+endfunction
+
+let s:pairs = { '(': ')', '[': ']', '{': '}', '<': '>' }
+function util#wrap_pairs() abort
+  let l:after = strpart(getline('.'), col('.') - 1)
+  if l:after[0] !~ '\v[\)\]\}\>''"`]' | return | endif
+  let l:char = l:after[1]
+  if empty(l:char) | return | endif
+  let l:old = @"
+  normal! x
+  let l:after = l:after[1:]
+  if l:char =~ '[''"`]'
+    call search(l:char, 'We', line('.'))
+  elseif has_key(s:pairs, l:char)
+    normal! %
+  else
+    let l:open = l:after[matchend(l:after, '^\s*')]
+    if has_key(s:pairs, l:open)
+      call search(s:pairs[l:open], 'We')
+    elseif l:after[1] =~ '\w'
+      normal! e
+    endif
+  endif
+  normal! p
+  let @" = l:old
 endfunction

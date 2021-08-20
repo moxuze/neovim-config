@@ -70,3 +70,7 @@ inoremap <buffer> <silent> <M-k> <Esc>:call search('["\[''({<]','bW')<CR>a
 inoremap <buffer> <silent> <M-j> <Esc>:call search('["\]'')}>]','W')<CR>a
 nnoremap <buffer> <silent> <M-k> :call search('["\[''({<]','bW')<CR>
 nnoremap <buffer> <silent> <M-j> :call search('["\]'')}>]','W')<CR>
+
+" Wrap
+inoremap <silent> <M-e> <C-o>:call util#wrap_pairs()<CR>
+nnoremap <silent> <M-e> :call util#wrap_pairs()<CR>

@@ -1,10 +1,10 @@
 " === COMMAND ===
 autocmd FileType markdown command! -nargs=0 MarkdownConceal call <SID>markdown_conceal()
 function s:markdown_conceal()
-  if (&conceallevel == 0)
+  if &conceallevel == 0
     echomsg 'conceal level is 1'
     set conceallevel=1
-  elseif (&conceallevel == 1)
+  elseif &conceallevel == 1
     echomsg 'conceal level is 2'
     set conceallevel=2
   else
