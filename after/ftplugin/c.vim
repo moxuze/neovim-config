@@ -28,24 +28,31 @@ endfunction
 
 function! s:cmake(release, args) abort
   if (s:project_root_invalid()) | return | endif
-  execute printf('%scmake -S %s -B %s/build/%s -DCMAKE_BUILD_TYPE=%s '
-              \  . '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON %s',
-              \  s:prefix(), s:project_root, s:project_root, s:type(a:release),
-              \  substitute(s:type(a:release), '^.', '\U\0', ''), a:args)
+  execute printf(
+    \  '%scmake -S %s -B %s/build/%s '
+    \. '-DCMAKE_BUILD_TYPE=%s '
+    \. '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON %s',
+    \  s:prefix(), s:project_root, s:project_root, s:type(a:release),
+    \  substitute(s:type(a:release), '^.', '\U\0', ''), a:args
+    \)
   return v:shell_error
 endfunction
 
 function! s:make(release, args) abort
   if (s:project_root_invalid()) | return | endif
-  execute printf('%smake --silent --directory=%s/build/%s %s',
-              \  s:prefix(), s:project_root, s:type(a:release), a:args)
+  execute printf(
+    \  '%smake --silent --directory=%s/build/%s %s',
+    \  s:prefix(), s:project_root, s:type(a:release), a:args
+    \)
   return v:shell_error
 endfunction
 
 function! s:run(release, args) abort
   if (s:project_root_invalid()) | return | endif
-  execute printf('%s%s/build/%s/%s %s', s:prefix(), s:project_root,
-              \  s:type(a:release), fnamemodify(s:project_root, ':t'), a:args)
+  execute printf(
+    \  '%s%s/build/%s/%s %s', s:prefix(), s:project_root,
+    \  s:type(a:release), fnamemodify(s:project_root, ':t'), a:args
+    \)
   return v:shell_error
 endfunction
 
