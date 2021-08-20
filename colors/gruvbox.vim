@@ -15,7 +15,6 @@ if (!exists('s:loaded'))
   let g:gruvbox_italic = 1
   let g:gruvbox_italicize_comments = 0
   let g:gruvbox_contrast_light = 'soft'
-  let s:loaded = 1
 endif
 
 " }}}
@@ -180,17 +179,17 @@ let s:none = ['NONE', 'NONE']
 
 " determine relative colors
 if s:is_dark
-  let s:bg0 = s:gb.dark0
+  let s:bg0  = s:gb.dark0
   let s:bge0 = s:gb.dark0_soft
   let s:bge1 = s:gb.dark1
   let s:bge2 = s:gb.dark2
   if g:gruvbox_contrast_dark == 'soft'
-    let s:bg0 = s:gb.dark0_soft
+    let s:bg0  = s:gb.dark0_soft
     let s:bge0 = s:gb.dark1
     let s:bge1 = s:gb.dark2
     let s:bge2 = s:gb.dark3
   elseif g:gruvbox_contrast_dark == 'hard'
-    let s:bg0 = s:gb.dark0_hard
+    let s:bg0  = s:gb.dark0_hard
     let s:bge0 = s:gb.dark0
     let s:bge1 = s:gb.dark0_soft
     let s:bge2 = s:gb.dark1
@@ -219,17 +218,17 @@ if s:is_dark
   let s:aqua   = s:gb.bright_aqua
   let s:orange = s:gb.bright_orange
 else
-  let s:bg0 = s:gb.light0
+  let s:bg0  = s:gb.light0
   let s:bge0 = s:gb.light0_soft
   let s:bge1 = s:gb.light1
   let s:bge2 = s:gb.light2
   if g:gruvbox_contrast_light == 'soft'
-    let s:bg0 = s:gb.light0_soft
+    let s:bg0  = s:gb.light0_soft
     let s:bge0 = s:gb.light1
     let s:bge1 = s:gb.light2
     let s:bge2 = s:gb.light3
   elseif g:gruvbox_contrast_light == 'hard'
-    let s:bg0 = s:gb.light0_hard
+    let s:bg0  = s:gb.light0_hard
     let s:bge0 = s:gb.light0
     let s:bge1 = s:gb.light0_soft
     let s:bge2 = s:gb.light1
@@ -531,7 +530,7 @@ if version >= 703
   call s:HL('Conceal', s:blue, s:none)
 
   " Line number of CursorLine
-  call s:HL('CursorLineNr', s:yellow, s:bg1)
+  call s:HL('CursorLineNr', s:yellow, s:bge1)
 endif
 
 hi! link NonText GruvboxBg2
@@ -973,7 +972,7 @@ hi! link mkdItalic     htmlItalic
 " Commands --------------------------------------------------------------------
 " Toggle Gruvbox Contrast: {{{
 
-if (!exists('s:loaded_toggle_contrast'))
+if (!exists('s:loaded'))
   function s:toggle_contrast() abort
     let l:is_dark = &background ==# 'dark'
     let l:contrast = l:is_dark ? g:gruvbox_contrast_dark : g:gruvbox_contrast_light
@@ -989,10 +988,11 @@ if (!exists('s:loaded_toggle_contrast'))
     endif
     echomsg l:next
   endfunction
-  let s:loaded_toggle_contrast = 1
   command! -nargs=0 Contrast call <SID>toggle_contrast()
 endif
 
 " }}}
+
+if (!exists('s:loaded')) | let s:loaded = 1 | endif
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:
