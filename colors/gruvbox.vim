@@ -627,7 +627,7 @@ hi! link Label GruvboxRed
 " try, catch, throw
 hi! link Exception GruvboxRed
 " sizeof, "+", "*", etc.
-hi! Operator ctermfg=216
+hi! link Operator GruvboxAqua
 " Any other keyword
 hi! link Keyword GruvboxRed
 " ",", ".", ":" etc.
@@ -919,47 +919,50 @@ hi! link javaVarArg       GruvboxGreen
 " }}}
 " JavaScript BUNDLE vim-javascript: {{{
 
-hi! link jsArrowFunction      Operator
-hi! link jsBraces             Delimiter
-hi! link jsBrackets           Delimiter
-hi! link jsClassBraces        Delimiter
-hi! link jsClassDefinition    Type
-hi! link jsClassKeyword       Keyword
-hi! link jsClassNoise         Delimiter
-hi! link jsDot                Delimiter
-hi! link jsExport             Keyword
-hi! link jsExportDefault      Type
-hi! link jsExportDefaultGroup Type
-hi! link jsExtendsKeyword     Keyword
-hi! link jsFinallyBraces      Delimiter
-hi! link jsFrom               Keyword
-hi! link jsFuncArgCommas      Delimiter
-hi! link jsFuncBraces         Delimiter
-hi! link jsFuncParens         Delimiter
-hi! link jsFunction           Identifier
-hi! link jsFunctionKey        Function
-hi! link jsGlobalNodeObjects  Constant
-hi! link jsGlobalObjects      Constant
-hi! link jsIfElseBraces       Delimiter
-hi! link jsImport             Keyword
-hi! link jsModuleAs           Keyword
-hi! link jsModuleBraces       Delimiter
-hi! link jsModuleKeyword      Identifier
-hi! link jsNull               Constant
-hi! link jsNoise              Delimiter
-hi! link jsObjectBraces       Delimiter
-hi! link jsObjectColon        Operator
-hi! link jsObjectSeparator    Delimiter
-hi! link jsObjectKey          Identifier
-hi! link jsOperatorKeyWord    Keyword
-hi! link jsParens             Delimiter
-hi! link jsRepeatBraces       Delimiter
-hi! link jsStorageClass       Identifier
-hi! link jsSwitchBraces       Delimiter
-hi! link jsSwitchColon        Delimiter
-hi! link jsTemplateBraces     Delimiter
-hi! link jsTryCatchBraces     Delimiter
-hi! link jsUndefined          Constant
+hi! link jsArrowFunction       Operator
+hi! link jsBraces              Delimiter
+hi! link jsBrackets            Delimiter
+hi! link jsClassBraces         Delimiter
+hi! link jsClassDefinition     Type
+hi! link jsClassKeyword        Keyword
+hi! link jsClassNoise          Delimiter
+hi! link jsDot                 Delimiter
+hi! link jsDestructuringBraces Delimiter
+hi! link jsDestructuringNoise  Delimiter
+hi! link jsExport              Keyword
+hi! link jsExportDefault       Type
+hi! link jsExportDefaultGroup  Type
+hi! link jsExtendsKeyword      Keyword
+hi! link jsFinallyBraces       Delimiter
+hi! link jsFrom                Keyword
+hi! link jsFuncArgCommas       Delimiter
+hi! link jsFuncBraces          Delimiter
+hi! link jsFuncParens          Delimiter
+hi! link jsFunction            GruvboxAqua
+hi! link jsFunctionKey         Function
+hi! link jsGlobalNodeObjects   GruvboxYellowBold
+hi! link jsGlobalObjects       GruvboxYellowBold
+hi! link jsIfElseBraces        Delimiter
+hi! link jsImport              Keyword
+hi! link jsModuleAs            Keyword
+hi! link jsModuleBraces        Delimiter
+hi! link jsModuleKeyword       Identifier
+hi! link jsNull                Constant
+hi! link jsNoise               Delimiter
+hi! link jsObjectBraces        Delimiter
+hi! link jsObjectColon         Operator
+hi! link jsObjectSeparator     Delimiter
+hi! link jsObjectKey           Identifier
+hi! link jsOperatorKeyWord     Keyword
+hi! link jsParens              Delimiter
+hi! link jsPrototype           GruvboxBlue
+hi! link jsRepeatBraces        Delimiter
+hi! link jsStorageClass        StorageClass
+hi! link jsSwitchBraces        Delimiter
+hi! link jsSwitchColon         Delimiter
+hi! link jsTemplateBraces      GruvboxAqua
+hi! link jsTryCatchBraces      Delimiter
+hi! link jsUndefined           Constant
 
 " }}}
 " Json: {{{
