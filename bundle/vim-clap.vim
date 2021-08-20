@@ -2,7 +2,7 @@
 let s:themes = { 'dark': 'atom_dark', 'light': 'solarized_light' }
 let g:clap_layout = { 'relative': 'editor' }
 let g:clap_enable_icon = 1
-let g:clap_enable_background_shadow = 0
+let g:clap_enable_background_shadow = 1
 let g:clap_theme = &background ==# 'dark' ? s:themes.dark : s:themes.light
 
 " === KEYMAP ===

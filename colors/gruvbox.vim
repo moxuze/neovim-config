@@ -4,7 +4,7 @@
 " Author: morhetz <morhetz@gmail.com>
 " Modifier: moxuze <moxuze@hotmai.com>
 " Source: https://github.com/morhetz/gruvbox
-" Last Modified: 19 Aug 2021
+" Last Modified: 20 Aug 2021
 " -----------------------------------------------------------------------------
 
 " Supporting code -------------------------------------------------------------
@@ -183,16 +183,19 @@ if s:is_dark
   let s:bge0 = s:gb.dark0_soft
   let s:bge1 = s:gb.dark1
   let s:bge2 = s:gb.dark2
+  let s:bge3 = s:gb.dark3
   if g:gruvbox_contrast_dark == 'soft'
     let s:bg0  = s:gb.dark0_soft
     let s:bge0 = s:gb.dark1
     let s:bge1 = s:gb.dark2
     let s:bge2 = s:gb.dark3
+    let s:bge3 = s:gb.dark4
   elseif g:gruvbox_contrast_dark == 'hard'
     let s:bg0  = s:gb.dark0_hard
     let s:bge0 = s:gb.dark0
     let s:bge1 = s:gb.dark0_soft
     let s:bge2 = s:gb.dark1
+    let s:bge3 = s:gb.dark2
   endif
 
   let s:bg1 = s:gb.dark1
@@ -222,16 +225,19 @@ else
   let s:bge0 = s:gb.light0_soft
   let s:bge1 = s:gb.light1
   let s:bge2 = s:gb.light2
+  let s:bge3 = s:gb.light3
   if g:gruvbox_contrast_light == 'soft'
     let s:bg0  = s:gb.light0_soft
     let s:bge0 = s:gb.light1
     let s:bge1 = s:gb.light2
     let s:bge2 = s:gb.light3
+    let s:bge3 = s:gb.light4
   elseif g:gruvbox_contrast_light == 'hard'
     let s:bg0  = s:gb.light0_hard
     let s:bge0 = s:gb.light0
     let s:bge1 = s:gb.light0_soft
     let s:bge2 = s:gb.light1
+    let s:bge3 = s:gb.light2
   endif
 
   let s:bg1 = s:gb.light1
@@ -463,6 +469,7 @@ call s:HL('GruvboxBg4'  , s:bg4 )
 call s:HL('GruvboxBgEx0', s:bge0)
 call s:HL('GruvboxBgEx1', s:bge1)
 call s:HL('GruvboxBgEx2', s:bge2)
+call s:HL('GruvboxBgEx3', s:bge3)
 
 call s:HL('GruvboxRed'   , s:red   )
 call s:HL('GruvboxGreen' , s:green )
@@ -736,6 +743,11 @@ call s:HL('CocErrorHighlight'  , s:none, s:none, s:undercurl, s:red   )
 call s:HL('CocHintHighlight'   , s:none, s:none, s:undercurl, s:blue  )
 call s:HL('CocInfoHighlight'   , s:none, s:none, s:undercurl, s:yellow)
 call s:HL('CocWarningHighlight', s:none, s:none, s:undercurl, s:orange)
+
+" }}}
+" BUNDLE vim-clap: {{{
+
+call s:HL('ClapShadow', s:bge0, s:bge0)
 
 " }}}
 " BUNDLE vim-gitgutter: {{{
