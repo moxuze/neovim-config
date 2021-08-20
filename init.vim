@@ -1,22 +1,16 @@
-function s:get_cache_home()
-  let l:cache_home = $XDG_CACHE_HOME
-  if strlen(l:cache_home) == 0
-    let l:cache_home = $HOME . '/.cache'
-  endif
-  return l:cache_home
-endfunction
-
-function s:load_config(file_name) abort
-  execute 'source ' . g:env.config . '/' . a:file_name
-endfunction
-
 let g:env = {}
 let g:env.config = fnamemodify($MYVIMRC, ':h')
-let g:env.cache  = s:get_cache_home() . '/nvim'
+let g:env.cache  = has('nvim')
+  \? stdpath('cache')
+  \: (exists('$XDG_CACHE_HOME') ? $XDG_CACHE_HOME : $HOME) . '.cache/nvim'
 let g:env.bundle = {
   \  'config' : g:env.config . '/bundle',
   \  'cache'  : g:env.cache  . '/bundle',
   \}
+
+function s:load_config(file_name) abort
+  execute 'source ' . g:env.config . '/' . a:file_name
+endfunction
 
 call plug#begin(g:env.bundle.cache)
 call s:load_config('bundle/bundle-list.vim')
