@@ -4,7 +4,7 @@ command! -nargs=* Go           call <SID>go(0, '<args>')
 command! -nargs=* GoRelease    call <SID>go(1, '<args>')
 
 function! s:prefix() abort
-  return exists(':H') ? 'H ' : '!'
+  return exists(':H') ? 'H' : '!'
 endfunction
 
 function! s:type(release)
@@ -12,11 +12,11 @@ function! s:type(release)
 endfunction
 
 function! s:build(release, args) abort
-  execute printf('%scargo build %s %s', s:prefix(), s:type(a:release), a:args)
+  execute printf('%s cargo build %s %s', s:prefix(), s:type(a:release), a:args)
   return v:shell_error
 endfunction
 
 function! s:go(release, args) abort
-  execute printf('%scargo run %s %s', s:prefix(), s:type(a:release), a:args)
+  execute printf('%s cargo run %s %s', s:prefix(), s:type(a:release), a:args)
   return v:shell_error
 endfunction
