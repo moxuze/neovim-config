@@ -779,13 +779,13 @@ hi! link gitcommitSelectedFile  GruvboxGreen
 " Html: {{{
 
 hi! link htmlArg            GruvboxYellow
-hi! link htmlEndTag         GruvboxBlue
-hi! link htmlScriptTag      GruvboxPurple
+hi! link htmlEndTag         htmlTag
+hi! link htmlScriptTag      htmlTag
 hi! link htmlSpecialChar    GruvboxOrange
-hi! link htmlSpecialTagName GruvboxAquaBold
+hi! link htmlSpecialTagName htmlTagN
 hi! link htmlTag            GruvboxBlue
-hi! link htmlTagN           GruvboxFg1
-hi! link htmlTagName        GruvboxAquaBold
+hi! link htmlTagN           GruvboxAquaBold
+hi! link htmlTagName        htmlTagN
 hi! link htmlTitle          NONE
 
 call s:HL('htmlBold'               , s:vim_fg, s:vim_bg, s:bold                         )
