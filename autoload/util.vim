@@ -56,22 +56,24 @@ endfunction
 
 let s:pairs = { '(': ')', '[': ']', '{': '}', '<': '>' }
 function util#wrap_pairs() abort
-  let l:after = strpart(getline('.'), col('.') - 1)
-  if l:after[0] !~ '\v[\)\]\}\>''"`]' | return | endif
-  let l:char = l:after[1]
+  let l:line = getline('.')
+  let l:col = col('.') - 1
+  if l:line[l:col] !~# '\v[\)\]\}\>''"`]' | return | endif
+  let l:col = l:col + 1
+  let l:char = l:line[l:col]
   if empty(l:char) | return | endif
   let l:old = @"
   normal! x
-  let l:after = l:after[1:]
-  if l:char =~ '[''"`]'
+  let l:line = strpart(l:line, l:col)
+  if l:char =~# '[''"`]'
     call search(l:char, 'We', line('.'))
   elseif has_key(s:pairs, l:char)
     normal! %
   else
-    let l:open = l:after[matchend(l:after, '^\s*')]
+    let l:open = l:line[matchend(l:line, '^\s*')]
     if has_key(s:pairs, l:open)
       call search(s:pairs[l:open], 'We')
-    elseif l:after[1] =~ '\w'
+    elseif l:line[1] =~# '\w'
       normal! e
     endif
   endif
