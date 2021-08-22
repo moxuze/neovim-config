@@ -5,14 +5,10 @@ let s:run_args = ''
 
 set commentstring=//%s
 
-command! -nargs=* Cmake        call <SID>cmake(0, '<args>')
-command! -nargs=* CmakeRelease call <SID>cmake(1, '<args>')
-command! -nargs=* Make         call <SID>make(0, '<args>')
-command! -nargs=* MakeRelease  call <SID>make(1, '<args>')
-command! -nargs=* Run          call <SID>run(0, '<args>')
-command! -nargs=* RunRelease   call <SID>run(1, '<args>')
-command! -nargs=0 Go           call <SID>go(0)
-command! -nargs=0 GoRelease    call <SID>go(1)
+command! -bang -nargs=* Cmake call <SID>cmake(<bang>0, '<args>')
+command! -bang -nargs=* Make  call <SID>make(<bang>0, '<args>')
+command! -bang -nargs=* Run   call <SID>run(<bang>0, '<args>')
+command! -bang -nargs=0 Go    call <SID>go(<bang>0)
 
 function! s:prefix() abort
   return exists(':H') ? 'H' : '!'

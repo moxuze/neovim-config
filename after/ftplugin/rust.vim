@@ -1,7 +1,5 @@
-command! -nargs=* Build        call <SID>build(0, '<args>')
-command! -nargs=* BuildRelease call <SID>build(1, '<args>')
-command! -nargs=* Go           call <SID>go(0, '<args>')
-command! -nargs=* GoRelease    call <SID>go(1, '<args>')
+command! -bang -nargs=* Build call <SID>build(<bang>0, '<args>')
+command! -bang -nargs=* Go    call <SID>go(<bang>0, '<args>')
 
 function! s:prefix() abort
   return exists(':H') ? 'H' : '!'
