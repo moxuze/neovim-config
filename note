@@ -27,6 +27,8 @@ liuchengxu/vim-clap              模糊搜索
 
 liuchengxu/vista.vim             Tags 浏览侧边栏
 
+mhinz/vim-startify               开始界面
+
 moxuze/lightline.vim             魔改的底部状态栏
 
 neoclide/coc.nvim                LSP 支持

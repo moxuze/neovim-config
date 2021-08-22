@@ -759,6 +759,17 @@ hi! link GitGutterDelete       DiffDelete
 
 " }}}
 
+" BUNBLE vim-startify: {{{
+
+hi! link StartifyFile    GruvboxAquaBold
+hi! link StartifyFooter  GruvboxOrange
+hi! link StartifyHeader  GruvboxOrange
+hi! link StartifyNumber  GruvboxYellow
+hi! link StartifyPath    GruvboxBlueBold
+hi! link StartifySlash   StartifyPath
+
+" }}}
+
 " Filetype specific -----------------------------------------------------------
 " Diff: {{{
 

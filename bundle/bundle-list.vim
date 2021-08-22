@@ -9,6 +9,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'liuchengxu/vista.vim'
+Plug 'mhinz/vim-startify'
 Plug 'moxuze/lightline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'pangloss/vim-javascript'
