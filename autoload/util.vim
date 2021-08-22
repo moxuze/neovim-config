@@ -25,22 +25,12 @@ function util#find_project_root() abort
 endfunction
 
 function util#toggle_indent_space() abort
-  if exists('s:origin_listchars')
-    let &listchars = s:origin_listchars
-    unlet s:origin_listchars
+  if exists('s:show_indent_space')
+    unlet s:show_indent_space
+    set listchars-=tab:>_,space:·
   else
-    let s:origin_listchars = &listchars
-    let l:dict = {}
-    for l:item in split(s:origin_listchars, ',')
-      let [l:key, l:value] = split(l:item, ':')
-      let l:dict[l:key] = l:value
-    endfor
-    let l:dict.tab = '>_'
-    let l:dict.space = '·'
-    let &listchars = ''
-    for [l:key, l:value] in items(l:dict)
-      let &listchars .= l:key . ':' . l:value . ','
-    endfor
+    let s:show_indent_space = 1
+    set listchars+=tab:>_,space:·
   endif
 endfunction
 
@@ -54,25 +44,36 @@ function util#toggle_background() abort
   endif
 endfunction
 
-let s:pairs = { '(': ')', '[': ']', '{': '}', '<': '>' }
 function util#wrap_pairs() abort
   let l:line = getline('.')
-  let l:col = col('.') - 1
-  if l:line[l:col] !~# '\v[\)\]\}\>''"`]' | return | endif
-  let l:col = l:col + 1
-  let l:char = l:line[l:col]
+  let l:line_number = line('.')
+  let l:column = col('.') - 1
+  if l:line[l:column] !~# '[\)\]}>''"`]' | return | endif
+  let l:column = l:column + 1
+  let l:char = l:line[l:column]
   if empty(l:char) | return | endif
   let l:old = @"
   normal! x
-  let l:line = strpart(l:line, l:col)
+  let l:line = l:line[l:column:]
   if l:char =~# '[''"`]'
-    call search(l:char, 'We', line('.'))
-  elseif has_key(s:pairs, l:char)
-    normal! %
+    call search(l:char, 'We', l:line_number)
   else
-    let l:open = l:line[matchend(l:line, '^\s*')]
-    if has_key(s:pairs, l:open)
-      call search(s:pairs[l:open], 'We')
+    let l:open_index = match(l:line, '^\s*\zs.')
+    let l:open = l:line[l:open_index]
+    if l:open =~# '[\(\[{]'
+      let l:pairs = &matchpairs
+      set matchpairs=(:),[:],{:}
+      call cursor(l:line_number, l:column + l:open_index)
+      normal! %
+      let &matchpairs = l:pairs
+    elseif l:open ==# '<' && l:line[l:open_index:] =~# '^<[a-zA-Z0-9_\(\)\[\]{}<> \t]*>'
+      let l:pairs = &matchpairs
+      set matchpairs=<:>
+      normal! %
+      if l:line_number != line('.')
+        normal! %
+      endif
+      let &matchpairs = l:pairs
     elseif l:line[1] =~# '\w'
       normal! e
     endif
