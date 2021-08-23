@@ -6,6 +6,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'jiangmiao/auto-pairs'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'liuchengxu/vista.vim'

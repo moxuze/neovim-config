@@ -20,6 +20,8 @@ iamcco/markdown-preview.nvim     Markdown 文件动态预览
 
 jackguo380/vim-lsp-cxx-highlight C/C++ LSP 高亮
 
+jiangmiao/auto-pairs             括号补全
+
 lilydjwg/fcitx.vim               Fcitx5 中文输入适配
  + python-dbus                   DBUS 切换 Fcitx5 运行状态
 
@@ -41,7 +43,6 @@ neoclide/coc.nvim                LSP 支持
  - coc-json                      JSON 语言服务器
  - coc-markdownlint              Markdown 语言服务器
  - coc-marketplace               COC 插件市场
- - coc-pairs                     括号补全
  - coc-rust-analyzer             Rust 语言服务器
  - coc-sh                        Shell 语言服务器
  - coc-snippets                  代码片段生成器
