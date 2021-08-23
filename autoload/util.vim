@@ -1,6 +1,6 @@
 function util#find_project_root() abort
   let l:bufname = expand('%:p')
-  if &buftype !=# '' || empty(l:bufname) || stridx(l:bufname, '://') !=# -1 | return | endif
+  if &buftype !=# '' || empty(l:bufname) || stridx(l:bufname, '://') != -1 | return | endif
   let l:path = escape(fnamemodify(l:bufname, ':p:h:gs!\!/!:gs!//!/!'), ' ')
   let l:patterns = get(g:, 'project_root_patterns', [
     \  '.git/',
@@ -12,14 +12,14 @@ function util#find_project_root() abort
       let l:current = l:path . '/' . l:pattern
       if stridx(l:pattern, '*') != -1 && !empty(glob(l:current, 1))
         return l:path
-      elseif l:pattern =~# '/$'
+      elseif l:pattern =~# '\m/$'
         if isdirectory(l:current) | return l:path | endif
       elseif filereadable(l:current)
         return l:path
       endif
     endfor
     let l:next = fnamemodify(l:path, ':h')
-    if l:next ==# l:path || (has('win32') && l:next =~# '^//[^/]\+$') | return '' | endif
+    if l:next ==# l:path || (has('win32') && l:next =~# '\m^//[^/]\+$') | return '' | endif
     let l:path = l:next
   endwhile
 endfunction
@@ -48,25 +48,28 @@ function util#wrap_pairs() abort
   let l:line = getline('.')
   let l:line_number = line('.')
   let l:column = col('.') - 1
-  if l:line[l:column] !~# '[\)\]}>''"`]' | return | endif
+  if l:line[l:column] !~# '\m[)\]}>''"`]'
+    call search('\m[)\]}>''"`]', 'We', l:line_number)
+    return
+  endif
   let l:column = l:column + 1
   let l:char = l:line[l:column]
   if empty(l:char) | return | endif
   let l:old = @"
   normal! x
   let l:line = l:line[l:column:]
-  if l:char =~# '[''"`]'
+  if l:char =~# '\m[''"`]'
     call search(l:char, 'We', l:line_number)
   else
-    let l:open_index = match(l:line, '^\s*\zs.')
+    let l:open_index = match(l:line, '\m^\s*\zs.')
     let l:open = l:line[l:open_index]
-    if l:open =~# '[\(\[{]'
+    if l:open =~# '\m[([{]'
       let l:pairs = &matchpairs
       set matchpairs=(:),[:],{:}
       call cursor(l:line_number, l:column + l:open_index)
       normal! %
       let &matchpairs = l:pairs
-    elseif l:open ==# '<' && l:line[l:open_index:] =~# '^<[a-zA-Z0-9_\(\)\[\]{}<> \t]*>'
+    elseif l:open ==# '<' && l:line[l:open_index:] =~# '\m^<[0-9A-Za-z_()[\]{}<> \t]*>'
       let l:pairs = &matchpairs
       set matchpairs=<:>
       normal! %
@@ -74,7 +77,7 @@ function util#wrap_pairs() abort
         normal! %
       endif
       let &matchpairs = l:pairs
-    elseif l:line[1] =~# '\w'
+    elseif l:line[1] =~# '\m\w'
       normal! e
     endif
   endif
