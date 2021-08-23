@@ -72,5 +72,13 @@ nnoremap <buffer> <silent> <M-k> :call search('["\[''({<]','bW')<CR>
 nnoremap <buffer> <silent> <M-j> :call search('["\]'')}>]','W')<CR>
 
 " Wrap
-inoremap <silent> <M-e> <C-o>:call util#wrap_pairs()<CR>
-nnoremap <silent> <M-e> :call util#wrap_pairs()<CR>
+inoremap <silent> <M-w> <C-o>:call util#wrap_pairs()<CR>
+nnoremap <silent> <M-w> :call util#wrap_pairs()<CR>
+
+" Begin & End
+inoremap <M-a> <C-o>^
+inoremap <M-e> <C-o>$
+nnoremap <M-a> ^
+nnoremap <M-e> $
+vnoremap <M-a> ^
+vnoremap <M-e> $
