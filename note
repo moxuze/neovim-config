@@ -7,8 +7,6 @@ airblade/vim-gitgutter           Git 左侧更改提示
 
 alvan/vim-closetag               XML 自动关闭标签
 
-cespare/vim-toml                 TOML 语法高亮支持
-
 easymotion/vim-easymotion        光标瞬间跳转
 
 francoiscabrol/ranger.vim        Ranger 文件管理器支持
@@ -51,15 +49,11 @@ neoclide/coc.nvim                LSP 支持
  - coc-vetur                     Vue 语言服务器
  - coc-vimlsp                    VimScript 语言服务器
 
-pangloss/vim-javascript          JavaScript 语法高亮支持
-
-plasticboy/vim-markdown          MarkDown 语法高亮支持
-
 puremourning/vimspector          Debugger
 
 rbgrouleff/bclose.vim            Ranger 的 neovim 兼容插件
 
-rust-lang/rust.vim               Rust 语法高亮支持
+sheerun/vim-polyglot             各种语言扩展集成
 
 skywind3000/vim-terminal-help    内置命令行
  - neovim-remote                 drop 命令依赖
@@ -72,10 +66,6 @@ tpope/vim-sleuth                 自动侦测缩进长度
 
 tpope/vim-surround               快速包裹
 
-uiiaoo/java-syntax.vim           Java 语法高亮支持
-
 voldikss/vim-translator          翻译
-
-wlangstroth/vim-racket           Racket 语法高亮支持
 
 Yggdroot/indentLine              缩进辅助线

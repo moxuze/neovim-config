@@ -1,5 +1,4 @@
 " === COMMAND ===
-autocmd FileType markdown command! -nargs=0 MarkdownConceal call <SID>markdown_conceal()
 function s:markdown_conceal()
   if &conceallevel == 0
     echomsg 'conceal level is 1'
@@ -12,6 +11,10 @@ function s:markdown_conceal()
     set conceallevel=0
   endif
 endfunction
+autocmd FileType markdown command! -nargs=0 MarkdownConceal call <SID>markdown_conceal()
+
+" === KEYMAP ===
+autocmd FileType racket nmap <buffer> K <Plug>RacketDoc
 
 " === OPTION ===
 let g:vim_markdown_conceal = 1
@@ -19,3 +22,6 @@ let g:vim_markdown_new_list_item_indent = 2
 
 " === TRIGGER ===
 autocmd FileType markdown set conceallevel=2
+autocmd FileType racket let b:undo_ftplugin =
+  \  "setl iskeyword< lispwords< lisp< comments< formatoptions<"
+  \. "| setl makeprg< commentstring<"
