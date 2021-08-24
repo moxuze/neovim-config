@@ -1,4 +1,4 @@
-snippet html "Custom HTML basic structure with the lang attribute" b
+snippet html "HTML basic structure with the lang attribute" b
 <!DOCTYPE html>
 <html lang="zh_CN">
 
@@ -8,8 +8,28 @@ snippet html "Custom HTML basic structure with the lang attribute" b
 </head>
 
 <body>
-	${2:body}
+	${0:body}
 </body>
 
 </html>
+endsnippet
+
+snippet script "HTML <script>" w
+<script>
+	${0:${VISUAL}}
+</script>
+endsnippet
+
+snippet scriptsrc "HTML <script src..>" w
+<script src="${1:index.js}"></script>
+endsnippet
+
+snippet style "HTML <style>" w
+<style>
+	${0:${VISUAL}}
+<style>
+endsnippet
+
+snippet stylelink "HTML <link href...>" w
+<link rel="stylescheet" type="text/css" href="${1:index.css}">
 endsnippet
