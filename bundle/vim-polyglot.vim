@@ -17,8 +17,10 @@ autocmd FileType markdown command! -nargs=0 MarkdownConceal call <SID>markdown_c
 autocmd FileType racket nmap <buffer> K <Plug>RacketDoc
 
 " === OPTION ===
+let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_conceal = 1
 let g:vim_markdown_new_list_item_indent = 2
+let g:vue_pre_processors = 'detect_on_enter'
 
 " === TRIGGER ===
 autocmd FileType markdown set conceallevel=2

@@ -976,15 +976,22 @@ hi! link jsTryCatchBraces      Delimiter
 hi! link jsUndefined           Constant
 
 " }}}
-" Json: {{{
+" Json BUNDLE vim-json: {{{
 
-hi! link jsonBraces       Delimiter
-hi! link jsonKeyword      Identifier
-hi! link jsonKeywordMatch Operator
-hi! link jsonNoise        Delimiter
-hi! link jsonNull         Constant
-hi! link jsonQuote        Delimiter
-hi! link jsonString       String
+hi! link jsonBraces  Delimiter
+hi! link jsonKeyword GruvboxAqua
+hi! link jsonNoise   Delimiter
+hi! link jsonNull    Constant
+hi! link jsonQuote   Delimiter
+hi! link jsonString  GruvboxYellow
+
+" }}}
+" Jsonc BUNDLE jsonc.vim: {{{
+
+hi! link jsoncBraces       jsonBraces
+hi! link jsoncKeywordMatch jsonKeyword
+hi! link jsoncNull         jsonNull
+hi! link jsoncString       jsonString
 
 " }}}
 " Markdown BUNDLE vim-markdown: {{{
@@ -992,6 +999,11 @@ hi! link jsonString       String
 hi! link mkdBold       htmlBold
 hi! link mkdBoldItalic htmlBoldItalic
 hi! link mkdItalic     htmlItalic
+
+" }}}
+" Vue BUNDLE vim-vue: {{{
+
+hi! link vueSurroundingTag htmlTag
 
 " }}}
 
