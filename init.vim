@@ -12,6 +12,8 @@ function s:load_config(file_name) abort
   execute 'source ' . g:env.config . '/' . a:file_name
 endfunction
 
+call s:load_config('bundle/bundle-init.vim')
+
 call plug#begin(g:env.bundle.cache)
 call s:load_config('bundle/bundle-list.vim')
 call plug#end()
