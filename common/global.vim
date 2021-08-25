@@ -20,6 +20,7 @@ set shiftround
 set shiftwidth=4
 set signcolumn=yes
 set splitbelow
+set splitright
 set smartindent
 set smarttab
 set softtabstop=-1
