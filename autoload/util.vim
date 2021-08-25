@@ -69,7 +69,7 @@ function util#wrap_pairs() abort
       call cursor(l:line_number, l:column + l:open_index)
       normal! %
       let &matchpairs = l:pairs
-    elseif l:open ==# '<' && l:line[l:open_index:] =~# '\m^<[0-9A-Za-z_()[\]{}<> \t]*>'
+    elseif l:open ==# '<' && l:line[l:open_index:] =~# '\m^<[0-9A-Za-z_()[\]{}<>, \t]*>'
       let l:pairs = &matchpairs
       set matchpairs=<:>
       normal! %
