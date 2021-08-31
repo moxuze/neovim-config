@@ -8,12 +8,20 @@ nnoremap <Leader>q :q!<CR>
 " Clipboard
 vnoremap <Leader>y "+y
 nnoremap <Leader>y "+y
+vnoremap <Leader>Y "+Y
+nnoremap <Leader>Y "+Y
 vnoremap <Leader>x "+x
 nnoremap <Leader>x "+x
+vnoremap <Leader>X "+X
+nnoremap <Leader>X "+X
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+vnoremap <Leader>P "+P
 nnoremap <Leader>d "+d
 vnoremap <Leader>d "+d
+nnoremap <Leader>D "+D
+vnoremap <Leader>D "+D
 
 " Quick Quit
 autocmd FileType help,qf nnoremap <buffer> <silent> <Esc> :q!<CR>
