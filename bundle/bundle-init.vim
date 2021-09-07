@@ -1,2 +1,2 @@
 " BUNDLE vim-polyglot
-let g:polyglot_disabled = ['autoindent', 'sensible']
+let g:polyglot_disabled = ['autoindent', 'sensible', 'html5']
