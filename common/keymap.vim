@@ -90,3 +90,6 @@ nnoremap <M-a> ^
 nnoremap <M-e> $
 vnoremap <M-a> ^
 vnoremap <M-e> $
+
+" Search
+vnoremap <silent> * y:let @/ = @"<CR>n
