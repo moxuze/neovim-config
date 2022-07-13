@@ -5,6 +5,7 @@
   "diagnostic.warningSign": "\uf071",
   "html.format.extraLiners": "",
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "jedi.executable.command": "jedi-language-server",
   "languageserver": {
     "ccls": {
       "command": "ccls",

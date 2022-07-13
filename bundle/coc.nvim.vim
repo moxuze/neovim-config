@@ -5,6 +5,7 @@ let g:coc_data_home   = g:env.cache . '/coc'
 let g:coc_global_extensions = [
   \  'coc-css',
   \  'coc-html',
+  \  'coc-jedi',
   \  'coc-json',
   \  'coc-markdownlint',
   \  'coc-marketplace',
