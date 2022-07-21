@@ -4,6 +4,7 @@ let g:coc_config_home = g:env.bundle.config
 let g:coc_data_home   = g:env.cache . '/coc'
 let g:coc_global_extensions = [
   \  'coc-css',
+  \  'coc-deno',
   \  'coc-html',
   \  'coc-jedi',
   \  'coc-json',
