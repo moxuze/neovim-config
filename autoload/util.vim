@@ -84,3 +84,16 @@ function util#wrap_pairs() abort
   normal! p
   let @" = l:old
 endfunction
+
+function util#highlight_data() abort
+  return [
+    \  synIDattr(synID(line('.'), col('.'), 1), 'name'),
+    \  synIDattr(synID(line('.'), col('.'), 0), 'name'),
+    \  synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), "name")
+    \]
+endfunction
+
+function util#highlight_information() abort
+  let [l:hi, l:trans, l:lo] = util#highlight_data()
+  return printf('hi<%s> trans<%s> lo<%s>', l:hi, l:trans, l:lo)
+endfunction

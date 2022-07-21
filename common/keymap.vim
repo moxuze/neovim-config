@@ -93,3 +93,6 @@ vnoremap <M-e> $
 
 " Search
 vnoremap <silent> * y:let @/ = @"<CR>n
+
+" Highlight Information
+nnoremap <Leader>h :echo util#highlight_information()<CR>
