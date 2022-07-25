@@ -1,5 +1,6 @@
 " === APPEARANCE ===
 let s:themes = { 'dark': 'atom_dark', 'light': 'solarized_light' }
+let g:clap_cache_directory = g:env.cache . '/clap'
 let g:clap_layout = { 'relative': 'editor' }
 let g:clap_enable_icon = 1
 let g:clap_enable_background_shadow = 1
