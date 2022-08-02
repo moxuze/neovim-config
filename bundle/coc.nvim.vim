@@ -36,11 +36,17 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 let g:coc_snippet_prev = '<S-Tab>'
 let g:coc_snippet_next = '<Tab>'
 inoremap <silent><expr> <C-Space> coc#refresh()
-inoremap <silent><expr> <CR> pumvisible() ?
+inoremap <silent><expr> <CR> coc#pum#visible() ?
   \  coc#_select_confirm() : '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
-inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
-inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : coc#expandableOrJumpable() ?
-  \  '<C-r>=coc#rpc#request("doKeymap", ["snippets-expand-jump", ""])<CR>' : '<Tab>'
+inoremap <silent><expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'
+inoremap <silent><expr> <Tab>
+  \  coc#pum#visible() ? coc#pum#next(1) :
+  \  <SID>check_back_space() ? '<Tab>' :
+  \  coc#refresh()
+function s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
 " Float Window
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
