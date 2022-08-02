@@ -37,15 +37,25 @@ let g:coc_snippet_prev = '<S-Tab>'
 let g:coc_snippet_next = '<Tab>'
 inoremap <silent><expr> <C-Space> coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ?
-  \  coc#_select_confirm() : '<C-g>u<CR><c-r>=coc#on_enter()<CR>'
+  \  <SID>select_confirm_compat() : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
 inoremap <silent><expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'
 inoremap <silent><expr> <Tab>
   \  coc#pum#visible() ? coc#pum#next(1) :
   \  <SID>check_back_space() ? '<Tab>' :
   \  coc#refresh()
+function s:autopairs_enable(_timer) abort
+  let b:autopairs_enabled = 1
+endfunction
+function s:select_confirm_compat() abort
+  if b:autopairs_enabled == 1
+    let b:autopairs_enabled = 0
+    call timer_start(0, function('<SID>autopairs_enable'))
+  endif
+  return coc#_select_confirm()
+endfunction
 function s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1] =~ '\s'
 endfunction
 
 " Float Window
