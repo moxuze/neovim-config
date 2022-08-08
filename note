@@ -34,6 +34,7 @@ moxuze/lightline.vim             魔改的底部状态栏
 neoclide/coc.nvim                LSP 支持
  + ccls                          C/C++ 语言服务器
  + deno                          Deno 运行环境
+ + haskell-language-server       Haskell 语言服务器
  + jedi-language-server          Python 语言服务器
  + nodejs-neovim                 NodeJS 运行环境
  + racket-langserver             Racket 语言服务器
