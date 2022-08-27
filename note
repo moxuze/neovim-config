@@ -66,6 +66,8 @@ tpope/vim-commentary             快速注释
 
 tpope/vim-fugitive               Git 操作封装
 
+tpope/vim-repeat                 增强 . 命令
+
 tpope/vim-sleuth                 自动侦测缩进长度
 
 tpope/vim-surround               快速包裹
